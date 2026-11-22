@@ -236,15 +236,15 @@ def evaluate(req: EvalRequest):
             while True:
                 line = lc0_proc.stdout.readline()
                 if not line: break
-                if " nps " in line:
-                    m = re.search(r'nps (\d+)', line)
+                if line.startswith("info"):
+                    m = re.search(r'\bnps (\d+)', line)
                     if m: nps = int(m.group(1))
-                    m2 = re.search(r'score cp (-?\d+)', line)
+                    m2 = re.search(r'\bscore cp (-?\d+)', line)
                     if m2: score_cp = int(m2.group(1))
-                    m3 = re.search(r'depth (\d+)', line)
-                    if m3: depth_reached = int(m3.group(1))
-                    m4 = re.search(r'seldepth (\d+)', line)
-                    if m4: seldepth_reached = int(m4.group(1))
+                    m3 = re.search(r'\bdepth (\d+)', line)
+                    if m3: depth_reached = max(depth_reached, int(m3.group(1)))
+                    m4 = re.search(r'\bseldepth (\d+)', line)
+                    if m4: seldepth_reached = max(seldepth_reached, int(m4.group(1)))
                 if line.startswith("bestmove"):
                     parts = line.strip().split()
                     bestmove = parts[1] if len(parts) > 1 else None

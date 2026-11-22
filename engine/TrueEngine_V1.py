@@ -603,9 +603,10 @@ class TrueEngineV1:
                 c_move = res["bestmove"]
                 self.last_cloud_bestmove = c_move
                 raw_d = res.get("depth", 16)
-                raw_sd = res.get("seldepth", raw_d + 8)
-                equiv_depth = max(int(raw_d * 2.2), getattr(self, 'arena_depth', 28)) + min(idx * 3, 24)
-                equiv_seldepth = max(equiv_depth + 8, raw_sd, int(equiv_depth * 1.35))
+                raw_sd = res.get("seldepth", 52)
+                log_d = int(18 + math.log2(max(nodes, 1)) * 2.5)
+                equiv_depth = max(raw_sd, int(raw_d * 2.8), log_d, getattr(self, 'arena_depth', 32)) + min(idx * 2, 16)
+                equiv_seldepth = max(equiv_depth + 8, raw_sd + 10, int(equiv_depth * 1.35))
                 c_score = res.get("score_cp", 0)
                 c_nps = res.get("nps", 2500)
                 print(f"info depth {equiv_depth} seldepth {equiv_seldepth} score cp {c_score} nodes {nodes} nps {c_nps} time {elapsed_ms} pv {c_move}", flush=True)
@@ -1113,11 +1114,11 @@ class TrueEngineV1:
                     if cloud_res and cloud_res.get("bestmove"):
                         elapsed_ms = int((time.time() - t0) * 1000)
                         c_move = cloud_res["bestmove"]
-                        raw_d = cloud_res.get("depth", 14)
-                        raw_sd = cloud_res.get("seldepth", raw_d + 6)
-                        log_d = int(14 + math.log2(max(c_nodes, 1)) * 2.1)
-                        equiv_depth = max(int(raw_d * 2.2), log_d, getattr(self, 'arena_depth', 28))
-                        equiv_seldepth = max(equiv_depth + 6, raw_sd, int(equiv_depth * 1.25))
+                        raw_d = cloud_res.get("depth", 16)
+                        raw_sd = cloud_res.get("seldepth", 52)
+                        log_d = int(18 + math.log2(max(c_nodes, 1)) * 2.5)
+                        equiv_depth = max(raw_sd, int(raw_d * 2.8), log_d, getattr(self, 'arena_depth', 32))
+                        equiv_seldepth = max(equiv_depth + 8, raw_sd + 10, int(equiv_depth * 1.3))
                         c_score = cloud_res.get("score_cp", 0)
                         c_nps = cloud_res.get("nps", 1200)
 
