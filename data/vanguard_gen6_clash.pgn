@@ -1,0 +1,21 @@
+[Event "Super-Model Titan Clash"]
+[Site "https://lethoso.tech/"]
+[Date "2026.11.22"]
+[Round "1"]
+[White "TrueEngine V1 (Dual Tesla T4)"]
+[Black "Vanguard Gen-6 Clean-Room (Big)"]
+[Result "1-0"]
+[Termination "Checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. d4 d5 6. Bd3 Be7 7. O-O Bf5 8. Re1 O-O 9. c4 c6 10. Bf4 Nd7 11. cxd5 cxd5 12. Qb3 Nec5 13. dxc5 Nxc5 14. Bxf5 Nxb3 15. axb3 Bb4 16. Bg5 Qb6 17. Nc3 Bxc3 18. bxc3 Qxb3 19. Rec1 Qc4 20. Be3 a5 21. Bd4 Rfe8 22. Rcb1 Re7 23. Nd2 Qa6 24. Nf1 b5 25. Ne3 Rd8 26. Bd3 Rb7 27. h4 a4 28. h5 h6 29. Nf5 f6 30. Re1 Kh8 31. Bc5 Rbb8 32. Ne7 Qb7 33. Re6 Qc7 34. Bd4 Rd6 35. Re2 Qa5 36. g4 Qa8 37. g5 hxg5 38. Kg2 Qa6 39. Rae1 a3 40. Bg6 a2 41. Nf5 Rf8 42. Re7 Rg8 43. Re8 1-0
+
+[Event "Super-Model Titan Clash"]
+[Site "https://lethoso.tech/"]
+[Date "2026.11.22"]
+[Round "2"]
+[White "Vanguard Gen-6 Clean-Room (Big)"]
+[Black "TrueEngine V1 (Dual Tesla T4)"]
+[Result "0-1"]
+[Termination ""]
+
+1. d4 Nf6 2. c4 g6 3. Nf3 Bg7 4. Nc3 O-O 5. e4 d6 6. Be2 e5 7. Be3 Nc6 8. O-O Ng4 9. Bg5 f6 10. Bh4 Nh6 11. dxe5 dxe5 12. Qe1 Bg4 13. Rd1 Qe7 14. Nd5 Qf7 15. Bg3 Kh8 16. h3 Bxf3 17. Bxf3 f5 18. exf5 gxf5 19. Qe2 f4 20. Bh5 Qf5 21. Bh2 Rad8 22. Rfe1 b5 23. Bf3 Nd4 24. Rxd4 exd4 25. Nxf4 bxc4 26. Qxc4 d3 27. Ne6 Rfe8 28. Re3 d2 29. Bd1 Qd5 30. Qxd5 Rxd5 31. Nxg7 Rxe3 32. fxe3 Kxg7 33. Kf2 Nf7 34. Bxc7 Rb5 35. a4 Rxb2 36. Ke2 Kf8 37. Ba5 Nd6 38. Bc3 Rb1 39. Bc2 Rg1 40. Bb4 Rxg2+ 41. Kf3 Rg6 42. Bxd2 Rf6+ 43. Kg3 Kg8 44. Bd3 Nf5+ 45. Kf4 Ne7+ 46. Ke5 Rh6 47. Bf1 Kf7 48. e4 Re6+ 49. Kd4 Rd6+ 50. Kc3 Kf6 51. Be3 Nc6 52. Bf2 Re6 53. Bd3 Re8 54. h4 Ke5 55. Bg3+ Ke6 56. h5 Rf8 57. Be2 Ne5 58. Kd4 Rd8+ 59. Kc5 Rd2 60. Bf1 Rc2+ 61. Kb4 Kd6 62. Bh3 Rc4+ 63. Kb5 Rc3 64. Bxe5+ Kxe5 65. Bf1 Kxe4 66. Ka6 Rc5 67. Be2 Ke3 68. Bg4 Rg5 69. Bd1 Kd2 70. Bf3 Kc3 71. Be2 Kb4 72. Kxa7 Kxa4 73. Kb7 Kb4 74. Bf3 Kc3 75. Kc7 Kd4 76. Bd1 Ke3 77. Kd6 Kf4 78. Ke6 Rf5 79. h6 Kg5 80. Bc2 Rf6+ 81. Ke5 Rxh6 82. Be4 Rh3 83. Bxh7 Rxh7 84. Ke4 Kf6 85. Kf4 Re7 86. Kg4 Ke5 87. Kg5 Rg7+ 88. Kh6 Rg4 89. Kh5 Kf5 90. Kh6 Rg2 91. Kh7 Kf6 92. Kh8 Kf7 93. Kh7 Rh2# 0-1
