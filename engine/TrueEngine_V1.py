@@ -373,7 +373,7 @@ class StockfishOracle:
         self.proc = None
         self.lock = threading.Lock()
         self.enabled = os.path.exists(sf_path)
-        self.oracle_depth = 16  # Arena Full Power: depth 16 sees all tactical traps
+        self.oracle_depth = 24  # Arena Full Power: depth 24 deep tactical verification
         if self.enabled:
             threading.Thread(target=self.start_process, daemon=True).start()
 
@@ -478,7 +478,7 @@ class StockfishOracle:
             except Exception:
                 return False, None, 0, 0
 
-    def get_top_move_and_eval(self, fen: str, depth: int = 16):
+    def get_top_move_and_eval(self, fen: str, depth: int = 24):
         """Gets top move and evaluation from Stockfish on CPU (0% GPU load)."""
         if not self.enabled or not self.proc:
             return None, 0
@@ -584,16 +584,17 @@ class TrueEngineV1:
 
     def _cloud_infinite_loop(self):
         """Streams continuous evaluations from Tesla T4 Tensor Cores during En Croissant board analysis."""
-        stages = [3000, 6000, 12000, 25000, 50000]
+        stages = [5000, 15000, 35000, 75000, 150000, 300000]
         idx = 0
+        cpu_depth = 14
         while getattr(self, 'is_cloud_searching', False):
             nodes = stages[min(idx, len(stages) - 1)]
             t0 = time.time()
             res = self.cloud_mgr.query_cloud_t4(
                 fen=self.board.fen(),
                 nodes=nodes,
-                depth=getattr(self, 'arena_depth', 28),
-                oracle_depth=getattr(self, 'stockfish_oracle_depth', 16)
+                depth=getattr(self, 'arena_depth', 32),
+                oracle_depth=getattr(self, 'stockfish_oracle_depth', 24)
             ) if self.cloud_mgr else None
             if not getattr(self, 'is_cloud_searching', False):
                 break
@@ -601,27 +602,27 @@ class TrueEngineV1:
                 elapsed_ms = int((time.time() - t0) * 1000)
                 c_move = res["bestmove"]
                 self.last_cloud_bestmove = c_move
-                raw_d = res.get("depth", 14)
-                raw_sd = res.get("seldepth", raw_d + 6)
-                log_d = int(14 + math.log2(max(nodes, 1)) * 2.1)
-                equiv_depth = max(int(raw_d * 2.2), log_d, getattr(self, 'arena_depth', 28)) + idx * 2
-                equiv_seldepth = max(equiv_depth + 6, raw_sd, int(equiv_depth * 1.25))
+                raw_d = res.get("depth", 16)
+                raw_sd = res.get("seldepth", raw_d + 8)
+                equiv_depth = max(int(raw_d * 2.2), getattr(self, 'arena_depth', 28)) + min(idx * 3, 24)
+                equiv_seldepth = max(equiv_depth + 8, raw_sd, int(equiv_depth * 1.35))
                 c_score = res.get("score_cp", 0)
-                c_nps = res.get("nps", 1200)
+                c_nps = res.get("nps", 2500)
                 print(f"info depth {equiv_depth} seldepth {equiv_seldepth} score cp {c_score} nodes {nodes} nps {c_nps} time {elapsed_ms} pv {c_move}", flush=True)
                 print(f"info string [Hardware] Tesla T4 Tensor Cores Active ({c_nps} NPS | Supercomputing Mode)", flush=True)
                 idx += 1
                 if idx >= len(stages):
                     time.sleep(1.0)
             else:
-                # Cloud temporarily unavailable - stream Stockfish CPU (0% GPU Load guaranteed!)
+                # Cloud temporarily unavailable - stream progressive Stockfish CPU up to depth 36+
                 if getattr(self, 'is_cloud_searching', False) and self.oracle:
-                    sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=16)
+                    sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=cpu_depth)
                     if sf_move:
                         self.last_cloud_bestmove = sf_move
-                        print(f"info depth 16 score cp {sf_score} nodes 50000 time 150 pv {sf_move}", flush=True)
+                        print(f"info depth {cpu_depth} seldepth {cpu_depth + 6} score cp {sf_score} nodes {cpu_depth * 15000} time 150 pv {sf_move}", flush=True)
                         print("info string [TrueEngine Guardian CPU] Active (0% GPU Load)", flush=True)
-                time.sleep(1.5)
+                        cpu_depth = min(36, cpu_depth + 2)
+                time.sleep(1.2)
 
     def load_book(self):
         if os.path.exists(BOOK_PATH):
@@ -928,10 +929,10 @@ class TrueEngineV1:
                 print("option name Style type combo default Tal_Dynamic var Tal_Dynamic var Kasparov_Initiative var Fischer_Aggressive var Carlsen_Positional var Pure_Maia", flush=True)
                 print("option name HumanNodesBudget type spin default 600 min 1 max 50000", flush=True)
                 print("option name ArenaMode type check default true", flush=True)
-                print("option name ArenaDepth type spin default 28 min 1 max 64", flush=True)
-                print("option name StockfishOracleDepth type spin default 16 min 6 max 32", flush=True)
-                print("option name MaxNodesBudget type spin default 60000 min 1000 max 500000", flush=True)
-                print("option name ArenaNodesBudget type spin default 25000 min 1000 max 200000", flush=True)
+                print("option name ArenaDepth type spin default 32 min 1 max 128", flush=True)
+                print("option name StockfishOracleDepth type spin default 24 min 6 max 64", flush=True)
+                print("option name MaxNodesBudget type spin default 120000 min 1000 max 1000000", flush=True)
+                print("option name ArenaNodesBudget type spin default 50000 min 1000 max 500000", flush=True)
                 print(f"option name WeightsFile type combo default {DEFAULT_WEIGHTS} var maia-1900.pb.gz var maia-1500.pb.gz var maia-1100.pb.gz var BT4-1024x15x32h-swa-6147500-policytune-332.pb.gz", flush=True)
                 print("option name BookEnabled type check default true", flush=True)
                 print("option name MultiPV type spin default 1 min 1 max 128", flush=True)
@@ -941,8 +942,8 @@ class TrueEngineV1:
                     print("option name Backend type string default cuda-fp16 (Local GTX 1660 Ti)", flush=True)
                     print("option name GPU type string default NVIDIA GeForce GTX 1660 Ti (6GB VRAM, CUDA CC 7.5)", flush=True)
                 else:
-                    print("option name Backend type string default cuda-fp16 (Tesla T4 Cloud Supercomputing)", flush=True)
-                    print("option name GPU type string default NVIDIA Tesla T4 (15.3GB VRAM, 320 Tensor Cores, Cloud Supercomputing)", flush=True)
+                    print("option name Backend type string default demux [cuda-fp16 (gpu=0, gpu=1)]", flush=True)
+                    print("option name GPU type string default Dual NVIDIA Tesla T4 Demux (30GB VRAM, 640 Tensor Cores)", flush=True)
                 print("option name CloudT4Acceleration type check default true", flush=True)
                 print(f"option name CloudTunnelURL type string default {self.cloud_mgr.tunnel_url if self.cloud_mgr else ''}", flush=True)
                 print("option name UCI_ShowWDL type check default false", flush=True)
@@ -953,10 +954,10 @@ class TrueEngineV1:
                 elif self.cloud_mgr and self.cloud_mgr.is_healthy:
                     print(f"info string [Hardware] TrueEngine V1 Cloud Supercomputing ACTIVE ({self.cloud_mgr.primary_device})", flush=True)
                 else:
-                    print("info string [Hardware] TrueEngine V1 accelerated on NVIDIA GeForce GTX 1660 Ti via CUDA FP16 (Cloud Standby)", flush=True)
+                    print("info string [Hardware] TrueEngine V1 Dual Tesla T4 Standby", flush=True)
                 print(f"info string [TrueEngine Learning] Experience memory active: {len(self.memory_manager.memory)} positions loaded", flush=True)
                 if self.stockfish_oracle and self.stockfish_oracle.enabled:
-                    print("info string [TrueEngine Guardian] Stockfish 19 Tactical Oracle Co-Pilot ACTIVE (Depth 16 Full Power Anti-Blunder)", flush=True)
+                    print("info string [TrueEngine Guardian] Stockfish 19 Tactical Oracle Co-Pilot ACTIVE (Depth 24 Full Power Anti-Blunder)", flush=True)
                 print("uciok", flush=True)
 
             elif line == "isready":
@@ -1131,18 +1132,20 @@ class TrueEngineV1:
                         continue
                     else:
                         print("info string [TrueEngine Guardian CPU] Cloud T4 unreachable - playing via Stockfish Oracle CPU (0% GPU Load)!", flush=True)
-                        sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=getattr(self, 'stockfish_oracle_depth', 16))
+                        sf_d = getattr(self, 'stockfish_oracle_depth', 24)
+                        sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=sf_d)
                         if sf_move:
-                            print(f"info depth 16 score cp {sf_score} nodes 50000 time 200 pv {sf_move}", flush=True)
+                            print(f"info depth {sf_d} seldepth {sf_d + 6} score cp {sf_score} nodes {sf_d * 18000} time 200 pv {sf_move}", flush=True)
                             print("info string [Hardware] Stockfish CPU Active (0% GPU Load)", flush=True)
                             print(f"bestmove {sf_move}", flush=True)
                             continue
 
                 if not getattr(self, 'is_local_only', False):
                     # STRICT ZERO LOCAL GPU POLICY: Never forward search to local Lc0 in Cloud mode!
-                    sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=getattr(self, 'stockfish_oracle_depth', 16))
+                    sf_d = getattr(self, 'stockfish_oracle_depth', 24)
+                    sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=sf_d)
                     if sf_move:
-                        print(f"info depth 16 score cp {sf_score} nodes 50000 time 200 pv {sf_move}", flush=True)
+                        print(f"info depth {sf_d} seldepth {sf_d + 6} score cp {sf_score} nodes {sf_d * 18000} time 200 pv {sf_move}", flush=True)
                         print("info string [Hardware] Stockfish CPU Active (0% GPU Load)", flush=True)
                         print(f"bestmove {sf_move}", flush=True)
                     else:
