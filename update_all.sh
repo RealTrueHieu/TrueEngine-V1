@@ -7,6 +7,13 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
 cd "$SCRIPT_DIR"
 
+LOCK_FILE="/tmp/trueengine_update.lock"
+exec 200>"$LOCK_FILE"
+if ! flock -n 200; then
+    echo "⚠️ Another TrueEngine update cycle is already active. Exiting to avoid duplicate load."
+    exit 0
+fi
+
 export PATH="$HOME/.local/bin:$HOME/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 export CLOUDFLARE_API_TOKEN="${CLOUDFLARE_API_TOKEN:-$(cat $HOME/.cloudflare/token 2>/dev/null || true)}"
 export CLOUDFLARE_ACCOUNT_ID="${CLOUDFLARE_ACCOUNT_ID:-35bcb20a3d655f2d3de7fd7a39597ecd}"

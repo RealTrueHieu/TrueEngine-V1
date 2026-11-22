@@ -1,5 +1,5 @@
 {
-  "id": "truehieu/trueengine-cpu-data-spawner",
+  "id": "truehieu/trueengine-cpu-high-throughput-data-spawner",
   "title": "TrueEngine CPU High-Throughput Data Spawner",
   "code_file": "trueengine_cpu_data_spawner.ipynb",
   "language": "python",
