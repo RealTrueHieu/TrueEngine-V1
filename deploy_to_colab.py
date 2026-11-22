@@ -3,7 +3,10 @@ import time
 import os
 
 SESSION = "chess-100m-t4"
-LOCAL_SCRIPT = r"C:\Users\RealTrueHieu\CustomHumanChessEngine\t4_100m_selfplay_streamer.py"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+LOCAL_SCRIPT = os.path.join(SCRIPT_DIR, "t4_100m_selfplay_streamer.py")
+if not os.path.exists(LOCAL_SCRIPT):
+    LOCAL_SCRIPT = os.path.join(os.path.dirname(SCRIPT_DIR), "t4_100m_selfplay_streamer.py")
 
 def run_colab(code, timeout=60):
     cmd = ["colab", "exec", "-s", SESSION, "--timeout", str(timeout)]

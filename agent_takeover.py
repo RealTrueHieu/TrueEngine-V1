@@ -46,7 +46,7 @@ def discover_tunnel():
                     try:
                         d = json.loads(line)
                         msg = d.get("message", "")
-                        if msg.startswith("https://") and "trycloudflare.com" in msg:
+                        if msg.startswith("https://") and not msg.startswith("https://ntfy.sh"):
                             urls.append(msg)
                     except Exception:
                         pass
