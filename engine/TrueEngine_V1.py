@@ -570,6 +570,11 @@ class TrueEngineV1:
                 if idx >= len(stages):
                     break
             else:
+                if getattr(self, 'is_cloud_searching', False):
+                    print("info string [TrueEngine Failover] Cloud T4 disconnected - seamlessly falling back to local GPU!", flush=True)
+                    self.ensure_local_lc0()
+                    self.send_to_lc0(f"position fen {self.board.fen()}")
+                    self.send_to_lc0("go infinite")
                 break
 
     def load_book(self):
