@@ -12,7 +12,7 @@ export CLOUDFLARE_API_TOKEN="${CLOUDFLARE_API_TOKEN:-$(cat $HOME/.cloudflare/tok
 export CLOUDFLARE_ACCOUNT_ID="${CLOUDFLARE_ACCOUNT_ID:-35bcb20a3d655f2d3de7fd7a39597ecd}"
 export KAGGLE_API_TOKEN="${KAGGLE_API_TOKEN:-$(cat $HOME/.kaggle/access_token 2>/dev/null || true)}"
 export GH_TOKEN="${GH_TOKEN:-$(cat $HOME/.git-credentials 2>/dev/null | grep -o 'github_pat_[a-zA-Z0-9_]*' | head -n 1)}"
-export HF_TOKEN="${HF_TOKEN:-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}"
+export HF_TOKEN="${HF_TOKEN:-$(cat $HOME/.huggingface/token 2>/dev/null || true)}"
 
 echo "=================================================================="
 echo " 🚀 TRUEENGINE V1: FULL AUTONOMOUS MULTI-CLOUD SYSTEM CYCLE"
