@@ -1,0 +1,5 @@
+name = "trueengine-live"
+main = "src/index.js"
+compatibility_date = "2026-11-22"
+account_id = "35bcb20a3d655f2d3de7fd7a39597ecd"
+workers_dev = true

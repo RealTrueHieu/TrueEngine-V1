@@ -1,32 +1,62 @@
+#!/usr/bin/env python3
+"""
+TrueEngine V1: Autonomous Experience Consolidation & Model Training Pipeline
+- Automatically fetches latest self-play data & distilled positions from Google Colab T4
+- Consolidates knowledge into books/experience_memory.json
+- Trains TrueEngineChessNet directly on this machine
+- Exports PyTorch checkpoint and ONNX runtime weights
+- Emits real-time training metrics for Cloudflare Worker live dashboard
+"""
+
 import os
 import sys
 import json
 import time
-import urllib.request
+import subprocess
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 
-PROJECT_DIR = r"C:\Users\RealTrueHieu\CustomHumanChessEngine"
-MEMORY_PATH = os.path.join(PROJECT_DIR, "books", "experience_memory.json")
-BRIDGE_URL = "https://thumbnails-quoted-guaranteed-venue.trycloudflare.com"
-MODEL_SAVE_PATH = os.path.join(PROJECT_DIR, "models", "trueengine_v1_supernet_latest.pt")
-ONNX_SAVE_PATH = os.path.join(PROJECT_DIR, "models", "neural_net.onnx")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+BOOKS_DIR = os.path.join(SCRIPT_DIR, "books")
+MODELS_DIR = os.path.join(SCRIPT_DIR, "models")
+MEMORY_PATH = os.path.join(BOOKS_DIR, "experience_memory.json")
+COLAB_DISTILLED_PATH = os.path.join(BOOKS_DIR, "colab_distilled_experience.json")
+MODEL_SAVE_PATH = os.path.join(MODELS_DIR, "trueengine_v1_supernet_latest.pt")
+ONNX_SAVE_PATH = os.path.join(MODELS_DIR, "neural_net.onnx")
+STATS_PATH = os.path.join(MODELS_DIR, "latest_training_stats.json")
+
+os.makedirs(BOOKS_DIR, exist_ok=True)
+os.makedirs(MODELS_DIR, exist_ok=True)
 
 print("=" * 65)
 print("  TRUEENGINE V1 — CONTINUOUS DATA FETCH & MODEL TRAINING")
 print("=" * 65)
 
-# Step 1: Fetch distilled positions from Colab Bridge
-print(f"[1/4] Fetching latest distilled master positions from Colab bridge...")
-distilled_data = {}
+# Step 1: Fetch distilled positions from Colab T4
+print(f"[1/4] Fetching latest distilled master positions from Google Colab...")
 try:
-    req = urllib.request.urlopen(f"{BRIDGE_URL}/distilled", timeout=20)
-    distilled_data = json.loads(req.read().decode())
-    print(f"  -> Successfully received {len(distilled_data):,} positions from Colab!")
+    cmd = [
+        "colab", "download",
+        "/content/colab_distilled_experience.json",
+        COLAB_DISTILLED_PATH
+    ]
+    res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=20)
+    if res.returncode == 0:
+        print(f"  -> Successfully downloaded latest Colab distilled experience!")
+    else:
+        print(f"  -> Notice: Colab download returned {res.returncode}, will use local copy.")
 except Exception as e:
-    print(f"  -> Warning: Could not fetch from bridge ({e}), will use local memory.")
+    print(f"  -> Warning: Colab download skipped ({e}), will use local memory.")
+
+# Also download selfplay metrics if available
+try:
+    metrics_path = os.path.join(SCRIPT_DIR, "selfplay_100m_metrics.json")
+    subprocess.run(["colab", "download", "/content/selfplay_100m_metrics.json", metrics_path],
+                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15)
+except Exception:
+    pass
 
 # Step 2: Merge into local experience memory
 print(f"[2/4] Consolidating dataset with local brain memory...")
@@ -38,6 +68,14 @@ if os.path.exists(MEMORY_PATH):
     except Exception:
         local_data = {}
 
+distilled_data = {}
+if os.path.exists(COLAB_DISTILLED_PATH):
+    try:
+        with open(COLAB_DISTILLED_PATH, "r", encoding="utf-8") as f:
+            distilled_data = json.load(f)
+    except Exception:
+        distilled_data = {}
+
 merged_new = 0
 for fen, moves in distilled_data.items():
     if fen not in local_data:
@@ -47,14 +85,14 @@ for fen, moves in distilled_data.items():
         for m, m_data in moves.items():
             local_data[fen][m] = m_data
 
-if merged_new > 0:
+if merged_new > 0 or not os.path.exists(MEMORY_PATH):
     temp_mem = MEMORY_PATH + ".tmp"
     with open(temp_mem, "w", encoding="utf-8") as f:
         json.dump(local_data, f, indent=2)
     os.replace(temp_mem, MEMORY_PATH)
-    print(f"  -> Merged {merged_new:,} new positions. Total Local Memory: {len(local_data):,} positions.")
+    print(f"  -> Merged {merged_new:,} new positions. Total Brain Memory: {len(local_data):,} positions.")
 else:
-    print(f"  -> Total Local Memory: {len(local_data):,} positions.")
+    print(f"  -> Brain Memory Up-To-Date: {len(local_data):,} positions.")
 
 # Step 3: Build Training Samples
 PIECE_TO_PLANE = {
@@ -94,14 +132,18 @@ for fen, moves in local_data.items():
     for m_uci, m_info in moves.items():
         if not isinstance(m_info, dict):
             continue
-        # Skip vetoed blunders
         if m_info.get("blunder") or m_info.get("multiplier", 1.0) < 0.1:
             continue
         weight = m_info.get("multiplier", 1.0)
         q_val = m_info.get("q_val", 0.0)
         training_samples.append((fen, m_uci, weight, q_val))
 
-print(f"[3/4] Prepared {len(training_samples):,} curated training samples (vetoed blunders filtered out).")
+# Sample up to 10,000 recent / curated positions per training step for swift execution
+if len(training_samples) > 10000:
+    import random
+    training_samples = random.sample(training_samples, 10000)
+
+print(f"[3/4] Prepared {len(training_samples):,} curated training samples (vetoed blunders filtered).")
 
 class CuratedChessDataset(Dataset):
     def __init__(self, samples):
@@ -116,7 +158,6 @@ class CuratedChessDataset(Dataset):
         target_move = uci_to_index(move_uci)
         return x, target_move, torch.tensor(weight, dtype=torch.float32), torch.tensor([q_val], dtype=torch.float32)
 
-# Neural Architecture: 6-block Deep ResNet Policy & Value Network
 class ResBlock(nn.Module):
     def __init__(self, channels=128):
         super().__init__()
@@ -161,20 +202,16 @@ class TrueEngineChessNet(nn.Module):
 
         return policy_logits, value
 
-# Step 4: Train on GPU
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"[4/4] Starting Training on: {device} ({torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'})")
-
-if torch.cuda.is_available():
-    torch.backends.cudnn.benchmark = True
+# Step 4: Train on CPU (Zero Local GPU Load)
+device = torch.device("cpu")
+print(f"[4/4] Starting Training on: {device} (Zero GPU Policy Enforced)")
 
 dataset = CuratedChessDataset(training_samples)
-batch_size = 512 if torch.cuda.is_available() else 64
-loader = DataLoader(dataset, batch_size=batch_size, shuffle=True, pin_memory=torch.cuda.is_available())
+batch_size = 64
+loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
 model = TrueEngineChessNet().to(device)
 
-# Load existing weights if available to warm-start
 if os.path.exists(MODEL_SAVE_PATH):
     try:
         ckpt = torch.load(MODEL_SAVE_PATH, map_location=device)
@@ -184,14 +221,16 @@ if os.path.exists(MODEL_SAVE_PATH):
     except Exception:
         pass
 
-optimizer = optim.AdamW(model.parameters(), lr=8e-4, weight_decay=1e-4)
-scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=10, eta_min=1e-5)
+optimizer = optim.AdamW(model.parameters(), lr=5e-4, weight_decay=1e-4)
 criterion_policy = nn.CrossEntropyLoss(reduction="none")
 criterion_value = nn.MSELoss()
-scaler = torch.amp.GradScaler('cuda', enabled=torch.cuda.is_available())
 
-epochs = 5
+epochs = 2
 print(f"\nTraining {epochs} epochs over {len(training_samples):,} positions (Batch Size: {batch_size})...")
+
+last_loss = 0.0
+last_acc = 0.0
+last_speed = 0.0
 
 for epoch in range(1, epochs + 1):
     model.train()
@@ -201,32 +240,28 @@ for epoch in range(1, epochs + 1):
     t0 = time.time()
 
     for x, target_m, weights, q_vals in loader:
-        x = x.to(device, non_blocking=True)
-        target_m = target_m.to(device, non_blocking=True)
-        weights = weights.to(device, non_blocking=True)
-        q_vals = q_vals.to(device, non_blocking=True)
+        optimizer.zero_grad()
+        policy_logits, value_preds = model(x)
+        loss_p = (criterion_policy(policy_logits, target_m) * weights).mean()
+        loss_v = criterion_value(value_preds, q_vals)
+        loss = loss_p + 0.5 * loss_v
 
-        optimizer.zero_grad(set_to_none=True)
-
-        with torch.amp.autocast('cuda', enabled=torch.cuda.is_available()):
-            policy_logits, value_preds = model(x)
-            loss_p = (criterion_policy(policy_logits, target_m) * weights).mean()
-            loss_v = criterion_value(value_preds, q_vals)
-            loss = loss_p + 0.5 * loss_v
-
-        scaler.scale(loss).backward()
-        scaler.step(optimizer)
-        scaler.update()
+        loss.backward()
+        optimizer.step()
 
         total_loss += loss.item() * x.size(0)
         preds = torch.argmax(policy_logits, dim=-1)
         total_correct += (preds == target_m).sum().item()
         total_count += x.size(0)
 
-    scheduler.step()
     elapsed = time.time() - t0
-    acc = (total_correct / total_count) * 100.0
-    print(f"  Epoch [{epoch}/{epochs}] | Loss: {total_loss/total_count:.4f} | Accuracy: {acc:.2f}% | Speed: {total_count/elapsed:.0f} pos/sec | Time: {elapsed:.2f}s")
+    acc = (total_correct / max(1, total_count)) * 100.0
+    avg_loss = total_loss / max(1, total_count)
+    speed = total_count / max(0.01, elapsed)
+    last_loss = avg_loss
+    last_acc = acc
+    last_speed = speed
+    print(f"  Epoch [{epoch}/{epochs}] | Loss: {avg_loss:.4f} | Accuracy: {acc:.2f}% | Speed: {speed:.0f} pos/sec | Time: {elapsed:.2f}s")
 
 # Save Checkpoint
 torch.save({
@@ -236,6 +271,20 @@ torch.save({
     "timestamp": time.time()
 }, MODEL_SAVE_PATH)
 print(f"\n[Saved] PyTorch Model checkpoint saved to: {MODEL_SAVE_PATH}")
+
+# Save Stats for Dashboard
+stats = {
+    "status": "COMPLETED",
+    "epochs_trained": epochs,
+    "final_loss": round(last_loss, 4),
+    "accuracy_pct": round(last_acc, 2),
+    "training_speed_pos_sec": round(last_speed, 1),
+    "positions_in_batch": len(training_samples),
+    "total_brain_memory": len(local_data),
+    "timestamp": time.time()
+}
+with open(STATS_PATH, "w", encoding="utf-8") as f:
+    json.dump(stats, f, indent=2)
 
 # Export ONNX
 try:

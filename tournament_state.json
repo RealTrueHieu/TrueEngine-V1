@@ -1,0 +1,16 @@
+{
+  "status": "PAUSED_NO_GPU_CLUSTER",
+  "error_reason": "Kaggle Dual-T4 Lc0 cluster is OFFLINE (No healthy tunnel found)",
+  "games_target": 600,
+  "games_completed": 0,
+  "trueengine_wins": 0,
+  "draws": 0,
+  "stockfish_wins": 0,
+  "score_pct": 0.0,
+  "stockfish_base_elo": 3645.0,
+  "trueengine_elo": null,
+  "margin": null,
+  "current_game": null,
+  "recent_games": [],
+  "last_updated": 1795345542.1761763
+}
