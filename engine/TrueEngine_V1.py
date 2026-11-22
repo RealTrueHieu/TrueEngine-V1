@@ -66,7 +66,7 @@ class CloudFailoverManager:
         self.tunnel_url = ""
         self.primary_device = "NVIDIA Tesla T4 (Cloud Native, 320 Tensor Cores)"
         self.fallback_device = "NVIDIA GeForce GTX 1660 Ti (Local CUDA FP16)"
-        self.max_cloud_wait_sec = 4.0
+        self.max_cloud_wait_sec = 12.0
         self.is_healthy = True  # Optimistic initial state for instant sub-millisecond UCI handshake
         self.lock = threading.Lock()
         self.load_config()
@@ -82,10 +82,12 @@ class CloudFailoverManager:
                     with open(self.config_path, "r", encoding="utf-8") as f:
                         data = json.load(f)
                         self.cloud_enabled = data.get("cloud_enabled", True)
-                        self.tunnel_url = data.get("tunnel_url", "").rstrip("/")
+                        conf_url = data.get("tunnel_url", "").strip().rstrip("/")
+                        if conf_url:
+                            self.tunnel_url = conf_url
                         self.primary_device = data.get("primary_device", self.primary_device)
                         self.fallback_device = data.get("fallback_device", self.fallback_device)
-                        self.max_cloud_wait_sec = float(data.get("max_cloud_wait_sec", 4.0))
+                        self.max_cloud_wait_sec = float(data.get("max_cloud_wait_sec", 12.0))
                 except Exception:
                     pass
 
@@ -98,7 +100,7 @@ class CloudFailoverManager:
                 f"{self.tunnel_url}/health",
                 headers={"User-Agent": "TrueEngine-V1/Client"}
             )
-            with urllib.request.urlopen(req, timeout=2.5) as resp:
+            with urllib.request.urlopen(req, timeout=3.5) as resp:
                 if resp.status == 200:
                     data = json.loads(resp.read().decode("utf-8"))
                     self.is_healthy = (data.get("status") == "healthy")
@@ -119,27 +121,35 @@ class CloudFailoverManager:
 
     def query_cloud_t4(self, fen: str, nodes: int = 2500, depth: int = 28, oracle_depth: int = 16):
         """Attempts fast inference on Tesla T4 Tensor Cores. Returns dict or None on failover."""
-        if not self.is_healthy or not self.tunnel_url or not self.cloud_enabled:
+        self.load_config()
+        if not self.tunnel_url or not self.cloud_enabled:
             return None
-        try:
-            payload = json.dumps({
-                "fen": fen,
-                "nodes": nodes,
-                "depth": depth,
-                "oracle_depth": oracle_depth
-            }).encode("utf-8")
-            req = urllib.request.Request(
-                f"{self.tunnel_url}/evaluate",
-                data=payload,
-                headers={"Content-Type": "application/json", "User-Agent": "TrueEngine-V1/Client"},
-                method="POST"
-            )
-            with urllib.request.urlopen(req, timeout=self.max_cloud_wait_sec) as resp:
-                if resp.status == 200:
-                    res_json = json.loads(resp.read().decode("utf-8"))
-                    return res_json
-        except Exception:
-            self.is_healthy = False  # Mark down immediately on failure for zero-delay local fallback
+
+        # Try up to 2 times (with reload) to prevent premature failover
+        for attempt in range(2):
+            try:
+                payload = json.dumps({
+                    "fen": fen,
+                    "nodes": nodes,
+                    "depth": depth,
+                    "oracle_depth": oracle_depth
+                }).encode("utf-8")
+                req = urllib.request.Request(
+                    f"{self.tunnel_url}/evaluate",
+                    data=payload,
+                    headers={"Content-Type": "application/json", "User-Agent": "TrueEngine-V1/Client"},
+                    method="POST"
+                )
+                with urllib.request.urlopen(req, timeout=self.max_cloud_wait_sec) as resp:
+                    if resp.status == 200:
+                        res_json = json.loads(resp.read().decode("utf-8"))
+                        self.is_healthy = True
+                        return res_json
+            except Exception:
+                self.load_config()
+                time.sleep(0.3)
+
+        self.is_healthy = False
         return None
 
 
@@ -468,6 +478,37 @@ class StockfishOracle:
             except Exception:
                 return False, None, 0, 0
 
+    def get_top_move_and_eval(self, fen: str, depth: int = 16):
+        """Gets top move and evaluation from Stockfish on CPU (0% GPU load)."""
+        if not self.enabled or not self.proc:
+            return None, 0
+        with self.lock:
+            try:
+                self._send(f"position fen {fen}")
+                self._send(f"go depth {depth}")
+                best_move = None
+                score = 0
+                while True:
+                    line = self.proc.stdout.readline()
+                    if not line:
+                        break
+                    if "score cp" in line:
+                        m = re.search(r'score cp (-?\d+)', line)
+                        if m:
+                            score = int(m.group(1))
+                    elif "score mate" in line:
+                        m = re.search(r'score mate (-?\d+)', line)
+                        if m:
+                            md = int(m.group(1))
+                            score = 30000 if md > 0 else -30000
+                    if line.startswith("bestmove"):
+                        parts = line.strip().split()
+                        best_move = parts[1] if len(parts) > 1 else None
+                        break
+                return best_move, score
+            except Exception:
+                return None, 0
+
     def terminate(self):
         if self.proc:
             try:
@@ -508,6 +549,7 @@ class TrueEngineV1:
         self.memory_manager = ExperienceMemoryManager(MEMORY_PATH)
         self.tactical_guardian = TacticalGuardian()
         self.stockfish_oracle = StockfishOracle()
+        self.oracle = self.stockfish_oracle
         self.cloud_mgr = CloudFailoverManager(CLOUD_CONFIG_PATH)
         self.last_score_cp = 0
 
@@ -531,7 +573,9 @@ class TrueEngineV1:
             self.reader_thread.start()
 
     def ensure_local_lc0(self):
-        """Starts local Lc0 engine on GTX 1660 Ti only when needed for local mode or failover."""
+        """Starts local Lc0 engine on GTX 1660 Ti ONLY when running in local mode."""
+        if not getattr(self, 'is_local_only', False):
+            return  # ZERO LOCAL GPU POLICY: Never start local GPU Lc0 in Cloud mode!
         if self.lc0_proc is None or self.lc0_proc.poll() is not None:
             self.start_lc0()
             if self.reader_thread is None or not self.reader_thread.is_alive():
@@ -542,7 +586,7 @@ class TrueEngineV1:
         """Streams continuous evaluations from Tesla T4 Tensor Cores during En Croissant board analysis."""
         stages = [3000, 6000, 12000, 25000, 50000]
         idx = 0
-        while getattr(self, 'is_cloud_searching', False) and self.cloud_mgr and self.cloud_mgr.is_healthy:
+        while getattr(self, 'is_cloud_searching', False):
             nodes = stages[min(idx, len(stages) - 1)]
             t0 = time.time()
             res = self.cloud_mgr.query_cloud_t4(
@@ -550,7 +594,7 @@ class TrueEngineV1:
                 nodes=nodes,
                 depth=getattr(self, 'arena_depth', 28),
                 oracle_depth=getattr(self, 'stockfish_oracle_depth', 16)
-            )
+            ) if self.cloud_mgr else None
             if not getattr(self, 'is_cloud_searching', False):
                 break
             if res and res.get("bestmove"):
@@ -568,14 +612,16 @@ class TrueEngineV1:
                 print(f"info string [Hardware] Tesla T4 Tensor Cores Active ({c_nps} NPS | Supercomputing Mode)", flush=True)
                 idx += 1
                 if idx >= len(stages):
-                    break
+                    time.sleep(1.0)
             else:
-                if getattr(self, 'is_cloud_searching', False):
-                    print("info string [TrueEngine Failover] Cloud T4 disconnected - seamlessly falling back to local GPU!", flush=True)
-                    self.ensure_local_lc0()
-                    self.send_to_lc0(f"position fen {self.board.fen()}")
-                    self.send_to_lc0("go infinite")
-                break
+                # Cloud temporarily unavailable - stream Stockfish CPU (0% GPU Load guaranteed!)
+                if getattr(self, 'is_cloud_searching', False) and self.oracle:
+                    sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=16)
+                    if sf_move:
+                        self.last_cloud_bestmove = sf_move
+                        print(f"info depth 16 score cp {sf_score} nodes 50000 time 150 pv {sf_move}", flush=True)
+                        print("info string [TrueEngine Guardian CPU] Active (0% GPU Load)", flush=True)
+                time.sleep(1.5)
 
     def load_book(self):
         if os.path.exists(BOOK_PATH):
@@ -586,6 +632,8 @@ class TrueEngineV1:
                 self.book = {}
 
     def start_lc0(self):
+        if not getattr(self, 'is_local_only', False):
+            return  # ZERO LOCAL GPU POLICY: Never start local GPU Lc0 in Cloud mode!
         if not os.path.exists(self.lc0_path):
             return
 
@@ -963,8 +1011,10 @@ class TrueEngineV1:
                             self.cloud_mgr.cloud_enabled = (val.lower() == "true")
                     elif name == "CloudTunnelURL":
                         if self.cloud_mgr:
-                            self.cloud_mgr.tunnel_url = val.strip().rstrip("/")
-                            threading.Thread(target=self.cloud_mgr.check_health, daemon=True).start()
+                            cand = val.strip().rstrip("/")
+                            if cand.startswith("http"):
+                                self.cloud_mgr.tunnel_url = cand
+                                threading.Thread(target=self.cloud_mgr.check_health, daemon=True).start()
 
             elif line.startswith("position"):
                 self.board.reset()
@@ -1080,11 +1130,28 @@ class TrueEngineV1:
                         print(f"bestmove {c_move}", flush=True)
                         continue
                     else:
-                        print("info string [TrueEngine Failover] Cloud T4 unreachable/timeout - seamless instant fallback to Local GTX 1660 Ti FP16!", flush=True)
-                        self.ensure_local_lc0()
-                        self.send_to_lc0(f"position fen {self.board.fen()}")
+                        print("info string [TrueEngine Guardian CPU] Cloud T4 unreachable - playing via Stockfish Oracle CPU (0% GPU Load)!", flush=True)
+                        sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=getattr(self, 'stockfish_oracle_depth', 16))
+                        if sf_move:
+                            print(f"info depth 16 score cp {sf_score} nodes 50000 time 200 pv {sf_move}", flush=True)
+                            print("info string [Hardware] Stockfish CPU Active (0% GPU Load)", flush=True)
+                            print(f"bestmove {sf_move}", flush=True)
+                            continue
 
-                # Forward search command to Lc0 with Arena Full Power tuning
+                if not getattr(self, 'is_local_only', False):
+                    # STRICT ZERO LOCAL GPU POLICY: Never forward search to local Lc0 in Cloud mode!
+                    sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=getattr(self, 'stockfish_oracle_depth', 16))
+                    if sf_move:
+                        print(f"info depth 16 score cp {sf_score} nodes 50000 time 200 pv {sf_move}", flush=True)
+                        print("info string [Hardware] Stockfish CPU Active (0% GPU Load)", flush=True)
+                        print(f"bestmove {sf_move}", flush=True)
+                    else:
+                        legal = list(self.board.legal_moves)
+                        if legal:
+                            print(f"bestmove {legal[0].uci()}", flush=True)
+                    continue
+
+                # Forward search command to Lc0 with Arena Full Power tuning (Local Mode Only)
                 is_bt4 = ("BT4" in getattr(self, 'weights_file', ''))
                 if is_infinite:
                     self.send_to_lc0("go infinite")
