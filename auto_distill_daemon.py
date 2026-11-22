@@ -4,9 +4,14 @@ import json
 import os
 import sys
 
-ACTIVE_SESSION = "chess-100m-t4"
-BRIDGE_URL = "https://start-throwing-blacks-accommodate.trycloudflare.com"
-PROJECT_DIR = r"C:\Users\RealTrueHieu\CustomHumanChessEngine"
+ACTIVE_SESSION = "chess-100m-cpu"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+if os.path.exists(os.path.join(SCRIPT_DIR, "books")):
+    PROJECT_DIR = SCRIPT_DIR
+elif os.path.exists(r"C:\Users\RealTrueHieu\CustomHumanChessEngine"):
+    PROJECT_DIR = r"C:\Users\RealTrueHieu\CustomHumanChessEngine"
+else:
+    PROJECT_DIR = SCRIPT_DIR
 LOCAL_MEMORY = os.path.join(PROJECT_DIR, "books", "experience_memory.json")
 LOCAL_MODELS_DIR = os.path.join(PROJECT_DIR, "models")
 LOG_FILE = os.path.join(PROJECT_DIR, "auto_distill.log")
@@ -29,9 +34,13 @@ def log(msg):
     except Exception:
         pass
 
+import shutil
+
+COLAB_BIN = shutil.which("colab") or os.path.expanduser("~/.local/bin/colab") or "colab"
+
 def download_file(remote_path, local_path):
     global ACTIVE_SESSION
-    cmd = ["colab", "download", "-s", ACTIVE_SESSION, remote_path, local_path]
+    cmd = [COLAB_BIN, "download", "-s", ACTIVE_SESSION, remote_path, local_path]
     try:
         res = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
         return res.returncode == 0 and os.path.exists(local_path)
@@ -39,7 +48,7 @@ def download_file(remote_path, local_path):
         return False
 
 def check_session_responsive(session_name):
-    cmd = ["colab", "exec", "-s", session_name, "--timeout", "10"]
+    cmd = [COLAB_BIN, "exec", "-s", session_name, "--timeout", "10"]
     try:
         p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         out, _ = p.communicate("import os; print('SESSION_HEALTHY')")
@@ -54,7 +63,7 @@ def failover_to_cpu():
     
     # 1. Create or check CPU session
     log("[Watchdog Failover] Creating CPU session 'chess-100m-cpu'...")
-    subprocess.run(["colab", "new", "--session", cpu_session], capture_output=True, text=True)
+    subprocess.run([COLAB_BIN, "new", "--session", cpu_session], capture_output=True, text=True)
     
     # 2. Setup dependencies on CPU session
     log("[Watchdog Failover] Installing python-chess & stockfish on CPU...")
@@ -65,7 +74,7 @@ subprocess.run(["apt-get", "update", "-qq"], check=True)
 subprocess.run(["apt-get", "install", "-y", "-qq", "stockfish"], check=True)
 """
     try:
-        p = subprocess.Popen(["colab", "exec", "-s", cpu_session, "--timeout", "90"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
+        p = subprocess.Popen([COLAB_BIN, "exec", "-s", cpu_session, "--timeout", "90"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
         p.communicate(setup_code)
     except Exception as e:
         log(f"[Watchdog Failover Warning] Setup warning: {e}")
@@ -79,7 +88,7 @@ with open('/content/t4_100m_selfplay_streamer.py', 'w', encoding='utf-8') as f:
     f.write({repr(script_content)})
 """
     try:
-        p = subprocess.Popen(["colab", "exec", "-s", cpu_session, "--timeout", "60"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
+        p = subprocess.Popen([COLAB_BIN, "exec", "-s", cpu_session, "--timeout", "60"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
         p.communicate(upload_code)
     except Exception as e:
         log(f"[Watchdog Failover Warning] Upload warning: {e}")
@@ -98,7 +107,7 @@ subprocess.Popen(
 )
 """
     try:
-        p = subprocess.Popen(["colab", "exec", "-s", cpu_session, "--timeout", "30"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
+        p = subprocess.Popen([COLAB_BIN, "exec", "-s", cpu_session, "--timeout", "30"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
         p.communicate(launch_code)
     except Exception as e:
         log(f"[Watchdog Failover Warning] Launch warning: {e}")
