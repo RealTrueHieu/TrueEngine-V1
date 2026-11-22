@@ -1,0 +1,15 @@
+{
+  "id": "truehieu/trueengine-burst-gpu-trainer",
+  "title": "TrueEngine Burst GPU Trainer",
+  "code_file": "trueengine_burst_gpu_trainer.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

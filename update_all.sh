@@ -12,17 +12,20 @@ export CLOUDFLARE_API_TOKEN="${CLOUDFLARE_API_TOKEN:-$(cat $HOME/.cloudflare/tok
 export CLOUDFLARE_ACCOUNT_ID="${CLOUDFLARE_ACCOUNT_ID:-35bcb20a3d655f2d3de7fd7a39597ecd}"
 export KAGGLE_API_TOKEN="${KAGGLE_API_TOKEN:-$(cat $HOME/.kaggle/access_token 2>/dev/null || true)}"
 export GH_TOKEN="${GH_TOKEN:-$(cat $HOME/.git-credentials 2>/dev/null | grep -o 'github_pat_[a-zA-Z0-9_]*' | head -n 1)}"
+export HF_TOKEN="${HF_TOKEN:-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}"
 
 echo "=================================================================="
 echo " 🚀 TRUEENGINE V1: FULL AUTONOMOUS MULTI-CLOUD SYSTEM CYCLE"
 echo "=================================================================="
 
-# 1. Audit & Sync Kaggle Dual-T4 Supercomputing Cluster (30GB VRAM)
-echo -e "\n[1/6] Auditing Kaggle Dual-T4 Cluster & Cloudflare Tunnel..."
+# 1. Audit & Sync Kaggle Clusters (Dual-T4 & Zero-GPU CPU Spawner)
+echo -e "\n[1/7] Auditing Kaggle Clusters & Cloudflare Tunnel..."
 python3 agent_takeover.py status || true
+echo "   Kaggle CPU Spawner Status:"
+kaggle kernels status truehieu/trueengine-cpu-high-throughput-data-spawner 2>/dev/null || true
 
 # 2. Check & Sync Google Colab T4 (chess-100m-t4) Self-Play Streamer
-echo -e "\n[2/6] Syncing Google Colab T4 (chess-100m-t4) Massive Self-Play..."
+echo -e "\n[2/7] Syncing Google Colab T4 (chess-100m-t4) Massive Self-Play..."
 COLAB_STATUS=$(colab status -s chess-100m-t4 2>/dev/null || echo "OFFLINE")
 echo "   Colab T4 Status: $COLAB_STATUS"
 
@@ -39,13 +42,16 @@ except Exception:
 " || true
 fi
 
-# 3. Consolidate Experience Brain & Train TrueEngineSuperNet on this Machine
-echo -e "\n[3/6] Distilling Experience & Training TrueEngineSuperNet on CPU..."
+# 3. Synchronize Hugging Face Models & Weights (Zero Local GPU)
+echo -e "\n[3/7] Fetching Latest Weights from Hugging Face Model Hub..."
+python3 fetch_hf_model.py || true
+
+# 4. Consolidate Experience Brain & Train TrueEngineSuperNet on CPU
+echo -e "\n[4/7] Distilling Experience & Training TrueEngineSuperNet on CPU..."
 python3 fetch_and_train_pipeline.py || true
 
-# 4. Check & Keep 600-Match CCRL Elo Tournament vs Stockfish 19 Active
-echo -e "\n[4/6] Auditing 600-Match CCRL Elo Tournament Benchmark..."
-# Ensure tournament daemon service is running
+# 5. Check & Keep 600-Match CCRL Elo Tournament vs Stockfish 19 Active
+echo -e "\n[5/7] Auditing 600-Match CCRL Elo Tournament Benchmark..."
 systemctl --user start trueengine-tournament.service 2>/dev/null || true
 python3 -c "
 import json, os
@@ -66,26 +72,29 @@ if os.path.exists(st_path):
     print(f'   🔥 Calculated Elo: {elo} ± {margin} CCRL (Stockfish 19 Anchor: 3645 Elo)')
 " || true
 
-# 5. Deploy Cloudflare Worker 1-Second Sub-Second Live Edge Telemetry
-echo -e "\n[5/6] Deploying Cloudflare Worker (1-Second Sub-Second Live Telemetry)..."
+# 6. Deploy Cloudflare Worker 1-Second Sub-Second Live Edge Telemetry
+echo -e "\n[6/7] Deploying Cloudflare Worker (1-Second Sub-Second Live Telemetry)..."
 cd "$SCRIPT_DIR/cloudflare_worker"
 wrangler deploy --dry-run=false || true
 cd "$SCRIPT_DIR"
 
-# 6. Commit Updates, Push to GitHub & Trigger GitHub Actions Cloud Training
-echo -e "\n[6/6] Synchronizing with GitHub Repository & Cloud CI/CD..."
+# 7. Commit Updates, Push to GitHub & Trigger GitHub Actions Cloud Training
+echo -e "\n[7/7] Synchronizing with GitHub Repository & Cloud CI/CD..."
 git config user.name "RealTrueHieu" || true
 git config user.email "realtruehieu@gmail.com" || true
 
 # Add data, state, models, and scripts
-git add books/ models/ data/ tournament_state.json selfplay_100m_metrics.json cloudflare_worker/ run_600_tournament.py fetch_and_train_pipeline.py update_all.sh .github/ .devcontainer/ 2>/dev/null || true
+git add books/ models/ data/ tournament_state.json selfplay_100m_metrics.json cloudflare_worker/ \
+    run_600_tournament.py fetch_and_train_pipeline.py update_all.sh .github/ .devcontainer/ \
+    kaggle_cpu_spawner/ kaggle_gpu_trainer/ fetch_hf_model.py run_gauntlet_eval.py \
+    build_spawner_and_trainer_notebooks.py generate_notebooks.py 2>/dev/null || true
 
 TS=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
 if git diff --staged --quiet; then
     echo "   Git: Working tree already up-to-date."
 else
-    git commit -m "[Auto-Sync] TrueEngine V1: 1s Live Dashboard, Colab Self-Play & SuperNet Weights ($TS)" || true
-    echo "   Git: Committed latest models, experience memory & tournament state."
+    git commit -m "[Auto-Sync] TrueEngine V1: Pipeline, HF Integration, CPU Spawner & Sentry ($TS)" || true
+    echo "   Git: Committed latest models, experience memory & pipeline updates."
 fi
 
 # Push to GitHub
@@ -98,4 +107,6 @@ echo -e "\n=================================================================="
 echo " 🎉 TRUEENGINE V1 FULL CYCLE RUN COMPLETE!"
 echo " 🌐 Live 1s Dashboard: https://trueengine-live.truehieu.workers.dev"
 echo " 📂 GitHub Repo:       https://github.com/RealTrueHieu/TrueEngine-V1"
+echo " 🤗 HF Dataset:        https://huggingface.co/datasets/TrueHieu/trueengine-chess-dataset"
+echo " 🤗 HF Models:         https://huggingface.co/TrueHieu/trueengine-v1-models"
 echo "=================================================================="
