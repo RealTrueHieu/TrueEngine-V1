@@ -221,11 +221,12 @@ def run_auto_distill_cycle():
         except Exception:
             pass
 
-    # 3. Check for Failover requirement (if 3 consecutive download failures occur)
-    if consecutive_failures >= 3 and ACTIVE_SESSION == "chess-100m-t4":
+    # 3. Check for Failover/Recovery requirement (if 3 consecutive download failures occur)
+    if consecutive_failures >= 3:
         log(f"[Watchdog Notice] 3 consecutive poll failures on {ACTIVE_SESSION}. Verifying session health...")
         is_healthy = check_session_responsive(ACTIVE_SESSION)
         if not is_healthy:
+            log(f"[Watchdog Notice] Session {ACTIVE_SESSION} unresponsive. Auto-recovering session and streamer...")
             failover_to_cpu()
             consecutive_failures = 0
 

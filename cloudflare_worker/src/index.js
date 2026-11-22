@@ -267,7 +267,7 @@ export default {
 
     <div class="banner">
       <div>
-        🚀 <strong>GPU Cluster Activity:</strong> Kaggle Tesla T4 is executing 15 Epochs Burst Training on 500,000 GM positions with PyTorch FP16 AMP.
+        🚀 <strong>Multi-Cloud Generation:</strong> Kaggle GPU Burst Trainer (Tesla T4) + GitHub Codespaces (4 vCPUs) + Kaggle CPU Spawner (4 vCPUs) + Colab Streamer active.
       </div>
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-green);">
         ⚡ Strict Zero Local GPU Load Enforced (0 MB VRAM)
@@ -332,6 +332,34 @@ export default {
         <div class="metric-row">
           <span class="metric-label">Cloud Dataset Repository</span>
           <span class="metric-val cyan">huggingface.co/datasets/TrueHieu/...</span>
+        </div>
+      </div>
+
+      <!-- CARD 3: GITHUB CODESPACES 4-CORE DATA SPAWNER -->
+      <div class="card">
+        <div class="card-title">
+          <span>🐱 GitHub Codespaces Data Spawner</span>
+          <span class="badge-tag active" id="codespace-badge">ACTIVE (4 CORES)</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Hardware Machine</span>
+          <span class="metric-val cyan">4 vCPUs • 16GB RAM (standardLinux32gb)</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Compute Engine</span>
+          <span class="metric-val green">Stockfish 16 Multi-Process Pool</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Target Dataset</span>
+          <span class="metric-val purple">TrueHieu/trueengine-chess-dataset</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Worker Script</span>
+          <span class="metric-val gold">codespace_data_spawner.py</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Codespace Instance</span>
+          <span class="metric-val" style="font-size: 11px;">trueengine-v1-data-spawner-wvr7p65wqqwgcj9j</span>
         </div>
       </div>
 
