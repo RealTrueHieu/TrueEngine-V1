@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller / Build outputs
+build/
+dist/
+*.spec
+*.exe
+*.zip
+*.tar
+*.tar.gz
+
+# Logs & Temporary files
+*.log
+*.tmp
+debug_uci.log
+auto_distill.log
+ninja_remote.log
+test_in.txt
+
+# Large binary weights & raw models (>100MB GitHub limit)
+models/*.pt
+models/*.onnx
+*.pb.gz
+bin/
+en-croissant-src/
+
+# Secrets & Environment
+.env
+colab_flow_state.json

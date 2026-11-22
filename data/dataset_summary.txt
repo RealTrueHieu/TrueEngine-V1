@@ -1,0 +1,18 @@
+Total Grandmaster & Century Games: 36415
+
+Alekhine.pgn: 1661 games
+Anand.pgn: 4311 games
+Botvinnik.pgn: 891 games
+Capablanca.pgn: 597 games
+Carlsen.pgn: 7818 games
+century_immortal_games.pgn: 5 games
+Fischer.pgn: 827 games
+Karpov.pgn: 3529 games
+Kasparov.pgn: 2128 games
+Kramnik.pgn: 4355 games
+Lasker.pgn: 900 games
+Morphy.pgn: 211 games
+Petrosian.pgn: 1893 games
+Smyslov.pgn: 2627 games
+Spassky.pgn: 2231 games
+Tal.pgn: 2431 games

@@ -1,0 +1,6580 @@
+{
+  "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - use_en_passant False;": {
+    "e2e4": {
+      "weight": 10.0,
+      "masters": [
+        "Francesc de Castellvi",
+        "Ruy Lopez de Segura",
+        "Gioachino Greco",
+        "Francois-Andre Danican Philidor",
+        "Adolf Anderssen",
+        "Paul Morphy",
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 8
+    },
+    "g1f3": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - use_en_passant False;": {
+    "d7d5": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    },
+    "e7e5": {
+      "weight": 8.0,
+      "masters": [
+        "Leonardo da Cutri",
+        "NN",
+        "Philip Stamma",
+        "Lionel Kieseritzky",
+        "Jean Dufresne",
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 6
+    },
+    "d7d6": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - use_en_passant False;": {
+    "e4d5": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/ppp1pppp/8/3P4/8/8/PPPP1PPP/RNBQKBNR b KQkq - use_en_passant False;": {
+    "d8d5": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/ppp1pppp/8/3q4/8/8/PPPP1PPP/RNBQKBNR w KQkq - use_en_passant False;": {
+    "b1c3": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/ppp1pppp/8/3q4/8/2N5/PPPP1PPP/R1BQKBNR b KQkq - use_en_passant False;": {
+    "d5d8": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/ppp1pppp/8/8/8/2N5/PPPP1PPP/R1BQKBNR w KQkq - use_en_passant False;": {
+    "f1c4": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/ppp1pppp/8/8/2B5/2N5/PPPP1PPP/R1BQK1NR b KQkq - use_en_passant False;": {
+    "g8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/ppp1pppp/5n2/8/2B5/2N5/PPPP1PPP/R1BQK1NR w KQkq - use_en_passant False;": {
+    "g1f3": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/ppp1pppp/5n2/8/2B5/2N2N2/PPPP1PPP/R1BQK2R b KQkq - use_en_passant False;": {
+    "c8g4": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkb1r/ppp1pppp/5n2/8/2B3b1/2N2N2/PPPP1PPP/R1BQK2R w KQkq - use_en_passant False;": {
+    "h2h3": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkb1r/ppp1pppp/5n2/8/2B3b1/2N2N1P/PPPP1PP1/R1BQK2R b KQkq - use_en_passant False;": {
+    "g4f3": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkb1r/ppp1pppp/5n2/8/2B5/2N2b1P/PPPP1PP1/R1BQK2R w KQkq - use_en_passant False;": {
+    "d1f3": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkb1r/ppp1pppp/5n2/8/2B5/2N2Q1P/PPPP1PP1/R1B1K2R b KQkq - use_en_passant False;": {
+    "e7e6": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkb1r/ppp2ppp/4pn2/8/2B5/2N2Q1P/PPPP1PP1/R1B1K2R w KQkq - use_en_passant False;": {
+    "f3b7": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkb1r/pQp2ppp/4pn2/8/2B5/2N4P/PPPP1PP1/R1B1K2R b KQkq - use_en_passant False;": {
+    "b8d7": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "r2qkb1r/pQpn1ppp/4pn2/8/2B5/2N4P/PPPP1PP1/R1B1K2R w KQkq - use_en_passant False;": {
+    "c3b5": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "r2qkb1r/pQpn1ppp/4pn2/1N6/2B5/7P/PPPP1PP1/R1B1K2R b KQkq - use_en_passant False;": {
+    "a8c8": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "2rqkb1r/pQpn1ppp/4pn2/1N6/2B5/7P/PPPP1PP1/R1B1K2R w KQk - use_en_passant False;": {
+    "b5a7": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "2rqkb1r/NQpn1ppp/4pn2/8/2B5/7P/PPPP1PP1/R1B1K2R b KQk - use_en_passant False;": {
+    "d7b6": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "2rqkb1r/NQp2ppp/1n2pn2/8/2B5/7P/PPPP1PP1/R1B1K2R w KQk - use_en_passant False;": {
+    "a7c8": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "2Nqkb1r/1Qp2ppp/1n2pn2/8/2B5/7P/PPPP1PP1/R1B1K2R b KQk - use_en_passant False;": {
+    "b6c8": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "2nqkb1r/1Qp2ppp/4pn2/8/2B5/7P/PPPP1PP1/R1B1K2R w KQk - use_en_passant False;": {
+    "d2d4": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "2nqkb1r/1Qp2ppp/4pn2/8/2BP4/7P/PPP2PP1/R1B1K2R b KQk - use_en_passant False;": {
+    "c8d6": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qkb1r/1Qp2ppp/3npn2/8/2BP4/7P/PPP2PP1/R1B1K2R w KQk - use_en_passant False;": {
+    "c4b5": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qkb1r/1Qp2ppp/3npn2/1B6/3P4/7P/PPP2PP1/R1B1K2R b KQk - use_en_passant False;": {
+    "d6b5": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qkb1r/1Qp2ppp/4pn2/1n6/3P4/7P/PPP2PP1/R1B1K2R w KQk - use_en_passant False;": {
+    "b7b5": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qkb1r/2p2ppp/4pn2/1Q6/3P4/7P/PPP2PP1/R1B1K2R b KQk - use_en_passant False;": {
+    "f6d7": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qkb1r/2pn1ppp/4p3/1Q6/3P4/7P/PPP2PP1/R1B1K2R w KQk - use_en_passant False;": {
+    "d4d5": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qkb1r/2pn1ppp/4p3/1Q1P4/8/7P/PPP2PP1/R1B1K2R b KQk - use_en_passant False;": {
+    "e6d5": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qkb1r/2pn1ppp/8/1Q1p4/8/7P/PPP2PP1/R1B1K2R w KQk - use_en_passant False;": {
+    "c1e3": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qkb1r/2pn1ppp/8/1Q1p4/8/4B2P/PPP2PP1/R3K2R b KQk - use_en_passant False;": {
+    "f8d6": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qk2r/2pn1ppp/3b4/1Q1p4/8/4B2P/PPP2PP1/R3K2R w KQk - use_en_passant False;": {
+    "a1d1": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "3qk2r/2pn1ppp/3b4/1Q1p4/8/4B2P/PPP2PP1/3RK2R b Kk - use_en_passant False;": {
+    "d8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "4k2r/2pn1ppp/3b1q2/1Q1p4/8/4B2P/PPP2PP1/3RK2R w Kk - use_en_passant False;": {
+    "d1d5": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "4k2r/2pn1ppp/3b1q2/1Q1R4/8/4B2P/PPP2PP1/4K2R b Kk - use_en_passant False;": {
+    "f6g6": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "4k2r/2pn1ppp/3b2q1/1Q1R4/8/4B2P/PPP2PP1/4K2R w Kk - use_en_passant False;": {
+    "e3f4": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "4k2r/2pn1ppp/3b2q1/1Q1R4/5B2/7P/PPP2PP1/4K2R b Kk - use_en_passant False;": {
+    "d6f4": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "4k2r/2pn1ppp/6q1/1Q1R4/5b2/7P/PPP2PP1/4K2R w Kk - use_en_passant False;": {
+    "b5d7": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "4k2r/2pQ1ppp/6q1/3R4/5b2/7P/PPP2PP1/4K2R b Kk - use_en_passant False;": {
+    "e8f8": {
+      "weight": 3.0,
+      "masters": [
+        "Narcis Vinyoles"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "5k1r/2pQ1ppp/6q1/3R4/5b2/7P/PPP2PP1/4K2R w K - use_en_passant False;": {
+    "d7d8": {
+      "weight": 3.0,
+      "masters": [
+        "Francesc de Castellvi"
+      ],
+      "events": [
+        "Oldest Recorded Modern Chess Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - use_en_passant False;": {
+    "g1f3": {
+      "weight": 6.0,
+      "masters": [
+        "Ruy Lopez de Segura",
+        "Gioachino Greco",
+        "Adolf Anderssen",
+        "Paul Morphy"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 4
+    },
+    "f1c4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    },
+    "f2f4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - use_en_passant False;": {
+    "b8c6": {
+      "weight": 5.0,
+      "masters": [
+        "Leonardo da Cutri",
+        "NN",
+        "Jean Dufresne"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 3
+    },
+    "d7d6": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - use_en_passant False;": {
+    "f1b5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    },
+    "f1c4": {
+      "weight": 4.0,
+      "masters": [
+        "Gioachino Greco",
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 2
+    }
+  },
+  "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - use_en_passant False;": {
+    "a7a6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - use_en_passant False;": {
+    "b5c6": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - use_en_passant False;": {
+    "d7c6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - use_en_passant False;": {
+    "e1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - use_en_passant False;": {
+    "c8g4": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r2qkbnr/1pp2ppp/p1p5/4p3/4P1b1/5N2/PPPP1PPP/RNBQ1RK1 w kq - use_en_passant False;": {
+    "h2h3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r2qkbnr/1pp2ppp/p1p5/4p3/4P1b1/5N1P/PPPP1PP1/RNBQ1RK1 b kq - use_en_passant False;": {
+    "h7h5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r2qkbnr/1pp2pp1/p1p5/4p2p/4P1b1/5N1P/PPPP1PP1/RNBQ1RK1 w kq - use_en_passant False;": {
+    "d2d3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r2qkbnr/1pp2pp1/p1p5/4p2p/4P1b1/3P1N1P/PPP2PP1/RNBQ1RK1 b kq - use_en_passant False;": {
+    "d8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3kbnr/1pp2pp1/p1p2q2/4p2p/4P1b1/3P1N1P/PPP2PP1/RNBQ1RK1 w kq - use_en_passant False;": {
+    "c1e3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3kbnr/1pp2pp1/p1p2q2/4p2p/4P1b1/3PBN1P/PPP2PP1/RN1Q1RK1 b kq - use_en_passant False;": {
+    "g4f3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3kbnr/1pp2pp1/p1p2q2/4p2p/4P3/3PBb1P/PPP2PP1/RN1Q1RK1 w kq - use_en_passant False;": {
+    "d1f3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3kbnr/1pp2pp1/p1p2q2/4p2p/4P3/3PBQ1P/PPP2PP1/RN3RK1 b kq - use_en_passant False;": {
+    "f6f3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3kbnr/1pp2pp1/p1p5/4p2p/4P3/3PBq1P/PPP2PP1/RN3RK1 w kq - use_en_passant False;": {
+    "g2f3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3kbnr/1pp2pp1/p1p5/4p2p/4P3/3PBP1P/PPP2P2/RN3RK1 b kq - use_en_passant False;": {
+    "f8d6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k1nr/1pp2pp1/p1pb4/4p2p/4P3/3PBP1P/PPP2P2/RN3RK1 w kq - use_en_passant False;": {
+    "b1d2": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k1nr/1pp2pp1/p1pb4/4p2p/4P3/3PBP1P/PPPN1P2/R4RK1 b kq - use_en_passant False;": {
+    "g8e7": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1pp1npp1/p1pb4/4p2p/4P3/3PBP1P/PPPN1P2/R4RK1 w kq - use_en_passant False;": {
+    "d2c4": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1pp1npp1/p1pb4/4p2p/2N1P3/3PBP1P/PPP2P2/R4RK1 b kq - use_en_passant False;": {
+    "e7g6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1pp2pp1/p1pb2n1/4p2p/2N1P3/3PBP1P/PPP2P2/R4RK1 w kq - use_en_passant False;": {
+    "f3f4": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1pp2pp1/p1pb2n1/4p2p/2N1PP2/3PB2P/PPP2P2/R4RK1 b kq - use_en_passant False;": {
+    "e5f4": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1pp2pp1/p1pb2n1/7p/2N1Pp2/3PB2P/PPP2P2/R4RK1 w kq - use_en_passant False;": {
+    "e3d4": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1pp2pp1/p1pb2n1/7p/2NBPp2/3P3P/PPP2P2/R4RK1 b kq - use_en_passant False;": {
+    "f7f6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1pp3p1/p1pb1pn1/7p/2NBPp2/3P3P/PPP2P2/R4RK1 w kq - use_en_passant False;": {
+    "c4d6": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1pp3p1/p1pN1pn1/7p/3BPp2/3P3P/PPP2P2/R4RK1 b kq - use_en_passant False;": {
+    "c7d6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1p4p1/p1pp1pn1/7p/3BPp2/3P3P/PPP2P2/R4RK1 w kq - use_en_passant False;": {
+    "f2f3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1p4p1/p1pp1pn1/7p/3BPp2/3P1P1P/PPP5/R4RK1 b kq - use_en_passant False;": {
+    "e8f7": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/1p3kp1/p1pp1pn1/7p/3BPp2/3P1P1P/PPP5/R4RK1 w - - use_en_passant False;": {
+    "g1f2": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/1p3kp1/p1pp1pn1/7p/3BPp2/3P1P1P/PPP2K2/R4R2 b - - use_en_passant False;": {
+    "c6c5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/1p3kp1/p2p1pn1/2p4p/3BPp2/3P1P1P/PPP2K2/R4R2 w - - use_en_passant False;": {
+    "d4c3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/1p3kp1/p2p1pn1/2p4p/4Pp2/2BP1P1P/PPP2K2/R4R2 b - - use_en_passant False;": {
+    "b7b5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/p2p1pn1/1pp4p/4Pp2/2BP1P1P/PPP2K2/R4R2 w - - use_en_passant False;": {
+    "b2b3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/p2p1pn1/1pp4p/4Pp2/1PBP1P1P/P1P2K2/R4R2 b - - use_en_passant False;": {
+    "a6a5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/3p1pn1/ppp4p/4Pp2/1PBP1P1P/P1P2K2/R4R2 w - - use_en_passant False;": {
+    "f1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/3p1pn1/ppp4p/4Pp2/1PBP1P1P/P1P2K2/R5R1 b - - use_en_passant False;": {
+    "b5b4": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/3p1pn1/p1p4p/1p2Pp2/1PBP1P1P/P1P2K2/R5R1 w - - use_en_passant False;": {
+    "c3b2": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/3p1pn1/p1p4p/1p2Pp2/1P1P1P1P/PBP2K2/R5R1 b - - use_en_passant False;": {
+    "a5a4": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/3p1pn1/2p4p/pp2Pp2/1P1P1P1P/PBP2K2/R5R1 w - - use_en_passant False;": {
+    "a2a3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/3p1pn1/2p4p/pp2Pp2/PP1P1P1P/1BP2K2/R5R1 b - - use_en_passant False;": {
+    "a4b3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/3p1pn1/2p4p/1p2Pp2/Pp1P1P1P/1BP2K2/R5R1 w - - use_en_passant False;": {
+    "c2b3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r6r/5kp1/3p1pn1/2p4p/1p2Pp2/PP1P1P1P/1B3K2/R5R1 b - - use_en_passant False;": {
+    "h8b8": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "rr6/5kp1/3p1pn1/2p4p/1p2Pp2/PP1P1P1P/1B3K2/R5R1 w - - use_en_passant False;": {
+    "a3a4": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "rr6/5kp1/3p1pn1/2p4p/Pp2Pp2/1P1P1P1P/1B3K2/R5R1 b - - use_en_passant False;": {
+    "g6e5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "rr6/5kp1/3p1p2/2p1n2p/Pp2Pp2/1P1P1P1P/1B3K2/R5R1 w - - use_en_passant False;": {
+    "b2e5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "rr6/5kp1/3p1p2/2p1B2p/Pp2Pp2/1P1P1P1P/5K2/R5R1 b - - use_en_passant False;": {
+    "d6e5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "rr6/5kp1/5p2/2p1p2p/Pp2Pp2/1P1P1P1P/5K2/R5R1 w - - use_en_passant False;": {
+    "a1c1": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "rr6/5kp1/5p2/2p1p2p/Pp2Pp2/1P1P1P1P/5K2/2R3R1 b - - use_en_passant False;": {
+    "a8a5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "1r6/5kp1/5p2/r1p1p2p/Pp2Pp2/1P1P1P1P/5K2/2R3R1 w - - use_en_passant False;": {
+    "c1c4": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "1r6/5kp1/5p2/r1p1p2p/PpR1Pp2/1P1P1P1P/5K2/6R1 b - - use_en_passant False;": {
+    "b8d8": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "3r4/5kp1/5p2/r1p1p2p/PpR1Pp2/1P1P1P1P/5K2/6R1 w - - use_en_passant False;": {
+    "f2e2": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "3r4/5kp1/5p2/r1p1p2p/PpR1Pp2/1P1P1P1P/4K3/6R1 b - - use_en_passant False;": {
+    "g7g5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "3r4/5k2/5p2/r1p1p1pp/PpR1Pp2/1P1P1P1P/4K3/6R1 w - - use_en_passant False;": {
+    "g1c1": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "3r4/5k2/5p2/r1p1p1pp/PpR1Pp2/1P1P1P1P/4K3/2R5 b - - use_en_passant False;": {
+    "g5g4": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "3r4/5k2/5p2/r1p1p2p/PpR1Ppp1/1P1P1P1P/4K3/2R5 w - - use_en_passant False;": {
+    "h3g4": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "3r4/5k2/5p2/r1p1p2p/PpR1PpP1/1P1P1P2/4K3/2R5 b - - use_en_passant False;": {
+    "h5g4": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "3r4/5k2/5p2/r1p1p3/PpR1Ppp1/1P1P1P2/4K3/2R5 w - - use_en_passant False;": {
+    "f3g4": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "3r4/5k2/5p2/r1p1p3/PpR1PpP1/1P1P4/4K3/2R5 b - - use_en_passant False;": {
+    "d8h8": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "7r/5k2/5p2/r1p1p3/PpR1PpP1/1P1P4/4K3/2R5 w - - use_en_passant False;": {
+    "c4c5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "7r/5k2/5p2/r1R1p3/Pp2PpP1/1P1P4/4K3/2R5 b - - use_en_passant False;": {
+    "h8h2": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/r1R1p3/Pp2PpP1/1P1P4/4K2r/2R5 w - - use_en_passant False;": {
+    "e2f3": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/r1R1p3/Pp2PpP1/1P1P1K2/7r/2R5 b - - use_en_passant False;": {
+    "a5c5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/2r1p3/Pp2PpP1/1P1P1K2/7r/2R5 w - - use_en_passant False;": {
+    "c1c5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/2R1p3/Pp2PpP1/1P1P1K2/7r/8 b - - use_en_passant False;": {
+    "h2h3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/2R1p3/Pp2PpP1/1P1P1K1r/8/8 w - - use_en_passant False;": {
+    "f3e2": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/2R1p3/Pp2PpP1/1P1P3r/4K3/8 b - - use_en_passant False;": {
+    "h3e3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/2R1p3/Pp2PpP1/1P1Pr3/4K3/8 w - - use_en_passant False;": {
+    "e2d2": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/2R1p3/Pp2PpP1/1P1Pr3/3K4/8 b - - use_en_passant False;": {
+    "e3g3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/2R1p3/Pp2PpP1/1P1P2r1/3K4/8 w - - use_en_passant False;": {
+    "a4a5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/P1R1p3/1p2PpP1/1P1P2r1/3K4/8 b - - use_en_passant False;": {
+    "g3g2": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/P1R1p3/1p2PpP1/1P1P4/3K2r1/8 w - - use_en_passant False;": {
+    "d2e1": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/P1R1p3/1p2PpP1/1P1P4/6r1/4K3 b - - use_en_passant False;": {
+    "g2a2": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/P1R1p3/1p2PpP1/1P1P4/r7/4K3 w - - use_en_passant False;": {
+    "g4g5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/5p2/P1R1p1P1/1p2Pp2/1P1P4/r7/4K3 b - - use_en_passant False;": {
+    "f6g5": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/8/P1R1p1p1/1p2Pp2/1P1P4/r7/4K3 w - - use_en_passant False;": {
+    "c5e5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/5k2/8/P3R1p1/1p2Pp2/1P1P4/r7/4K3 b - - use_en_passant False;": {
+    "f7f6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/5k2/P3R1p1/1p2Pp2/1P1P4/r7/4K3 w - - use_en_passant False;": {
+    "e5f5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/5k2/P4Rp1/1p2Pp2/1P1P4/r7/4K3 b - - use_en_passant False;": {
+    "f6g6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/P4Rp1/1p2Pp2/1P1P4/r7/4K3 w - - use_en_passant False;": {
+    "d3d4": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/P4Rp1/1p1PPp2/1P6/r7/4K3 b - - use_en_passant False;": {
+    "a2a3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/P4Rp1/1p1PPp2/rP6/8/4K3 w - - use_en_passant False;": {
+    "f5b5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/PR4p1/1p1PPp2/rP6/8/4K3 b - - use_en_passant False;": {
+    "a3b3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/PR4p1/1p1PPp2/1r6/8/4K3 w - - use_en_passant False;": {
+    "a5a6": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/P5k1/1R4p1/1p1PPp2/1r6/8/4K3 b - - use_en_passant False;": {
+    "b3a3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/P5k1/1R4p1/1p1PPp2/r7/8/4K3 w - - use_en_passant False;": {
+    "b5b4": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/P5k1/6p1/1R1PPp2/r7/8/4K3 b - - use_en_passant False;": {
+    "a3a6": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/r5k1/6p1/1R1PPp2/8/8/4K3 w - - use_en_passant False;": {
+    "b4b5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/r5k1/1R4p1/3PPp2/8/8/4K3 b - - use_en_passant False;": {
+    "a6a2": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/1R4p1/3PPp2/8/r7/4K3 w - - use_en_passant False;": {
+    "b5f5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/5Rp1/3PPp2/8/r7/4K3 b - - use_en_passant False;": {
+    "a2a4": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/5Rp1/r2PPp2/8/8/4K3 w - - use_en_passant False;": {
+    "f5d5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3R2p1/r2PPp2/8/8/4K3 b - - use_en_passant False;": {
+    "g5g4": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3R4/r2PPpp1/8/8/4K3 w - - use_en_passant False;": {
+    "e1f2": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3R4/r2PPpp1/8/5K2/8 b - - use_en_passant False;": {
+    "a4a2": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3R4/3PPpp1/8/r4K2/8 w - - use_en_passant False;": {
+    "f2f1": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3R4/3PPpp1/8/r7/5K2 b - - use_en_passant False;": {
+    "g4g3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3R4/3PPp2/6p1/r7/5K2 w - - use_en_passant False;": {
+    "d5f5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/5R2/3PPp2/6p1/r7/5K2 b - - use_en_passant False;": {
+    "a2f2": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/5R2/3PPp2/6p1/5r2/5K2 w - - use_en_passant False;": {
+    "f1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/5R2/3PPp2/6p1/5r2/6K1 b - - use_en_passant False;": {
+    "f4f3": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/5R2/3PP3/5pp1/5r2/6K1 w - - use_en_passant False;": {
+    "d4d5": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3P1R2/4P3/5pp1/5r2/6K1 b - - use_en_passant False;": {
+    "f2g2": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3P1R2/4P3/5pp1/6r1/6K1 w - - use_en_passant False;": {
+    "g1f1": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3P1R2/4P3/5pp1/6r1/5K2 b - - use_en_passant False;": {
+    "g2f2": {
+      "weight": 3.0,
+      "masters": [
+        "Leonardo da Cutri"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "8/8/6k1/3P1R2/4P3/5pp1/5r2/5K2 w - - use_en_passant False;": {
+    "f1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Ruy Lopez de Segura"
+      ],
+      "events": [
+        "Ruy Lopez Masterpiece"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - use_en_passant False;": {
+    "f8c5": {
+      "weight": 4.0,
+      "masters": [
+        "NN",
+        "Jean Dufresne"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 2
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - use_en_passant False;": {
+    "c2c3": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    },
+    "b2b4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq - use_en_passant False;": {
+    "g8f6": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - use_en_passant False;": {
+    "d2d4": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2BPP3/2P2N2/PP3PPP/RNBQK2R b KQkq - use_en_passant False;": {
+    "e5d4": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n2n2/2b5/2BpP3/2P2N2/PP3PPP/RNBQK2R w KQkq - use_en_passant False;": {
+    "c3d4": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n2n2/2b5/2BPP3/5N2/PP3PPP/RNBQK2R b KQkq - use_en_passant False;": {
+    "c5b4": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n2n2/8/1bBPP3/5N2/PP3PPP/RNBQK2R w KQkq - use_en_passant False;": {
+    "b1c3": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n2n2/8/1bBPP3/2N2N2/PP3PPP/R1BQK2R b KQkq - use_en_passant False;": {
+    "f6e4": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n5/8/1bBPn3/2N2N2/PP3PPP/R1BQK2R w KQkq - use_en_passant False;": {
+    "e1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n5/8/1bBPn3/2N2N2/PP3PPP/R1BQ1RK1 b kq - use_en_passant False;": {
+    "e4c3": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n5/8/1bBP4/2n2N2/PP3PPP/R1BQ1RK1 w kq - use_en_passant False;": {
+    "b2c3": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n5/8/1bBP4/2P2N2/P4PPP/R1BQ1RK1 b kq - use_en_passant False;": {
+    "b4c3": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n5/8/2BP4/2b2N2/P4PPP/R1BQ1RK1 w kq - use_en_passant False;": {
+    "d1b3": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n5/8/2BP4/1Qb2N2/P4PPP/R1B2RK1 b kq - use_en_passant False;": {
+    "c3a1": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1ppp/2n5/8/2BP4/1Q3N2/P4PPP/b1B2RK1 w kq - use_en_passant False;": {
+    "c4f7": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/pppp1Bpp/2n5/8/3P4/1Q3N2/P4PPP/b1B2RK1 b kq - use_en_passant False;": {
+    "e8f8": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1k1r/pppp1Bpp/2n5/8/3P4/1Q3N2/P4PPP/b1B2RK1 w - - use_en_passant False;": {
+    "c1g5": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1k1r/pppp1Bpp/2n5/6B1/3P4/1Q3N2/P4PPP/b4RK1 b - - use_en_passant False;": {
+    "c6e7": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1k1r/ppppnBpp/8/6B1/3P4/1Q3N2/P4PPP/b4RK1 w - - use_en_passant False;": {
+    "f3e5": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1k1r/ppppnBpp/8/4N1B1/3P4/1Q6/P4PPP/b4RK1 b - - use_en_passant False;": {
+    "a1d4": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1k1r/ppppnBpp/8/4N1B1/3b4/1Q6/P4PPP/5RK1 w - - use_en_passant False;": {
+    "f7g6": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1k1r/ppppn1pp/6B1/4N1B1/3b4/1Q6/P4PPP/5RK1 b - - use_en_passant False;": {
+    "d7d5": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1k1r/ppp1n1pp/6B1/3pN1B1/3b4/1Q6/P4PPP/5RK1 w - - use_en_passant False;": {
+    "b3f3": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1k1r/ppp1n1pp/6B1/3pN1B1/3b4/5Q2/P4PPP/5RK1 b - - use_en_passant False;": {
+    "c8f5": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1k1r/ppp1n1pp/6B1/3pNbB1/3b4/5Q2/P4PPP/5RK1 w - - use_en_passant False;": {
+    "g6f5": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1k1r/ppp1n1pp/8/3pNBB1/3b4/5Q2/P4PPP/5RK1 b - - use_en_passant False;": {
+    "d4e5": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1k1r/ppp1n1pp/8/3pbBB1/8/5Q2/P4PPP/5RK1 w - - use_en_passant False;": {
+    "f5e6": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1k1r/ppp1n1pp/4B3/3pb1B1/8/5Q2/P4PPP/5RK1 b - - use_en_passant False;": {
+    "e5f6": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1k1r/ppp1n1pp/4Bb2/3p2B1/8/5Q2/P4PPP/5RK1 w - - use_en_passant False;": {
+    "g5f6": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1k1r/ppp1n1pp/4BB2/3p4/8/5Q2/P4PPP/5RK1 b - - use_en_passant False;": {
+    "g7f6": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1k1r/ppp1n2p/4Bp2/3p4/8/5Q2/P4PPP/5RK1 w - - use_en_passant False;": {
+    "f3f6": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1k1r/ppp1n2p/4BQ2/3p4/8/8/P4PPP/5RK1 b - - use_en_passant False;": {
+    "f8e8": {
+      "weight": 3.0,
+      "masters": [
+        "NN"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "r2qk2r/ppp1n2p/4BQ2/3p4/8/8/P4PPP/5RK1 w - - use_en_passant False;": {
+    "f6f7": {
+      "weight": 3.0,
+      "masters": [
+        "Gioachino Greco"
+      ],
+      "events": [
+        "Greco Immortal Sacrifice"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/pppp1ppp/8/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR b KQkq - use_en_passant False;": {
+    "f8c5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk1nr/pppp1ppp/8/2b1p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - use_en_passant False;": {
+    "c2c3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk1nr/pppp1ppp/8/2b1p3/2B1P3/2P5/PP1P1PPP/RNBQK1NR b KQkq - use_en_passant False;": {
+    "g8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pppp1ppp/5n2/2b1p3/2B1P3/2P5/PP1P1PPP/RNBQK1NR w KQkq - use_en_passant False;": {
+    "d2d3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pppp1ppp/5n2/2b1p3/2B1P3/2PP4/PP3PPP/RNBQK1NR b KQkq - use_en_passant False;": {
+    "c7c6": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pp1p1ppp/2p2n2/2b1p3/2B1P3/2PP4/PP3PPP/RNBQK1NR w KQkq - use_en_passant False;": {
+    "d1e2": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pp1p1ppp/2p2n2/2b1p3/2B1P3/2PP4/PP2QPPP/RNB1K1NR b KQkq - use_en_passant False;": {
+    "d7d6": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pp3ppp/2pp1n2/2b1p3/2B1P3/2PP4/PP2QPPP/RNB1K1NR w KQkq - use_en_passant False;": {
+    "f2f4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pp3ppp/2pp1n2/2b1p3/2B1PP2/2PP4/PP2Q1PP/RNB1K1NR b KQkq - use_en_passant False;": {
+    "e5f4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pp3ppp/2pp1n2/2b5/2B1Pp2/2PP4/PP2Q1PP/RNB1K1NR w KQkq - use_en_passant False;": {
+    "c1f4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pp3ppp/2pp1n2/2b5/2B1PB2/2PP4/PP2Q1PP/RN2K1NR b KQkq - use_en_passant False;": {
+    "e8g8": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/pp3ppp/2pp1n2/2b5/2B1PB2/2PP4/PP2Q1PP/RN2K1NR w KQ - use_en_passant False;": {
+    "g1f3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/pp3ppp/2pp1n2/2b5/2B1PB2/2PP1N2/PP2Q1PP/RN2K2R b KQ - use_en_passant False;": {
+    "c8g4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rn1q1rk1/pp3ppp/2pp1n2/2b5/2B1PBb1/2PP1N2/PP2Q1PP/RN2K2R w KQ - use_en_passant False;": {
+    "b1d2": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rn1q1rk1/pp3ppp/2pp1n2/2b5/2B1PBb1/2PP1N2/PP1NQ1PP/R3K2R b KQ - use_en_passant False;": {
+    "b8d7": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp1n1ppp/2pp1n2/2b5/2B1PBb1/2PP1N2/PP1NQ1PP/R3K2R w KQ - use_en_passant False;": {
+    "d3d4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp1n1ppp/2pp1n2/2b5/2BPPBb1/2P2N2/PP1NQ1PP/R3K2R b KQ - use_en_passant False;": {
+    "c5b6": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp1n1ppp/1bpp1n2/8/2BPPBb1/2P2N2/PP1NQ1PP/R3K2R w KQ - use_en_passant False;": {
+    "f4d6": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp1n1ppp/1bpB1n2/8/2BPP1b1/2P2N2/PP1NQ1PP/R3K2R b KQ - use_en_passant False;": {
+    "f8e8": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n1ppp/1bpB1n2/8/2BPP1b1/2P2N2/PP1NQ1PP/R3K2R w KQ - use_en_passant False;": {
+    "e4e5": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n1ppp/1bpB1n2/4P3/2BP2b1/2P2N2/PP1NQ1PP/R3K2R b KQ - use_en_passant False;": {
+    "f6d5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n1ppp/1bpB4/3nP3/2BP2b1/2P2N2/PP1NQ1PP/R3K2R w KQ - use_en_passant False;": {
+    "e1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n1ppp/1bpB4/3nP3/2BP2b1/2P2N2/PP1NQ1PP/R4RK1 b - - use_en_passant False;": {
+    "f7f6": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n2pp/1bpB1p2/3nP3/2BP2b1/2P2N2/PP1NQ1PP/R4RK1 w - - use_en_passant False;": {
+    "e2e4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n2pp/1bpB1p2/3nP3/2BPQ1b1/2P2N2/PP1N2PP/R4RK1 b - - use_en_passant False;": {
+    "g4e6": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n2pp/1bpBbp2/3nP3/2BPQ3/2P2N2/PP1N2PP/R4RK1 w - - use_en_passant False;": {
+    "g1h1": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n2pp/1bpBbp2/3nP3/2BPQ3/2P2N2/PP1N2PP/R4R1K b - - use_en_passant False;": {
+    "f6e5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n2pp/1bpBb3/3np3/2BPQ3/2P2N2/PP1N2PP/R4R1K w - - use_en_passant False;": {
+    "d4e5": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp1n2pp/1bpBb3/3nP3/2B1Q3/2P2N2/PP1N2PP/R4R1K b - - use_en_passant False;": {
+    "d7c5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp4pp/1bpBb3/2nnP3/2B1Q3/2P2N2/PP1N2PP/R4R1K w - - use_en_passant False;": {
+    "d6c5": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp4pp/1bp1b3/2BnP3/2B1Q3/2P2N2/PP1N2PP/R4R1K b - - use_en_passant False;": {
+    "b6c5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp4pp/2p1b3/2bnP3/2B1Q3/2P2N2/PP1N2PP/R4R1K w - - use_en_passant False;": {
+    "f3d4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp4pp/2p1b3/2bnP3/2BNQ3/2P5/PP1N2PP/R4R1K b - - use_en_passant False;": {
+    "c5d4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp4pp/2p1b3/3nP3/2BbQ3/2P5/PP1N2PP/R4R1K w - - use_en_passant False;": {
+    "c3d4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r2qr1k1/pp4pp/2p1b3/3nP3/2BPQ3/8/PP1N2PP/R4R1K b - - use_en_passant False;": {
+    "d8g5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp4pp/2p1b3/3nP1q1/2BPQ3/8/PP1N2PP/R4R1K w - - use_en_passant False;": {
+    "d2f3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp4pp/2p1b3/3nP1q1/2BPQ3/5N2/PP4PP/R4R1K b - - use_en_passant False;": {
+    "g5h6": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp4pp/2p1b2q/3nP3/2BPQ3/5N2/PP4PP/R4R1K w - - use_en_passant False;": {
+    "a1e1": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp4pp/2p1b2q/3nP3/2BPQ3/5N2/PP4PP/4RR1K b - - use_en_passant False;": {
+    "a8d8": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr1k1/pp4pp/2p1b2q/3nP3/2BPQ3/5N2/PP4PP/4RR1K w - - use_en_passant False;": {
+    "a2a3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr1k1/pp4pp/2p1b2q/3nP3/2BPQ3/P4N2/1P4PP/4RR1K b - - use_en_passant False;": {
+    "g8h8": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp4pp/2p1b2q/3nP3/2BPQ3/P4N2/1P4PP/4RR1K w - - use_en_passant False;": {
+    "e4h4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp4pp/2p1b2q/3nP3/2BP3Q/P4N2/1P4PP/4RR1K b - - use_en_passant False;": {
+    "h6h4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp4pp/2p1b3/3nP3/2BP3q/P4N2/1P4PP/4RR1K w - - use_en_passant False;": {
+    "f3h4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp4pp/2p1b3/3nP3/2BP3N/P7/1P4PP/4RR1K b - - use_en_passant False;": {
+    "d5e3": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp4pp/2p1b3/4P3/2BP3N/P3n3/1P4PP/4RR1K w - - use_en_passant False;": {
+    "e1e3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp4pp/2p1b3/4P3/2BP3N/P3R3/1P4PP/5R1K b - - use_en_passant False;": {
+    "e6c4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp4pp/2p5/4P3/2bP3N/P3R3/1P4PP/5R1K w - - use_en_passant False;": {
+    "f1f4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp4pp/2p5/4P3/2bP1R1N/P3R3/1P4PP/7K b - - use_en_passant False;": {
+    "g7g5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp5p/2p5/4P1p1/2bP1R1N/P3R3/1P4PP/7K w - - use_en_passant False;": {
+    "f4g4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp5p/2p5/4P1p1/2bP2RN/P3R3/1P4PP/7K b - - use_en_passant False;": {
+    "g5h4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp5p/2p5/4P3/2bP2Rp/P3R3/1P4PP/7K w - - use_en_passant False;": {
+    "g4h4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp5p/2p5/4P3/2bP3R/P3R3/1P4PP/7K b - - use_en_passant False;": {
+    "c6c5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp5p/8/2p1P3/2bP3R/P3R3/1P4PP/7K w - - use_en_passant False;": {
+    "e3h3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr2k/pp5p/8/2p1P3/2bP3R/P6R/1P4PP/7K b - - use_en_passant False;": {
+    "c4g8": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr1bk/pp5p/8/2p1P3/3P3R/P6R/1P4PP/7K w - - use_en_passant False;": {
+    "h3d3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr1bk/pp5p/8/2p1P3/3P3R/P2R4/1P4PP/7K b - - use_en_passant False;": {
+    "c5d4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr1bk/pp5p/8/4P3/3p3R/P2R4/1P4PP/7K w - - use_en_passant False;": {
+    "h4d4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "3rr1bk/pp5p/8/4P3/3R4/P2R4/1P4PP/7K b - - use_en_passant False;": {
+    "d8d4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "4r1bk/pp5p/8/4P3/3r4/P2R4/1P4PP/7K w - - use_en_passant False;": {
+    "d3d4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "4r1bk/pp5p/8/4P3/3R4/P7/1P4PP/7K b - - use_en_passant False;": {
+    "e8e5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/pp5p/8/4r3/3R4/P7/1P4PP/7K w - - use_en_passant False;": {
+    "h2h3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/pp5p/8/4r3/3R4/P6P/1P4P1/7K b - - use_en_passant False;": {
+    "e5d5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/pp5p/8/3r4/3R4/P6P/1P4P1/7K w - - use_en_passant False;": {
+    "d4b4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/pp5p/8/3r4/1R6/P6P/1P4P1/7K b - - use_en_passant False;": {
+    "b7b5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/p6p/8/1p1r4/1R6/P6P/1P4P1/7K w - - use_en_passant False;": {
+    "h1h2": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/p6p/8/1p1r4/1R6/P6P/1P4PK/8 b - - use_en_passant False;": {
+    "a7a5": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/7p/8/pp1r4/1R6/P6P/1P4PK/8 w - - use_en_passant False;": {
+    "b4e4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/7p/8/pp1r4/4R3/P6P/1P4PK/8 b - - use_en_passant False;": {
+    "d5d2": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/7p/8/pp6/4R3/P6P/1P1r2PK/8 w - - use_en_passant False;": {
+    "b2b4": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/7p/8/pp6/1P2R3/P6P/3r2PK/8 b - - use_en_passant False;": {
+    "a5a4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/7p/8/1p6/pP2R3/P6P/3r2PK/8 w - - use_en_passant False;": {
+    "e4e3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "6bk/7p/8/1p6/pP6/P3R2P/3r2PK/8 b - - use_en_passant False;": {
+    "g8c4": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "7k/7p/8/1p6/pPb5/P3R2P/3r2PK/8 w - - use_en_passant False;": {
+    "e3e8": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "4R2k/7p/8/1p6/pPb5/P6P/3r2PK/8 b - - use_en_passant False;": {
+    "h8g7": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "4R3/6kp/8/1p6/pPb5/P6P/3r2PK/8 w - - use_en_passant False;": {
+    "e8e7": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "8/4R1kp/8/1p6/pPb5/P6P/3r2PK/8 b - - use_en_passant False;": {
+    "g7g6": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "8/4R2p/6k1/1p6/pPb5/P6P/3r2PK/8 w - - use_en_passant False;": {
+    "e7e3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "8/7p/6k1/1p6/pPb5/P3R2P/3r2PK/8 b - - use_en_passant False;": {
+    "d2d3": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "8/7p/6k1/1p6/pPb5/P2rR2P/6PK/8 w - - use_en_passant False;": {
+    "e3d3": {
+      "weight": 3.0,
+      "masters": [
+        "Francois-Andre Danican Philidor"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "8/7p/6k1/1p6/pPb5/P2R3P/6PK/8 b - - use_en_passant False;": {
+    "c4d3": {
+      "weight": 3.0,
+      "masters": [
+        "Philip Stamma"
+      ],
+      "events": [
+        "Philidor Pawn Coordination"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - use_en_passant False;": {
+    "e5f4": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/pppp1ppp/8/8/4Pp2/8/PPPP2PP/RNBQKBNR w KQkq - use_en_passant False;": {
+    "f1c4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/pppp1ppp/8/8/2B1Pp2/8/PPPP2PP/RNBQK1NR b KQkq - use_en_passant False;": {
+    "d8h4": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/pppp1ppp/8/8/2B1Pp1q/8/PPPP2PP/RNBQK1NR w KQkq - use_en_passant False;": {
+    "e1f1": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/pppp1ppp/8/8/2B1Pp1q/8/PPPP2PP/RNBQ1KNR b kq - use_en_passant False;": {
+    "b7b5": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/p1pp1ppp/8/1p6/2B1Pp1q/8/PPPP2PP/RNBQ1KNR w kq - use_en_passant False;": {
+    "c4b5": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/p1pp1ppp/8/1B6/4Pp1q/8/PPPP2PP/RNBQ1KNR b kq - use_en_passant False;": {
+    "g8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p1pp1ppp/5n2/1B6/4Pp1q/8/PPPP2PP/RNBQ1KNR w kq - use_en_passant False;": {
+    "g1f3": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p1pp1ppp/5n2/1B6/4Pp1q/5N2/PPPP2PP/RNBQ1K1R b kq - use_en_passant False;": {
+    "h4h6": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p1pp1ppp/5n1q/1B6/4Pp2/5N2/PPPP2PP/RNBQ1K1R w kq - use_en_passant False;": {
+    "d2d3": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p1pp1ppp/5n1q/1B6/4Pp2/3P1N2/PPP3PP/RNBQ1K1R b kq - use_en_passant False;": {
+    "f6h5": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p1pp1ppp/7q/1B5n/4Pp2/3P1N2/PPP3PP/RNBQ1K1R w kq - use_en_passant False;": {
+    "f3h4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p1pp1ppp/7q/1B5n/4Pp1N/3P4/PPP3PP/RNBQ1K1R b kq - use_en_passant False;": {
+    "h6g5": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p1pp1ppp/8/1B4qn/4Pp1N/3P4/PPP3PP/RNBQ1K1R w kq - use_en_passant False;": {
+    "h4f5": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p1pp1ppp/8/1B3Nqn/4Pp2/3P4/PPP3PP/RNBQ1K1R b kq - use_en_passant False;": {
+    "c7c6": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/2p5/1B3Nqn/4Pp2/3P4/PPP3PP/RNBQ1K1R w kq - use_en_passant False;": {
+    "g2g4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/2p5/1B3Nqn/4PpP1/3P4/PPP4P/RNBQ1K1R b kq g3 use_en_passant False;": {
+    "h5f6": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/2p2n2/1B3Nq1/4PpP1/3P4/PPP4P/RNBQ1K1R w kq - use_en_passant False;": {
+    "h1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/2p2n2/1B3Nq1/4PpP1/3P4/PPP4P/RNBQ1KR1 b kq - use_en_passant False;": {
+    "c6b5": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/5n2/1p3Nq1/4PpP1/3P4/PPP4P/RNBQ1KR1 w kq - use_en_passant False;": {
+    "h2h4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/5n2/1p3Nq1/4PpPP/3P4/PPP5/RNBQ1KR1 b kq - use_en_passant False;": {
+    "g5g6": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/5nq1/1p3N2/4PpPP/3P4/PPP5/RNBQ1KR1 w kq - use_en_passant False;": {
+    "h4h5": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/5nq1/1p3N1P/4PpP1/3P4/PPP5/RNBQ1KR1 b kq - use_en_passant False;": {
+    "g6g5": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/5n2/1p3NqP/4PpP1/3P4/PPP5/RNBQ1KR1 w kq - use_en_passant False;": {
+    "d1f3": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kb1r/p2p1ppp/5n2/1p3NqP/4PpP1/3P1Q2/PPP5/RNB2KR1 b kq - use_en_passant False;": {
+    "f6g8": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/p2p1ppp/8/1p3NqP/4PpP1/3P1Q2/PPP5/RNB2KR1 w kq - use_en_passant False;": {
+    "c1f4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/p2p1ppp/8/1p3NqP/4PBP1/3P1Q2/PPP5/RN3KR1 b kq - use_en_passant False;": {
+    "g5f6": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/p2p1ppp/5q2/1p3N1P/4PBP1/3P1Q2/PPP5/RN3KR1 w kq - use_en_passant False;": {
+    "b1c3": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1kbnr/p2p1ppp/5q2/1p3N1P/4PBP1/2NP1Q2/PPP5/R4KR1 b kq - use_en_passant False;": {
+    "f8c5": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1k1nr/p2p1ppp/5q2/1pb2N1P/4PBP1/2NP1Q2/PPP5/R4KR1 w kq - use_en_passant False;": {
+    "c3d5": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1k1nr/p2p1ppp/5q2/1pbN1N1P/4PBP1/3P1Q2/PPP5/R4KR1 b kq - use_en_passant False;": {
+    "f6b2": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1k1nr/p2p1ppp/8/1pbN1N1P/4PBP1/3P1Q2/PqP5/R4KR1 w kq - use_en_passant False;": {
+    "f4d6": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1k1nr/p2p1ppp/3B4/1pbN1N1P/4P1P1/3P1Q2/PqP5/R4KR1 b kq - use_en_passant False;": {
+    "c5g1": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1k1nr/p2p1ppp/3B4/1p1N1N1P/4P1P1/3P1Q2/PqP5/R4Kb1 w kq - use_en_passant False;": {
+    "e4e5": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1k1nr/p2p1ppp/3B4/1p1NPN1P/6P1/3P1Q2/PqP5/R4Kb1 b kq - use_en_passant False;": {
+    "b2a1": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1k1nr/p2p1ppp/3B4/1p1NPN1P/6P1/3P1Q2/P1P5/q4Kb1 w kq - use_en_passant False;": {
+    "f1e2": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnb1k1nr/p2p1ppp/3B4/1p1NPN1P/6P1/3P1Q2/P1P1K3/q5b1 b kq - use_en_passant False;": {
+    "b8a6": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k1nr/p2p1ppp/n2B4/1p1NPN1P/6P1/3P1Q2/P1P1K3/q5b1 w kq - use_en_passant False;": {
+    "f5g7": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k1nr/p2p1pNp/n2B4/1p1NP2P/6P1/3P1Q2/P1P1K3/q5b1 b kq - use_en_passant False;": {
+    "e8d8": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bk2nr/p2p1pNp/n2B4/1p1NP2P/6P1/3P1Q2/P1P1K3/q5b1 w - - use_en_passant False;": {
+    "f3f6": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bk2nr/p2p1pNp/n2B1Q2/1p1NP2P/6P1/3P4/P1P1K3/q5b1 b - - use_en_passant False;": {
+    "g8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Lionel Kieseritzky"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bk3r/p2p1pNp/n2B1n2/1p1NP2P/6P1/3P4/P1P1K3/q5b1 w - - use_en_passant False;": {
+    "d6e7": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/2b1p3/1PB1P3/5N2/P1PP1PPP/RNBQK2R b KQkq - use_en_passant False;": {
+    "c5b4": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/4p3/1bB1P3/5N2/P1PP1PPP/RNBQK2R w KQkq - use_en_passant False;": {
+    "c2c3": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/4p3/1bB1P3/2P2N2/P2P1PPP/RNBQK2R b KQkq - use_en_passant False;": {
+    "b4a5": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/b3p3/2B1P3/2P2N2/P2P1PPP/RNBQK2R w KQkq - use_en_passant False;": {
+    "d2d4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/b3p3/2BPP3/2P2N2/P4PPP/RNBQK2R b KQkq - use_en_passant False;": {
+    "e5d4": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/b7/2BpP3/2P2N2/P4PPP/RNBQK2R w KQkq - use_en_passant False;": {
+    "e1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/b7/2BpP3/2P2N2/P4PPP/RNBQ1RK1 b kq - use_en_passant False;": {
+    "d4d3": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/b7/2B1P3/2Pp1N2/P4PPP/RNBQ1RK1 w kq - use_en_passant False;": {
+    "d1b3": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk1nr/pppp1ppp/2n5/b7/2B1P3/1QPp1N2/P4PPP/RNB2RK1 b kq - use_en_passant False;": {
+    "d8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k1nr/pppp1ppp/2n2q2/b7/2B1P3/1QPp1N2/P4PPP/RNB2RK1 w kq - use_en_passant False;": {
+    "e4e5": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k1nr/pppp1ppp/2n2q2/b3P3/2B5/1QPp1N2/P4PPP/RNB2RK1 b kq - use_en_passant False;": {
+    "f6g6": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k1nr/pppp1ppp/2n3q1/b3P3/2B5/1QPp1N2/P4PPP/RNB2RK1 w kq - use_en_passant False;": {
+    "f1e1": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k1nr/pppp1ppp/2n3q1/b3P3/2B5/1QPp1N2/P4PPP/RNB1R1K1 b kq - use_en_passant False;": {
+    "g8e7": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k2r/ppppnppp/2n3q1/b3P3/2B5/1QPp1N2/P4PPP/RNB1R1K1 w kq - use_en_passant False;": {
+    "c1a3": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k2r/ppppnppp/2n3q1/b3P3/2B5/BQPp1N2/P4PPP/RN2R1K1 b kq - use_en_passant False;": {
+    "b7b5": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k2r/p1ppnppp/2n3q1/bp2P3/2B5/BQPp1N2/P4PPP/RN2R1K1 w kq - use_en_passant False;": {
+    "b3b5": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1b1k2r/p1ppnppp/2n3q1/bQ2P3/2B5/B1Pp1N2/P4PPP/RN2R1K1 b kq - use_en_passant False;": {
+    "a8b8": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1rb1k2r/p1ppnppp/2n3q1/bQ2P3/2B5/B1Pp1N2/P4PPP/RN2R1K1 w k - use_en_passant False;": {
+    "b5a4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1rb1k2r/p1ppnppp/2n3q1/b3P3/Q1B5/B1Pp1N2/P4PPP/RN2R1K1 b k - use_en_passant False;": {
+    "a5b6": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1rb1k2r/p1ppnppp/1bn3q1/4P3/Q1B5/B1Pp1N2/P4PPP/RN2R1K1 w k - use_en_passant False;": {
+    "b1d2": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1rb1k2r/p1ppnppp/1bn3q1/4P3/Q1B5/B1Pp1N2/P2N1PPP/R3R1K1 b k - use_en_passant False;": {
+    "c8b7": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k2r/pbppnppp/1bn3q1/4P3/Q1B5/B1Pp1N2/P2N1PPP/R3R1K1 w k - use_en_passant False;": {
+    "d2e4": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k2r/pbppnppp/1bn3q1/4P3/Q1B1N3/B1Pp1N2/P4PPP/R3R1K1 b k - use_en_passant False;": {
+    "g6f5": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k2r/pbppnppp/1bn5/4Pq2/Q1B1N3/B1Pp1N2/P4PPP/R3R1K1 w k - use_en_passant False;": {
+    "c4d3": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k2r/pbppnppp/1bn5/4Pq2/Q3N3/B1PB1N2/P4PPP/R3R1K1 b k - use_en_passant False;": {
+    "f5h5": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k2r/pbppnppp/1bn5/4P2q/Q3N3/B1PB1N2/P4PPP/R3R1K1 w k - use_en_passant False;": {
+    "e4f6": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k2r/pbppnppp/1bn2N2/4P2q/Q7/B1PB1N2/P4PPP/R3R1K1 b k - use_en_passant False;": {
+    "g7f6": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k2r/pbppnp1p/1bn2p2/4P2q/Q7/B1PB1N2/P4PPP/R3R1K1 w k - use_en_passant False;": {
+    "e5f6": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k2r/pbppnp1p/1bn2P2/7q/Q7/B1PB1N2/P4PPP/R3R1K1 b k - use_en_passant False;": {
+    "h8g8": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k1r1/pbppnp1p/1bn2P2/7q/Q7/B1PB1N2/P4PPP/R3R1K1 w - - use_en_passant False;": {
+    "a1d1": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k1r1/pbppnp1p/1bn2P2/7q/Q7/B1PB1N2/P4PPP/3RR1K1 b - - use_en_passant False;": {
+    "h5f3": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k1r1/pbppnp1p/1bn2P2/8/Q7/B1PB1q2/P4PPP/3RR1K1 w - - use_en_passant False;": {
+    "e1e7": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k1r1/pbppRp1p/1bn2P2/8/Q7/B1PB1q2/P4PPP/3R2K1 b - - use_en_passant False;": {
+    "c6e7": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k1r1/pbppnp1p/1b3P2/8/Q7/B1PB1q2/P4PPP/3R2K1 w - - use_en_passant False;": {
+    "a4d7": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k1r1/pbpQnp1p/1b3P2/8/8/B1PB1q2/P4PPP/3R2K1 b - - use_en_passant False;": {
+    "e8d7": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r4r1/pbpknp1p/1b3P2/8/8/B1PB1q2/P4PPP/3R2K1 w - - use_en_passant False;": {
+    "d3f5": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r4r1/pbpknp1p/1b3P2/5B2/8/B1P2q2/P4PPP/3R2K1 b - - use_en_passant False;": {
+    "d7e8": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k1r1/pbp1np1p/1b3P2/5B2/8/B1P2q2/P4PPP/3R2K1 w - - use_en_passant False;": {
+    "f5d7": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r2k1r1/pbpBnp1p/1b3P2/8/8/B1P2q2/P4PPP/3R2K1 b - - use_en_passant False;": {
+    "e8f8": {
+      "weight": 3.0,
+      "masters": [
+        "Jean Dufresne"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "1r3kr1/pbpBnp1p/1b3P2/8/8/B1P2q2/P4PPP/3R2K1 w - - use_en_passant False;": {
+    "a3e7": {
+      "weight": 3.0,
+      "masters": [
+        "Adolf Anderssen"
+      ],
+      "events": [
+        "The Evergreen Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - use_en_passant False;": {
+    "d2d4": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/ppp2ppp/3p4/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - use_en_passant False;": {
+    "c8g4": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkbnr/ppp2ppp/3p4/4p3/3PP1b1/5N2/PPP2PPP/RNBQKB1R w KQkq - use_en_passant False;": {
+    "d4e5": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkbnr/ppp2ppp/3p4/4P3/4P1b1/5N2/PPP2PPP/RNBQKB1R b KQkq - use_en_passant False;": {
+    "g4f3": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkbnr/ppp2ppp/3p4/4P3/4P3/5b2/PPP2PPP/RNBQKB1R w KQkq - use_en_passant False;": {
+    "d1f3": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkbnr/ppp2ppp/3p4/4P3/4P3/5Q2/PPP2PPP/RNB1KB1R b KQkq - use_en_passant False;": {
+    "d6e5": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkbnr/ppp2ppp/8/4p3/4P3/5Q2/PPP2PPP/RNB1KB1R w KQkq - use_en_passant False;": {
+    "f1c4": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkbnr/ppp2ppp/8/4p3/2B1P3/5Q2/PPP2PPP/RNB1K2R b KQkq - use_en_passant False;": {
+    "g8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkb1r/ppp2ppp/5n2/4p3/2B1P3/5Q2/PPP2PPP/RNB1K2R w KQkq - use_en_passant False;": {
+    "f3b3": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn1qkb1r/ppp2ppp/5n2/4p3/2B1P3/1Q6/PPP2PPP/RNB1K2R b KQkq - use_en_passant False;": {
+    "d8e7": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn2kb1r/ppp1qppp/5n2/4p3/2B1P3/1Q6/PPP2PPP/RNB1K2R w KQkq - use_en_passant False;": {
+    "b1c3": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn2kb1r/ppp1qppp/5n2/4p3/2B1P3/1QN5/PPP2PPP/R1B1K2R b KQkq - use_en_passant False;": {
+    "c7c6": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn2kb1r/pp2qppp/2p2n2/4p3/2B1P3/1QN5/PPP2PPP/R1B1K2R w KQkq - use_en_passant False;": {
+    "c1g5": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn2kb1r/pp2qppp/2p2n2/4p1B1/2B1P3/1QN5/PPP2PPP/R3K2R b KQkq - use_en_passant False;": {
+    "b7b5": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn2kb1r/p3qppp/2p2n2/1p2p1B1/2B1P3/1QN5/PPP2PPP/R3K2R w KQkq - use_en_passant False;": {
+    "c3b5": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn2kb1r/p3qppp/2p2n2/1N2p1B1/2B1P3/1Q6/PPP2PPP/R3K2R b KQkq - use_en_passant False;": {
+    "c6b5": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn2kb1r/p3qppp/5n2/1p2p1B1/2B1P3/1Q6/PPP2PPP/R3K2R w KQkq - use_en_passant False;": {
+    "c4b5": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rn2kb1r/p3qppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/R3K2R b KQkq - use_en_passant False;": {
+    "b8d7": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "r3kb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/R3K2R w KQkq - use_en_passant False;": {
+    "e1c1": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "r3kb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR3R b kq - use_en_passant False;": {
+    "a8d8": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "3rkb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR3R w k - use_en_passant False;": {
+    "d1d7": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "3rkb1r/p2Rqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2K4R b k - use_en_passant False;": {
+    "d8d7": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "4kb1r/p2rqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2K4R w k - use_en_passant False;": {
+    "h1d1": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "4kb1r/p2rqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR4 b k - use_en_passant False;": {
+    "e7e6": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "4kb1r/p2r1ppp/4qn2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - use_en_passant False;": {
+    "b5d7": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "4kb1r/p2B1ppp/4qn2/4p1B1/4P3/1Q6/PPP2PPP/2KR4 b k - use_en_passant False;": {
+    "f6d7": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - use_en_passant False;": {
+    "b3b8": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "1Q2kb1r/p2n1ppp/4q3/4p1B1/4P3/8/PPP2PPP/2KR4 b k - use_en_passant False;": {
+    "d7b8": {
+      "weight": 3.0,
+      "masters": [
+        "Duke Karl of Brunswick and Count Isouard"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "1n2kb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2KR4 w k - use_en_passant False;": {
+    "d1d8": {
+      "weight": 3.0,
+      "masters": [
+        "Paul Morphy"
+      ],
+      "events": [
+        "The Opera Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/ppp1pppp/3p4/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - use_en_passant False;": {
+    "d2d4": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/ppp1pppp/3p4/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - use_en_passant False;": {
+    "g8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/ppp1pppp/3p1n2/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - use_en_passant False;": {
+    "b1c3": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/ppp1pppp/3p1n2/8/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - use_en_passant False;": {
+    "g7g6": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/ppp1pp1p/3p1np1/8/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - use_en_passant False;": {
+    "c1e3": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/ppp1pp1p/3p1np1/8/3PP3/2N1B3/PPP2PPP/R2QKBNR b KQkq - use_en_passant False;": {
+    "f8g7": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/ppp1ppbp/3p1np1/8/3PP3/2N1B3/PPP2PPP/R2QKBNR w KQkq - use_en_passant False;": {
+    "d1d2": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/ppp1ppbp/3p1np1/8/3PP3/2N1B3/PPPQ1PPP/R3KBNR b KQkq - use_en_passant False;": {
+    "c7c6": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pp2ppbp/2pp1np1/8/3PP3/2N1B3/PPPQ1PPP/R3KBNR w KQkq - use_en_passant False;": {
+    "f2f3": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/pp2ppbp/2pp1np1/8/3PP3/2N1BP2/PPPQ2PP/R3KBNR b KQkq - use_en_passant False;": {
+    "b7b5": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/p3ppbp/2pp1np1/1p6/3PP3/2N1BP2/PPPQ2PP/R3KBNR w KQkq - use_en_passant False;": {
+    "g1e2": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/p3ppbp/2pp1np1/1p6/3PP3/2N1BP2/PPPQN1PP/R3KB1R b KQkq - use_en_passant False;": {
+    "b8d7": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/p2nppbp/2pp1np1/1p6/3PP3/2N1BP2/PPPQN1PP/R3KB1R w KQkq - use_en_passant False;": {
+    "e3h6": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/p2nppbp/2pp1npB/1p6/3PP3/2N2P2/PPPQN1PP/R3KB1R b KQkq - use_en_passant False;": {
+    "g7h6": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/p2npp1p/2pp1npb/1p6/3PP3/2N2P2/PPPQN1PP/R3KB1R w KQkq - use_en_passant False;": {
+    "d2h6": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r1bqk2r/p2npp1p/2pp1npQ/1p6/3PP3/2N2P2/PPP1N1PP/R3KB1R b KQkq - use_en_passant False;": {
+    "c8b7": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r2qk2r/pb1npp1p/2pp1npQ/1p6/3PP3/2N2P2/PPP1N1PP/R3KB1R w KQkq - use_en_passant False;": {
+    "a2a3": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r2qk2r/pb1npp1p/2pp1npQ/1p6/3PP3/P1N2P2/1PP1N1PP/R3KB1R b KQkq - use_en_passant False;": {
+    "e7e5": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r2qk2r/pb1n1p1p/2pp1npQ/1p2p3/3PP3/P1N2P2/1PP1N1PP/R3KB1R w KQkq - use_en_passant False;": {
+    "e1c1": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r2qk2r/pb1n1p1p/2pp1npQ/1p2p3/3PP3/P1N2P2/1PP1N1PP/2KR1B1R b kq - use_en_passant False;": {
+    "d8e7": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/pb1nqp1p/2pp1npQ/1p2p3/3PP3/P1N2P2/1PP1N1PP/2KR1B1R w kq - use_en_passant False;": {
+    "c1b1": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/pb1nqp1p/2pp1npQ/1p2p3/3PP3/P1N2P2/1PP1N1PP/1K1R1B1R b kq - use_en_passant False;": {
+    "a7a6": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1b1nqp1p/p1pp1npQ/1p2p3/3PP3/P1N2P2/1PP1N1PP/1K1R1B1R w kq - use_en_passant False;": {
+    "e2c1": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "r3k2r/1b1nqp1p/p1pp1npQ/1p2p3/3PP3/P1N2P2/1PP3PP/1KNR1B1R b kq - use_en_passant False;": {
+    "e8c8": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "2kr3r/1b1nqp1p/p1pp1npQ/1p2p3/3PP3/P1N2P2/1PP3PP/1KNR1B1R w - - use_en_passant False;": {
+    "c1b3": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "2kr3r/1b1nqp1p/p1pp1npQ/1p2p3/3PP3/PNN2P2/1PP3PP/1K1R1B1R b - - use_en_passant False;": {
+    "e5d4": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "2kr3r/1b1nqp1p/p1pp1npQ/1p6/3pP3/PNN2P2/1PP3PP/1K1R1B1R w - - use_en_passant False;": {
+    "d1d4": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "2kr3r/1b1nqp1p/p1pp1npQ/1p6/3RP3/PNN2P2/1PP3PP/1K3B1R b - - use_en_passant False;": {
+    "c6c5": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "2kr3r/1b1nqp1p/p2p1npQ/1pp5/3RP3/PNN2P2/1PP3PP/1K3B1R w - - use_en_passant False;": {
+    "d4d1": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "2kr3r/1b1nqp1p/p2p1npQ/1pp5/4P3/PNN2P2/1PP3PP/1K1R1B1R b - - use_en_passant False;": {
+    "d7b6": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "2kr3r/1b2qp1p/pn1p1npQ/1pp5/4P3/PNN2P2/1PP3PP/1K1R1B1R w - - use_en_passant False;": {
+    "g2g3": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "2kr3r/1b2qp1p/pn1p1npQ/1pp5/4P3/PNN2PP1/1PP4P/1K1R1B1R b - - use_en_passant False;": {
+    "c8b8": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "1k1r3r/1b2qp1p/pn1p1npQ/1pp5/4P3/PNN2PP1/1PP4P/1K1R1B1R w - - use_en_passant False;": {
+    "b3a5": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "1k1r3r/1b2qp1p/pn1p1npQ/Npp5/4P3/P1N2PP1/1PP4P/1K1R1B1R b - - use_en_passant False;": {
+    "b7a8": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "bk1r3r/4qp1p/pn1p1npQ/Npp5/4P3/P1N2PP1/1PP4P/1K1R1B1R w - - use_en_passant False;": {
+    "f1h3": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "bk1r3r/4qp1p/pn1p1npQ/Npp5/4P3/P1N2PPB/1PP4P/1K1R3R b - - use_en_passant False;": {
+    "d6d5": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "bk1r3r/4qp1p/pn3npQ/Nppp4/4P3/P1N2PPB/1PP4P/1K1R3R w - - use_en_passant False;": {
+    "h6f4": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "bk1r3r/4qp1p/pn3np1/Nppp4/4PQ2/P1N2PPB/1PP4P/1K1R3R b - - use_en_passant False;": {
+    "b8a7": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k3qp1p/pn3np1/Nppp4/4PQ2/P1N2PPB/1PP4P/1K1R3R w - - use_en_passant False;": {
+    "h1e1": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k3qp1p/pn3np1/Nppp4/4PQ2/P1N2PPB/1PP4P/1K1RR3 b - - use_en_passant False;": {
+    "d5d4": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k3qp1p/pn3np1/Npp5/3pPQ2/P1N2PPB/1PP4P/1K1RR3 w - - use_en_passant False;": {
+    "c3d5": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k3qp1p/pn3np1/NppN4/3pPQ2/P4PPB/1PP4P/1K1RR3 b - - use_en_passant False;": {
+    "b6d5": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k3qp1p/p4np1/Nppn4/3pPQ2/P4PPB/1PP4P/1K1RR3 w - - use_en_passant False;": {
+    "e4d5": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k3qp1p/p4np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 b - - use_en_passant False;": {
+    "e7d6": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k4p1p/p2q1np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - use_en_passant False;": {
+    "d1d4": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k4p1p/p2q1np1/NppP4/3R1Q2/P4PPB/1PP4P/1K2R3 b - - use_en_passant False;": {
+    "c5d4": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k4p1p/p2q1np1/Np1P4/3p1Q2/P4PPB/1PP4P/1K2R3 w - - use_en_passant False;": {
+    "e1e7": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/k3Rp1p/p2q1np1/Np1P4/3p1Q2/P4PPB/1PP4P/1K6 b - - use_en_passant False;": {
+    "a7b6": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/4Rp1p/pk1q1np1/Np1P4/3p1Q2/P4PPB/1PP4P/1K6 w - - use_en_passant False;": {
+    "f4d4": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/4Rp1p/pk1q1np1/Np1P4/3Q4/P4PPB/1PP4P/1K6 b - - use_en_passant False;": {
+    "b6a5": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/4Rp1p/p2q1np1/kp1P4/3Q4/P4PPB/1PP4P/1K6 w - - use_en_passant False;": {
+    "b2b4": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/4Rp1p/p2q1np1/kp1P4/1P1Q4/P4PPB/2P4P/1K6 b - - use_en_passant False;": {
+    "a5a4": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/4Rp1p/p2q1np1/1p1P4/kP1Q4/P4PPB/2P4P/1K6 w - - use_en_passant False;": {
+    "d4c3": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/4Rp1p/p2q1np1/1p1P4/kP6/P1Q2PPB/2P4P/1K6 b - - use_en_passant False;": {
+    "d6d5": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/4Rp1p/p4np1/1p1q4/kP6/P1Q2PPB/2P4P/1K6 w - - use_en_passant False;": {
+    "e7a7": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "b2r3r/R4p1p/p4np1/1p1q4/kP6/P1Q2PPB/2P4P/1K6 b - - use_en_passant False;": {
+    "a8b7": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/Rb3p1p/p4np1/1p1q4/kP6/P1Q2PPB/2P4P/1K6 w - - use_en_passant False;": {
+    "a7b7": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/p4np1/1p1q4/kP6/P1Q2PPB/2P4P/1K6 b - - use_en_passant False;": {
+    "d5c4": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/p4np1/1p6/kPq5/P1Q2PPB/2P4P/1K6 w - - use_en_passant False;": {
+    "c3f6": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/p4Qp1/1p6/kPq5/P4PPB/2P4P/1K6 b - - use_en_passant False;": {
+    "a4a3": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/p4Qp1/1p6/1Pq5/k4PPB/2P4P/1K6 w - - use_en_passant False;": {
+    "f6a6": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/Q5p1/1p6/1Pq5/k4PPB/2P4P/1K6 b - - use_en_passant False;": {
+    "a3b4": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/Q5p1/1p6/1kq5/5PPB/2P4P/1K6 w - - use_en_passant False;": {
+    "c2c3": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/Q5p1/1p6/1kq5/2P2PPB/7P/1K6 b - - use_en_passant False;": {
+    "b4c3": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/Q5p1/1p6/2q5/2k2PPB/7P/1K6 w - - use_en_passant False;": {
+    "a6a1": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/6p1/1p6/2q5/2k2PPB/7P/QK6 b - - use_en_passant False;": {
+    "c3d2": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/6p1/1p6/2q5/5PPB/3k3P/QK6 w - - use_en_passant False;": {
+    "a1b2": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/6p1/1p6/2q5/5PPB/1Q1k3P/1K6 b - - use_en_passant False;": {
+    "d2d1": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/6p1/1p6/2q5/5PPB/1Q5P/1K1k4 w - - use_en_passant False;": {
+    "h3f1": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "3r3r/1R3p1p/6p1/1p6/2q5/5PP1/1Q5P/1K1k1B2 b - - use_en_passant False;": {
+    "d8d2": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "7r/1R3p1p/6p1/1p6/2q5/5PP1/1Q1r3P/1K1k1B2 w - - use_en_passant False;": {
+    "b7d7": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "7r/3R1p1p/6p1/1p6/2q5/5PP1/1Q1r3P/1K1k1B2 b - - use_en_passant False;": {
+    "d2d7": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "7r/3r1p1p/6p1/1p6/2q5/5PP1/1Q5P/1K1k1B2 w - - use_en_passant False;": {
+    "f1c4": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "7r/3r1p1p/6p1/1p6/2B5/5PP1/1Q5P/1K1k4 b - - use_en_passant False;": {
+    "b5c4": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "7r/3r1p1p/6p1/8/2p5/5PP1/1Q5P/1K1k4 w - - use_en_passant False;": {
+    "b2h8": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "7Q/3r1p1p/6p1/8/2p5/5PP1/7P/1K1k4 b - - use_en_passant False;": {
+    "d7d3": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "7Q/5p1p/6p1/8/2p5/3r1PP1/7P/1K1k4 w - - use_en_passant False;": {
+    "h8a8": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "Q7/5p1p/6p1/8/2p5/3r1PP1/7P/1K1k4 b - - use_en_passant False;": {
+    "c4c3": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "Q7/5p1p/6p1/8/8/2pr1PP1/7P/1K1k4 w - - use_en_passant False;": {
+    "a8a4": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "8/5p1p/6p1/8/Q7/2pr1PP1/7P/1K1k4 b - - use_en_passant False;": {
+    "d1e1": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "8/5p1p/6p1/8/Q7/2pr1PP1/7P/1K2k3 w - - use_en_passant False;": {
+    "f3f4": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "8/5p1p/6p1/8/Q4P2/2pr2P1/7P/1K2k3 b - - use_en_passant False;": {
+    "f7f5": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "8/7p/6p1/5p2/Q4P2/2pr2P1/7P/1K2k3 w - - use_en_passant False;": {
+    "b1c1": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "8/7p/6p1/5p2/Q4P2/2pr2P1/7P/2K1k3 b - - use_en_passant False;": {
+    "d3d2": {
+      "weight": 3.0,
+      "masters": [
+        "Veselin Topalov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "8/7p/6p1/5p2/Q4P2/2p3P1/3r3P/2K1k3 w - - use_en_passant False;": {
+    "a4a7": {
+      "weight": 3.0,
+      "masters": [
+        "Garry Kasparov"
+      ],
+      "events": [
+        "Kasparov's Immortal Game"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - use_en_passant False;": {
+    "g8f6": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/pppppppp/5n2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - use_en_passant False;": {
+    "c2c4": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/pppppppp/5n2/8/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq - use_en_passant False;": {
+    "g7g6": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/pppppp1p/5np1/8/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq - use_en_passant False;": {
+    "b1c3": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqkb1r/pppppp1p/5np1/8/2P5/2N2N2/PP1PPPPP/R1BQKB1R b KQkq - use_en_passant False;": {
+    "f8g7": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/ppppppbp/5np1/8/2P5/2N2N2/PP1PPPPP/R1BQKB1R w KQkq - use_en_passant False;": {
+    "d2d4": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbqk2r/ppppppbp/5np1/8/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - use_en_passant False;": {
+    "e8g8": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/ppppppbp/5np1/8/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQ - use_en_passant False;": {
+    "c1f4": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/ppppppbp/5np1/8/2PP1B2/2N2N2/PP2PPPP/R2QKB1R b KQ - use_en_passant False;": {
+    "d7d5": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/ppp1ppbp/5np1/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R w KQ - use_en_passant False;": {
+    "d1b3": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/ppp1ppbp/5np1/3p4/2PP1B2/1QN2N2/PP2PPPP/R3KB1R b KQ - use_en_passant False;": {
+    "d5c4": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/ppp1ppbp/5np1/8/2pP1B2/1QN2N2/PP2PPPP/R3KB1R w KQ - use_en_passant False;": {
+    "b3c4": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/ppp1ppbp/5np1/8/2QP1B2/2N2N2/PP2PPPP/R3KB1R b KQ - use_en_passant False;": {
+    "c7c6": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/pp2ppbp/2p2np1/8/2QP1B2/2N2N2/PP2PPPP/R3KB1R w KQ - use_en_passant False;": {
+    "e2e4": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "rnbq1rk1/pp2ppbp/2p2np1/8/2QPPB2/2N2N2/PP3PPP/R3KB1R b KQ - use_en_passant False;": {
+    "b8d7": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1rk1/pp1nppbp/2p2np1/8/2QPPB2/2N2N2/PP3PPP/R3KB1R w KQ - use_en_passant False;": {
+    "a1d1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1rk1/pp1nppbp/2p2np1/8/2QPPB2/2N2N2/PP3PPP/3RKB1R b K - use_en_passant False;": {
+    "d7b6": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1rk1/pp2ppbp/1np2np1/8/2QPPB2/2N2N2/PP3PPP/3RKB1R w K - use_en_passant False;": {
+    "c4c5": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r1bq1rk1/pp2ppbp/1np2np1/2Q5/3PPB2/2N2N2/PP3PPP/3RKB1R b K - use_en_passant False;": {
+    "c8g4": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp2ppbp/1np2np1/2Q5/3PPBb1/2N2N2/PP3PPP/3RKB1R w K - use_en_passant False;": {
+    "f4g5": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp2ppbp/1np2np1/2Q3B1/3PP1b1/2N2N2/PP3PPP/3RKB1R b K - use_en_passant False;": {
+    "b6a4": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp2ppbp/2p2np1/2Q3B1/n2PP1b1/2N2N2/PP3PPP/3RKB1R w K - use_en_passant False;": {
+    "c5a3": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp2ppbp/2p2np1/6B1/n2PP1b1/Q1N2N2/PP3PPP/3RKB1R b K - use_en_passant False;": {
+    "a4c3": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp2ppbp/2p2np1/6B1/3PP1b1/Q1n2N2/PP3PPP/3RKB1R w K - use_en_passant False;": {
+    "b2c3": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp2ppbp/2p2np1/6B1/3PP1b1/Q1P2N2/P4PPP/3RKB1R b K - use_en_passant False;": {
+    "f6e4": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp2ppbp/2p3p1/6B1/3Pn1b1/Q1P2N2/P4PPP/3RKB1R w K - use_en_passant False;": {
+    "g5e7": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r2q1rk1/pp2Bpbp/2p3p1/8/3Pn1b1/Q1P2N2/P4PPP/3RKB1R b K - use_en_passant False;": {
+    "d8b6": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r4rk1/pp2Bpbp/1qp3p1/8/3Pn1b1/Q1P2N2/P4PPP/3RKB1R w K - use_en_passant False;": {
+    "f1c4": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r4rk1/pp2Bpbp/1qp3p1/8/2BPn1b1/Q1P2N2/P4PPP/3RK2R b K - use_en_passant False;": {
+    "e4c3": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r4rk1/pp2Bpbp/1qp3p1/8/2BP2b1/Q1n2N2/P4PPP/3RK2R w K - use_en_passant False;": {
+    "e7c5": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r4rk1/pp3pbp/1qp3p1/2B5/2BP2b1/Q1n2N2/P4PPP/3RK2R b K - use_en_passant False;": {
+    "f8e8": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1qp3p1/2B5/2BP2b1/Q1n2N2/P4PPP/3RK2R w K - use_en_passant False;": {
+    "e1f1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1qp3p1/2B5/2BP2b1/Q1n2N2/P4PPP/3R1K1R b - - use_en_passant False;": {
+    "g4e6": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1qp1b1p1/2B5/2BP4/Q1n2N2/P4PPP/3R1K1R w - - use_en_passant False;": {
+    "c5b6": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp1b1p1/8/2BP4/Q1n2N2/P4PPP/3R1K1R b - - use_en_passant False;": {
+    "e6c4": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2bP4/Q1n2N2/P4PPP/3R1K1R w - - use_en_passant False;": {
+    "f1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2bP4/Q1n2N2/P4PPP/3R2KR b - - use_en_passant False;": {
+    "c3e2": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2bP4/Q4N2/P3nPPP/3R2KR w - - use_en_passant False;": {
+    "g1f1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2bP4/Q4N2/P3nPPP/3R1K1R b - - use_en_passant False;": {
+    "e2d4": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2bn4/Q4N2/P4PPP/3R1K1R w - - use_en_passant False;": {
+    "f1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2bn4/Q4N2/P4PPP/3R2KR b - - use_en_passant False;": {
+    "d4e2": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2b5/Q4N2/P3nPPP/3R2KR w - - use_en_passant False;": {
+    "g1f1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2b5/Q4N2/P3nPPP/3R1K1R b - - use_en_passant False;": {
+    "e2c3": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2b5/Q1n2N2/P4PPP/3R1K1R w - - use_en_passant False;": {
+    "f1g1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/pp3pbp/1Bp3p1/8/2b5/Q1n2N2/P4PPP/3R2KR b - - use_en_passant False;": {
+    "a7b6": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/1p3pbp/1pp3p1/8/2b5/Q1n2N2/P4PPP/3R2KR w - - use_en_passant False;": {
+    "a3b4": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "r3r1k1/1p3pbp/1pp3p1/8/1Qb5/2n2N2/P4PPP/3R2KR b - - use_en_passant False;": {
+    "a8a4": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "4r1k1/1p3pbp/1pp3p1/8/rQb5/2n2N2/P4PPP/3R2KR w - - use_en_passant False;": {
+    "b4b6": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "4r1k1/1p3pbp/1Qp3p1/8/r1b5/2n2N2/P4PPP/3R2KR b - - use_en_passant False;": {
+    "c3d1": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "4r1k1/1p3pbp/1Qp3p1/8/r1b5/5N2/P4PPP/3n2KR w - - use_en_passant False;": {
+    "h2h3": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "4r1k1/1p3pbp/1Qp3p1/8/r1b5/5N1P/P4PP1/3n2KR b - - use_en_passant False;": {
+    "a4a2": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "4r1k1/1p3pbp/1Qp3p1/8/2b5/5N1P/r4PP1/3n2KR w - - use_en_passant False;": {
+    "g1h2": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "4r1k1/1p3pbp/1Qp3p1/8/2b5/5N1P/r4PPK/3n3R b - - use_en_passant False;": {
+    "d1f2": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "4r1k1/1p3pbp/1Qp3p1/8/2b5/5N1P/r4nPK/7R w - - use_en_passant False;": {
+    "h1e1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "4r1k1/1p3pbp/1Qp3p1/8/2b5/5N1P/r4nPK/4R3 b - - use_en_passant False;": {
+    "e8e1": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "6k1/1p3pbp/1Qp3p1/8/2b5/5N1P/r4nPK/4r3 w - - use_en_passant False;": {
+    "b6d8": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "3Q2k1/1p3pbp/2p3p1/8/2b5/5N1P/r4nPK/4r3 b - - use_en_passant False;": {
+    "g7f8": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "3Q1bk1/1p3p1p/2p3p1/8/2b5/5N1P/r4nPK/4r3 w - - use_en_passant False;": {
+    "f3e1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "3Q1bk1/1p3p1p/2p3p1/8/2b5/7P/r4nPK/4N3 b - - use_en_passant False;": {
+    "c4d5": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "3Q1bk1/1p3p1p/2p3p1/3b4/8/7P/r4nPK/4N3 w - - use_en_passant False;": {
+    "e1f3": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "3Q1bk1/1p3p1p/2p3p1/3b4/8/5N1P/r4nPK/8 b - - use_en_passant False;": {
+    "f2e4": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "3Q1bk1/1p3p1p/2p3p1/3b4/4n3/5N1P/r5PK/8 w - - use_en_passant False;": {
+    "d8b8": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q3bk1/1p3p1p/2p3p1/3b4/4n3/5N1P/r5PK/8 b - - use_en_passant False;": {
+    "b7b5": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q3bk1/5p1p/2p3p1/1p1b4/4n3/5N1P/r5PK/8 w - - use_en_passant False;": {
+    "h3h4": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q3bk1/5p1p/2p3p1/1p1b4/4n2P/5N2/r5PK/8 b - - use_en_passant False;": {
+    "h7h5": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q3bk1/5p2/2p3p1/1p1b3p/4n2P/5N2/r5PK/8 w - - use_en_passant False;": {
+    "f3e5": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q3bk1/5p2/2p3p1/1p1bN2p/4n2P/8/r5PK/8 b - - use_en_passant False;": {
+    "g8g7": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q3b2/5pk1/2p3p1/1p1bN2p/4n2P/8/r5PK/8 w - - use_en_passant False;": {
+    "h2g1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q3b2/5pk1/2p3p1/1p1bN2p/4n2P/8/r5P1/6K1 b - - use_en_passant False;": {
+    "f8c5": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1pbbN2p/4n2P/8/r5P1/6K1 w - - use_en_passant False;": {
+    "g1f1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1pbbN2p/4n2P/8/r5P1/5K2 b - - use_en_passant False;": {
+    "e4g3": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1pbbN2p/7P/6n1/r5P1/5K2 w - - use_en_passant False;": {
+    "f1e1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1pbbN2p/7P/6n1/r5P1/4K3 b - - use_en_passant False;": {
+    "c5b4": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1p1bN2p/1b5P/6n1/r5P1/4K3 w - - use_en_passant False;": {
+    "e1d1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1p1bN2p/1b5P/6n1/r5P1/3K4 b - - use_en_passant False;": {
+    "d5b3": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1b4n1/r5P1/3K4 w - - use_en_passant False;": {
+    "d1c1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1b4n1/r5P1/2K5 b - - use_en_passant False;": {
+    "g3e2": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1b6/r3n1P1/2K5 w - - use_en_passant False;": {
+    "c1b1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1b6/r3n1P1/1K6 b - - use_en_passant False;": {
+    "e2c3": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bn5/r5P1/1K6 w - - use_en_passant False;": {
+    "b1c1": {
+      "weight": 3.0,
+      "masters": [
+        "Donald Byrne"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  },
+  "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bn5/r5P1/2K5 b - - use_en_passant False;": {
+    "a2c2": {
+      "weight": 3.0,
+      "masters": [
+        "Robert James Fischer"
+      ],
+      "events": [
+        "Bobby Fischer Game of the Century"
+      ],
+      "games": 1
+    }
+  }
+}

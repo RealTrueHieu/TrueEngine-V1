@@ -1,0 +1,8 @@
+{
+    "cloud_enabled": true,
+    "tunnel_url": "https://flexibility-clay-games-mon.trycloudflare.com",
+    "primary_device": "NVIDIA Tesla T4 (16GB VRAM, 320 Tensor Cores)",
+    "fallback_device": "NVIDIA GeForce GTX 1660 Ti (Local CUDA FP16)",
+    "auto_failover": true,
+    "max_cloud_wait_sec": 10.0
+}
