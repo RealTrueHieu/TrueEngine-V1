@@ -272,7 +272,7 @@ export default {
 
     <div class="banner">
       <div>
-        🚀 <strong>Multi-Cloud Generation:</strong> Kaggle GPU Burst Trainer (Tesla T4) + GitHub Codespaces (4 vCPUs) + Kaggle CPU Spawner (4 vCPUs) + Colab Streamer active.
+        🚀 <strong>Tri-Infra Synchronized Supercomputing:</strong> Molab Blackwell RTX PRO 6000 (98GB VRAM, 117k pos/s) + Kaggle Dual-Tesla T4 (32GB VRAM) + Google Colab Streamer + GitHub Codespaces.
       </div>
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-green);">
         ⚡ Strict Zero Local GPU Load Enforced (0 MB VRAM)
@@ -280,6 +280,38 @@ export default {
     </div>
 
     <div class="grid">
+      <!-- CARD 0: MOLAB BLACKWELL SUPERCLUSTER NODE -->
+      <div class="card featured" style="border: 1px solid rgba(0, 242, 254, 0.6); box-shadow: 0 0 35px rgba(0, 242, 254, 0.18);">
+        <div class="card-title">
+          <span>👑 Molab Blackwell Supercluster (Primary Node)</span>
+          <span class="badge-tag active" id="molab-badge">ONLINE (RTX 6000 BLACKWELL)</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Hardware Acceleration</span>
+          <span class="metric-val cyan" id="molab-gpu">NVIDIA RTX PRO 6000 Blackwell (98GB VRAM)</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">High-Throughput Speed</span>
+          <span class="metric-val green" id="molab-speed">117,800+ pos/s (8.9s / Epoch)</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">System Memory & Precision</span>
+          <span class="metric-val purple">160 GB RAM • PyTorch FP16 AMP</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Active Workload</span>
+          <span class="metric-val gold" id="molab-role">Iterative Supernet Training & MCTS Batched Self-Play</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Session Availability</span>
+          <span class="metric-val cyan">12-Hour Continuous Run (Infinitely Deployable)</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Model Hub Deployment</span>
+          <span class="metric-val purple">TrueHieu/trueengine-v1-models (.pt & .onnx)</span>
+        </div>
+      </div>
+
       <!-- CARD 1: KAGGLE GPU BURST TRAINER -->
       <div class="card featured">
         <div class="card-title">
@@ -476,6 +508,23 @@ export default {
         const ping = Math.round(performance.now() - t0);
         const latElem = document.getElementById('latency-indicator');
         if (latElem) latElem.innerText = 'Ping: ' + ping + 'ms';
+
+        // 0. Molab Blackwell
+        if (data.molab_blackwell) {
+          const m = data.molab_blackwell;
+          const mBadge = document.getElementById('molab-badge');
+          if (mBadge) {
+            mBadge.innerText = m.status || 'ONLINE (BLACKWELL GPU)';
+          }
+          if (m.speed) {
+            const spElem = document.getElementById('molab-speed');
+            if (spElem) spElem.innerText = m.speed;
+          }
+          if (m.mode) {
+            const rElem = document.getElementById('molab-role');
+            if (rElem) rElem.innerText = m.mode + (m.last_loss ? ' (Loss: ' + m.last_loss + ' | Acc: ' + m.accuracy_pct + '%)' : '');
+          }
+        }
 
         // 1. Colab
         if (data.colab) {
