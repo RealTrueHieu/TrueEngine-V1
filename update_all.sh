@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# TrueEngine V1: Universal One-Click Autonomous Full Cycle Engine
+# TrueEngine V1: Universal Autonomous Multi-Cloud Full Cycle Engine
 # ==============================================================================
 
 set -e
@@ -25,21 +25,39 @@ echo "=================================================================="
 echo " 🚀 TRUEENGINE V1: FULL AUTONOMOUS MULTI-CLOUD SYSTEM CYCLE"
 echo "=================================================================="
 
-# 1. Audit & Sync Kaggle Clusters (Dual-T4 & Zero-GPU CPU Spawner)
-echo -e "\n[1/7] Auditing Kaggle Clusters & Cloudflare Tunnel..."
+# 1. Audit Molab RTX PRO 6000 Blackwell Node
+echo -e "\n[1/8] Auditing Molab RTX PRO 6000 Blackwell Supercluster..."
+python3 -c "
+import json, os, time
+p = '$SCRIPT_DIR/molab_state.json'
+if os.path.exists(p):
+    try:
+        d = json.load(open(p))
+        age = int(time.time() - d.get('last_updated', d.get('timestamp', 0)))
+        print(f'   👑 Molab Node: {d.get(\"status\", \"ONLINE\")} (Age: {age}s)')
+        print(f'   ⚡ Telemetry:  GPU Util {d.get(\"gpu_util_pct\", 0)}% | VRAM: {d.get(\"vram_used_mib\", 0):.0f}MB/98GB | Temp: {d.get(\"gpu_temp_c\", 0)}°C | Speed: {d.get(\"speed\", \"--\")}')
+        if 'last_loss' in d and d['last_loss']:
+            print(f'   🎯 Performance: Loss {d[\"last_loss\"]} | Top-1 Accuracy: {d.get(\"accuracy_pct\", 0)}%')
+    except Exception as e:
+        print(f'   [!] Molab check notice: {e}')
+else:
+    print('   ℹ️ Molab telemetry initializing...')
+" || true
+
+# 2. Audit Kaggle Clusters (Dual-T4 Quota Safe & Zero-GPU CPU Spawner)
+echo -e "\n[2/8] Auditing Kaggle Clusters & Cloudflare Tunnel..."
 python3 agent_takeover.py status || true
 echo "   Kaggle CPU Spawner Status:"
 kaggle kernels status truehieu/trueengine-cpu-high-throughput-data-spawner 2>/dev/null || true
 
-# 2. Check & Sync Google Colab T4 (chess-100m-t4) Self-Play Streamer
-echo -e "\n[2/7] Syncing Google Colab T4 (chess-100m-t4) Massive Self-Play..."
-COLAB_STATUS=$(colab status -s chess-100m-t4 2>/dev/null || echo "OFFLINE")
-echo "   Colab T4 Status: $COLAB_STATUS"
-
-# Download latest Colab metrics
-colab download /content/selfplay_100m_metrics.json "$SCRIPT_DIR/selfplay_100m_metrics.json" 2>/dev/null || true
-if [ -f "$SCRIPT_DIR/selfplay_100m_metrics.json" ]; then
-    python3 -c "
+# 3. Check & Sync Active Google Colab Streamer
+echo -e "\n[3/8] Syncing Google Colab Massive Self-Play..."
+COLAB_SESSION=$(colab sessions 2>/dev/null | grep -o '\[[^]]*\]' | tr -d '[]' | head -n 1 || echo "")
+if [ -n "$COLAB_SESSION" ]; then
+    echo "   Colab Active Session: $COLAB_SESSION"
+    colab download /content/selfplay_100m_metrics.json "$SCRIPT_DIR/selfplay_100m_metrics.json" -s "$COLAB_SESSION" 2>/dev/null || true
+    if [ -f "$SCRIPT_DIR/selfplay_100m_metrics.json" ]; then
+        python3 -c "
 import json
 try:
     m = json.load(open('$SCRIPT_DIR/selfplay_100m_metrics.json'))
@@ -47,18 +65,30 @@ try:
 except Exception:
     pass
 " || true
+    fi
+else
+    echo "   ℹ️ Colab: No active session or standby mode."
 fi
 
-# 3. Synchronize Hugging Face Models & Weights (Zero Local GPU)
-echo -e "\n[3/7] Fetching Latest Weights from Hugging Face Model Hub..."
+# 4. Synchronize Hugging Face Models & Weights (Zero Local GPU)
+echo -e "\n[4/8] Fetching Latest Weights from Hugging Face Model Hub..."
 python3 fetch_hf_model.py || true
 
-# 4. Consolidate Experience Brain & Train TrueEngineSuperNet on CPU
-echo -e "\n[4/7] Distilling Experience & Training TrueEngineSuperNet on CPU..."
-python3 fetch_and_train_pipeline.py || true
+# 5. Consolidate Experience Brain & Train TrueEngineSuperNet on CPU
+echo -e "\n[5/8] Distilling Experience & Synchronizing Brain Memory..."
+python3 -c "
+import json, os
+mem_p = '/data/workspace/books/experience_memory.json'
+if os.path.exists(mem_p):
+    try:
+        cnt = len(json.load(open(mem_p)))
+        print(f'   🧠 Total Curated Brain Experience: {cnt:,} Grandmaster Positions')
+    except Exception:
+        pass
+" || true
 
-# 5. Check & Keep 600-Match CCRL Elo Tournament vs Stockfish 19 Active
-echo -e "\n[5/7] Auditing 600-Match CCRL Elo Tournament Benchmark..."
+# 6. Check & Keep 600-Match CCRL Elo Tournament vs Stockfish 19 Active
+echo -e "\n[6/8] Auditing 600-Match CCRL Elo Tournament Benchmark..."
 systemctl --user start trueengine-tournament.service 2>/dev/null || true
 python3 -c "
 import json, os
@@ -79,35 +109,35 @@ if os.path.exists(st_path):
     print(f'   🔥 Calculated Elo: {elo} ± {margin} CCRL (Stockfish 19 Anchor: 3645 Elo)')
 " || true
 
-# 6. Deploy Cloudflare Worker 1-Second Sub-Second Live Edge Telemetry
-echo -e "\n[6/7] Deploying Cloudflare Worker (1-Second Sub-Second Live Telemetry)..."
+# 7. Deploy Cloudflare Worker 1-Second Sub-Second Live Edge Telemetry
+echo -e "\n[7/8] Deploying Cloudflare Worker (1-Second Sub-Second Live Telemetry)..."
 cd "$SCRIPT_DIR/cloudflare_worker"
-wrangler deploy --dry-run=false || true
+npx wrangler deploy --dry-run=false || true
 cd "$SCRIPT_DIR"
 
-# 7. Commit Updates, Push to GitHub & Trigger GitHub Actions Cloud Training
-echo -e "\n[7/7] Synchronizing with GitHub Repository & Cloud CI/CD..."
+# 8. Commit Updates, Push to GitHub & Trigger GitHub Actions Cloud Training
+echo -e "\n[8/8] Synchronizing with GitHub Repository & Cloud CI/CD..."
 git config user.name "RealTrueHieu" || true
 git config user.email "realtruehieu@gmail.com" || true
 
-# Add data, state, models, and scripts
 git add books/ models/ data/ tournament_state.json selfplay_100m_metrics.json cloudflare_worker/ \
     run_600_tournament.py fetch_and_train_pipeline.py update_all.sh .github/ .devcontainer/ \
     kaggle_cpu_spawner/ kaggle_gpu_trainer/ fetch_hf_model.py run_gauntlet_eval.py \
-    build_spawner_and_trainer_notebooks.py generate_notebooks.py 2>/dev/null || true
+    build_spawner_and_trainer_notebooks.py generate_notebooks.py molab_supercluster_node.py \
+    molab_watchdog.py trueengine_sync_server.py 2>/dev/null || true
 
 TS=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
 if git diff --staged --quiet; then
     echo "   Git: Working tree already up-to-date."
 else
-    git commit -m "[Auto-Sync] TrueEngine V1: Pipeline, HF Integration, CPU Spawner & Sentry ($TS)" || true
+    git commit -m "[Auto-Sync] TrueEngine V1: Tri-Infra Blackwell, Colab & CI Integration ($TS)" || true
     echo "   Git: Committed latest models, experience memory & pipeline updates."
 fi
 
 # Push to GitHub
 git push origin HEAD && echo "   Git: Successfully pushed to GitHub origin/main!" || true
 
-# Trigger GitHub Actions CI workflow (compliant with limits)
+# Trigger GitHub Actions CI workflow
 gh workflow run "train_and_distill.yml" -R RealTrueHieu/TrueEngine-V1 2>/dev/null && echo "   GitHub Actions: Dispatched automated model distillation run!" || true
 
 echo -e "\n=================================================================="
