@@ -27,10 +27,26 @@ except ImportError:
     import chess.engine
     from huggingface_hub import HfApi
 
-# HF Token configuration
+# HF Token configuration - strictly loaded from environment or untracked .env / token files
 HF_TOKEN = os.getenv("HF_TOKEN") or None
 if not HF_TOKEN:
-    HF_TOKEN = "".join(["h" + "f_", "JqZvvmfLbDnzyEvG", "IKdNUBqeorthARbEsN"])
+    env_p = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if os.path.exists(env_p):
+        with open(env_p, "r", encoding="utf-8") as f:
+            for line in f:
+                if line.startswith("HF_TOKEN="):
+                    HF_TOKEN = line.strip().split("=", 1)[1].strip("\"'")
+                    break
+if not HF_TOKEN:
+    for token_path in [
+        os.path.expanduser("~/.cache/huggingface/token"),
+        os.path.expanduser("~/.huggingface/token")
+    ]:
+        if os.path.exists(token_path):
+            with open(token_path, "r", encoding="utf-8") as f:
+                HF_TOKEN = f.read().strip()
+                if HF_TOKEN:
+                    break
 
 DATASET_REPO = "TrueHieu/trueengine-chess-dataset"
 

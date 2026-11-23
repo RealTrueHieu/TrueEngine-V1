@@ -70,7 +70,19 @@ try:
 except Exception:
     pass
 if not HF_TOKEN:
-    HF_TOKEN = "".join(["h" + "f_", "JqZvvmfLbDnzyEvG", "IKdNUBqeorthARbEsN"])
+    for token_path in [
+        "/kaggle/working/token",
+        os.path.expanduser("~/.cache/huggingface/token"),
+        os.path.expanduser("~/.huggingface/token")
+    ]:
+        if os.path.exists(token_path):
+            try:
+                with open(token_path, "r") as f:
+                    HF_TOKEN = f.read().strip()
+                if HF_TOKEN:
+                    break
+            except Exception:
+                pass
 DATASET_REPO = "TrueHieu/trueengine-chess-dataset"
 
 api = HfApi(token=HF_TOKEN)
@@ -309,7 +321,19 @@ try:
 except Exception:
     pass
 if not HF_TOKEN:
-    HF_TOKEN = "".join(["h" + "f_", "JqZvvmfLbDnzyEvG", "IKdNUBqeorthARbEsN"])
+    for token_path in [
+        "/kaggle/working/token",
+        os.path.expanduser("~/.cache/huggingface/token"),
+        os.path.expanduser("~/.huggingface/token")
+    ]:
+        if os.path.exists(token_path):
+            try:
+                with open(token_path, "r") as f:
+                    HF_TOKEN = f.read().strip()
+                if HF_TOKEN:
+                    break
+            except Exception:
+                pass
 DATASET_REPO = "TrueHieu/trueengine-chess-dataset"
 MODEL_REPO = "TrueHieu/trueengine-v1-models"
 
