@@ -1,12 +1,12 @@
 {
-  "games_completed": 430,
+  "games_completed": 722,
   "target_games": 100000000,
-  "positions_generated": 14945,
-  "games_per_sec": 1.03,
-  "pos_per_sec": 35.89,
-  "policy_loss": 1.7372,
-  "value_loss": 0.0256,
-  "top1_acc": 58.2,
-  "elapsed_sec": 416.4,
-  "timestamp": 1795454585
+  "positions_generated": 17726,
+  "games_per_sec": 1.37,
+  "pos_per_sec": 33.59,
+  "policy_loss": 1.2095,
+  "value_loss": 0.0333,
+  "top1_acc": 70.9,
+  "elapsed_sec": 527.7,
+  "timestamp": 1795455490
 }
