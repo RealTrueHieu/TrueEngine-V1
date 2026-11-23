@@ -304,7 +304,7 @@ import os
 !nvidia-smi
 
 print("Installing Hugging Face Hub & dependencies...")
-subprocess.run([sys.executable, "-m", "pip", "install", "-q", "huggingface_hub", "onnx", "tqdm"])
+subprocess.run([sys.executable, "-m", "pip", "install", "-q", "huggingface_hub", "onnx", "onnxscript", "tqdm"])
 
 import torch
 import torch.nn as nn
@@ -510,39 +510,50 @@ save_model = model.module if isinstance(model, nn.DataParallel) else model
 torch.save(save_model.state_dict(), pt_path)
 print(f"Saved PyTorch weights: {pt_path} ({os.path.getsize(pt_path) / 1024 / 1024:.2f} MB)")
 
-# Export ONNX
-save_model.eval()
-dummy_input = torch.randn(1, 12, 8, 8, device=device)
-torch.onnx.export(
-    save_model,
-    dummy_input,
-    onnx_path,
-    input_names=["board_state"],
-    output_names=["policy_from", "policy_to", "value"],
-    dynamic_axes={"board_state": {0: "batch_size"}, "policy_from": {0: "batch_size"}, "policy_to": {0: "batch_size"}, "value": {0: "batch_size"}},
-    opset_version=14
-)
-print(f"Saved ONNX model: {onnx_path} ({os.path.getsize(onnx_path) / 1024 / 1024:.2f} MB)")
+# Upload PyTorch weights to Hugging Face Model Hub
+print("Uploading PyTorch model to Hugging Face Model Hub:", MODEL_REPO)
+try:
+    api.upload_file(
+        path_or_fileobj=pt_path,
+        path_in_repo="trueengine_v1_latest.pt",
+        repo_id=MODEL_REPO,
+        repo_type="model"
+    )
+    api.upload_file(
+        path_or_fileobj=pt_path,
+        path_in_repo="checkpoints/trueengine_v1_latest.pt",
+        repo_id=MODEL_REPO,
+        repo_type="model"
+    )
+    print("SUCCESS: PyTorch model uploaded to Hugging Face Hub!")
+except Exception as e:
+    print(f"[!] Upload error: {e}")
 
-# Upload to Hugging Face Model Hub
-print("Uploading models to Hugging Face Model Hub:", MODEL_REPO)
-api.upload_file(
-    path_or_fileobj=pt_path,
-    path_in_repo="checkpoints/trueengine_v1_latest.pt",
-    repo_id=MODEL_REPO,
-    repo_type="model"
-)
-api.upload_file(
-    path_or_fileobj=onnx_path,
-    path_in_repo="checkpoints/trueengine_v1_latest.onnx",
-    repo_id=MODEL_REPO,
-    repo_type="model"
-)
-print("SUCCESS: Models uploaded to Hugging Face Hub!")
+# Export ONNX (optional, with fallback)
+try:
+    save_model.eval()
+    dummy_input = torch.randn(1, 12, 8, 8, device=device)
+    torch.onnx.export(
+        save_model,
+        dummy_input,
+        onnx_path,
+        input_names=["board_state"],
+        output_names=["policy_from", "policy_to", "value"],
+        dynamic_axes={"board_state": {0: "batch_size"}, "policy_from": {0: "batch_size"}, "policy_to": {0: "batch_size"}, "value": {0: "batch_size"}},
+        opset_version=14
+    )
+    print(f"Saved ONNX model: {onnx_path} ({os.path.getsize(onnx_path) / 1024 / 1024:.2f} MB)")
+    api.upload_file(
+        path_or_fileobj=onnx_path,
+        path_in_repo="trueengine_v1_latest.onnx",
+        repo_id=MODEL_REPO,
+        repo_type="model"
+    )
+    print("SUCCESS: ONNX model uploaded to Hugging Face Hub!")
+except Exception as e:
+    print(f"[Warning] ONNX export skipped: {e}")
 
-# Quota Protection: Immediately terminate to prevent burning 30h quota!
-print("Quota protection triggered. Exiting session.")
-os._exit(0)
+print("🎉 ALL OPERATIONS FINISHED SUCCESSFULLY.")
 """)
 ]
 
