@@ -1,10 +1,10 @@
 {
   "status": "COMPLETED",
   "epochs_trained": 2,
-  "final_loss": 2.1479,
-  "accuracy_pct": 55.45,
-  "training_speed_pos_sec": 441.2,
+  "final_loss": 2.1596,
+  "accuracy_pct": 55.61,
+  "training_speed_pos_sec": 474.8,
   "positions_in_batch": 10000,
-  "total_brain_memory": 195769,
-  "timestamp": 1795398611.205507
+  "total_brain_memory": 199027,
+  "timestamp": 1795399564.768542
 }
