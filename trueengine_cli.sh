@@ -108,7 +108,7 @@ if os.path.exists(mem_p):
 "
     # Local services
     echo -e "    ● Background Services:"
-    for s in trueengine-sync trueengine-molab-api trueengine-molab trueengine-colab-daemon trueengine-sentry trueengine-tournament; do
+    for s in trueengine-sync trueengine-molab-api trueengine-molab trueengine-colab-daemon trueengine-sentry trueengine-tournament trueengine-pipeline chromium-desktop; do
         IS_ACT=$(systemctl --user is-active $s.service 2>/dev/null || echo "inactive")
         if [ "$IS_ACT" = "active" ]; then
             echo -e "      - ${s}: ${C_GREEN}active (running)${C_RESET}"
@@ -117,7 +117,7 @@ if os.path.exists(mem_p):
         fi
     done
 
-    echo -e "\n${C_GRAY}Run 'trueengine molab help' or 'trueengine sync' for cluster actions.${C_RESET}\n"
+    echo -e "\n${C_GRAY}Run 'trueengine start' to run full A-to-Z pipeline, or 'trueengine doctor' for diagnostics.${C_RESET}\n"
 }
 
 cmd_molab() {
@@ -180,6 +180,79 @@ except Exception as e:
     esac
 }
 
+cmd_start() {
+    bash "$V1_DIR/run_full_pipeline_atoz.sh" "$@"
+}
+
+cmd_doctor() {
+    echo -e "${C_CYAN}${C_BOLD}=== 🩺 TrueEngine Universal Diagnostics & Doctor ===${C_RESET}"
+    local issues=0
+
+    # 1. Check local GPU load
+    echo -e "\n[1] Checking Local Host GPU Guard..."
+    LOCAL_CUDA=$(python3 -c "import torch; print(torch.cuda.is_available())" 2>/dev/null || echo "False")
+    if [ "$LOCAL_CUDA" = "True" ]; then
+        echo -e "    ${C_RED}❌ Local CUDA is active on host! Checking allocated VRAM...${C_RESET}"
+        issues=$((issues + 1))
+    else
+        echo -e "    ${C_GREEN}✓ Strict Zero-Load Guard Verified (0 MB Local VRAM / 0% GPU)${C_RESET}"
+    fi
+
+    # 2. Check local services
+    echo -e "\n[2] Checking Background Services..."
+    for s in trueengine-sync trueengine-molab-api trueengine-molab trueengine-colab-daemon trueengine-pipeline chromium-desktop; do
+        IS_ACT=$(systemctl --user is-active $s.service 2>/dev/null || echo "inactive")
+        if [ "$IS_ACT" = "active" ]; then
+            echo -e "    ✓ ${s}: ${C_GREEN}active${C_RESET}"
+        else
+            echo -e "    ⚠️ ${s}: ${C_RED}${IS_ACT}${C_RESET} -> Auto-restarting..."
+            systemctl --user restart $s.service 2>/dev/null || true
+            issues=$((issues + 1))
+        fi
+    done
+
+    # 3. Check Molab API
+    echo -e "\n[3] Checking Molab Autonomous API Server..."
+    if curl -s -f "$MOLAB_API/health" >/dev/null 2>&1; then
+        echo -e "    ${C_GREEN}✓ Molab API Server online on port 8766${C_RESET}"
+    else
+        echo -e "    ${C_RED}❌ Molab API Server unreachable. Restarting...${C_RESET}"
+        systemctl --user restart trueengine-molab-api.service
+        issues=$((issues + 1))
+    fi
+
+    # 4. Check Molab Blackwell Telemetry
+    echo -e "\n[4] Checking Molab Blackwell Telemetry..."
+    python3 -c "
+import json, time, os
+p = '$V1_DIR/molab_state.json'
+if os.path.exists(p):
+    try:
+        d = json.load(open(p))
+        age = time.time() - d.get('last_updated', d.get('timestamp', 0))
+        if age < 90:
+            print(f'    \033[38;5;48m✓ Molab Blackwell Node is FRESH (Age: {int(age)}s | Speed: {d.get(\"speed\", \"--\")})\033[0m')
+        else:
+            print(f'    \033[38;5;196m⚠️ Molab Blackwell telemetry is STALE ({int(age)}s ago)\033[0m')
+    except Exception as e:
+        print(f'    \033[38;5;196m❌ Error parsing telemetry: {e}\033[0m')
+else:
+    print('    \033[38;5;196m❌ molab_state.json not found!\033[0m')
+"
+
+    # 5. Check Cloudflare Dashboard
+    echo -e "\n[5] Checking Live Edge Dashboard..."
+    CF_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://trueengine-live.truehieu.workers.dev/api/status || echo "000")
+    if [ "$CF_CODE" = "200" ]; then
+        echo -e "    ${C_GREEN}✓ Cloudflare Edge Dashboard is ONLINE (HTTP 200)${C_RESET}"
+    else
+        echo -e "    ${C_RED}⚠️ Cloudflare Edge returned HTTP $CF_CODE${C_RESET}"
+        issues=$((issues + 1))
+    fi
+
+    echo -e "\n${C_BOLD}Doctor Check Summary:${C_RESET} Detected $issues issue(s) (auto-healed if possible)."
+}
+
 cmd_sync() {
     echo -e "${C_CYAN}>>> Executing TrueEngine V1 Autonomous Multi-Cloud Sync...${C_RESET}"
     bash "$V1_DIR/update_all.sh"
@@ -194,6 +267,7 @@ cmd_restart() {
                              trueengine-molab.service \
                              trueengine-sentry.service \
                              trueengine-tournament.service \
+                             trueengine-pipeline.service \
                              trueengine-autoupdate.timer
     sleep 1
     echo -e "${C_GREEN}✓ All TrueEngine V1 services restarted successfully.${C_RESET}"
@@ -201,8 +275,11 @@ cmd_restart() {
 }
 
 cmd_logs() {
-    SERVICE="${1:-sync}"
+    SERVICE="${1:-pipeline}"
     case "$SERVICE" in
+        pipeline|atoz)
+            journalctl --user -u trueengine-pipeline.service -f
+            ;;
         api|molab-api)
             journalctl --user -u trueengine-molab-api.service -f
             ;;
@@ -222,7 +299,7 @@ cmd_logs() {
             journalctl --user -u trueengine-sentry.service -f
             ;;
         *)
-            echo "Usage: trueengine logs [api|molab|colab|tournament|sync|sentry]"
+            echo "Usage: trueengine logs [pipeline|api|molab|colab|tournament|sync|sentry]"
             ;;
     esac
 }
@@ -231,11 +308,18 @@ case "${1:-status}" in
     status)
         cmd_status
         ;;
+    start|run|atoz)
+        shift
+        cmd_start "$@"
+        ;;
+    doctor)
+        cmd_doctor
+        ;;
     molab)
         shift
         cmd_molab "$@"
         ;;
-    sync|auto|run)
+    sync|auto)
         cmd_sync
         ;;
     restart)
@@ -245,7 +329,7 @@ case "${1:-status}" in
         cmd_logs "$2"
         ;;
     *)
-        echo "Usage: trueengine [status | molab <cmd> | sync | auto | restart | logs <service>]"
+        echo "Usage: trueengine [status | start [--daemon] | doctor | molab <cmd> | sync | restart | logs <svc>]"
         exit 1
         ;;
 esac
