@@ -6,7 +6,7 @@ TrueEngine V1: Molab Supercluster Blackwell Autonomous Node
 - Tri-Infra Coordination: Works in parallel with Google Colab & Kaggle Dual-T4
 - Continuous Iterative Training: Scans Hugging Face dataset, trains ResNet with FP16 AMP
 - Batched GPU Self-Play Generation: Generates grandmaster-level positions on GPU
-- Real-time Telemetry: Streams GPU & training telemetry back to Instabox relay server
+- Real-time 1-Second Telemetry: Streams sub-second GPU & training metrics to Instabox relay
 - Model Hub Synchronization: Deploys updated .pt and .onnx weights to Hugging Face Hub
 """
 
@@ -98,31 +98,34 @@ class TrueEngineChessNet(nn.Module):
         self.stem = nn.Sequential(
             nn.Conv2d(in_channels, channels, 3, padding=1, bias=False),
             nn.BatchNorm2d(channels),
-            nn.ReLU()
+            nn.ReLU(inplace=True)
         )
         self.blocks = nn.ModuleList([ResidualBlock(channels) for _ in range(num_blocks)])
+        
+        # Policy head: from-square (64) and to-square (64)
         self.policy_from = nn.Sequential(
             nn.Conv2d(channels, 32, 1),
             nn.BatchNorm2d(32),
-            nn.ReLU(),
+            nn.ReLU(inplace=True),
             nn.Flatten(),
             nn.Linear(32 * 8 * 8, 64)
         )
         self.policy_to = nn.Sequential(
             nn.Conv2d(channels, 32, 1),
             nn.BatchNorm2d(32),
-            nn.ReLU(),
+            nn.ReLU(inplace=True),
             nn.Flatten(),
             nn.Linear(32 * 8 * 8, 64)
         )
+        # Value head: WDL scalar output (-1.0 to 1.0)
         self.value_head = nn.Sequential(
             nn.Conv2d(channels, 16, 1),
             nn.BatchNorm2d(16),
-            nn.ReLU(),
+            nn.ReLU(inplace=True),
             nn.Flatten(),
-            nn.Linear(16 * 8 * 8, 128),
-            nn.ReLU(),
-            nn.Linear(128, 1),
+            nn.Linear(16 * 8 * 8, 64),
+            nn.ReLU(inplace=True),
+            nn.Linear(64, 1),
             nn.Tanh()
         )
 
@@ -135,25 +138,56 @@ class TrueEngineChessNet(nn.Module):
         val = self.value_head(h)
         return p_from, p_to, val
 
-# 3. Telemetry Reporter
-def report_telemetry(mode="IDLE", epoch=0, loss=0.0, accuracy=0.0, speed="--"):
+# 3. Real-Time 1-Second Telemetry Reporter
+current_telemetry = {
+    "status": "ONLINE (RTX PRO 6000 Blackwell - INITIALIZING)",
+    "mode": "INITIALIZING",
+    "cycle": 1,
+    "epoch": 0,
+    "epochs_total": 5,
+    "batch": 0,
+    "total_batches": 0,
+    "loss": 0.0,
+    "accuracy": 0.0,
+    "speed": "--",
+    "last_loss": None,
+    "accuracy_pct": None,
+    "positions_trained": 0,
+    "total_positions_dataset": 0,
+}
+
+telemetry_session = requests.Session()
+
+def report_telemetry_now():
+    mode = current_telemetry.get("mode", "ONLINE")
+    epoch = current_telemetry.get("epoch", 0)
+    loss = current_telemetry.get("loss", 0.0)
+    acc = current_telemetry.get("accuracy", 0.0)
+    speed = current_telemetry.get("speed", "--")
+    cycle = current_telemetry.get("cycle", 1)
+
     stats = {
         "status": f"ONLINE (RTX PRO 6000 Blackwell - {mode})",
         "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
         "vram": "98 GB VRAM (97,887 MiB)",
         "ram": "160 GB RAM",
         "mode": mode,
+        "cycle": cycle,
         "epochs_trained": epoch,
         "last_loss": round(float(loss), 4) if loss else None,
-        "accuracy_pct": round(float(accuracy), 2) if accuracy else None,
+        "accuracy_pct": round(float(acc), 2) if acc else None,
         "speed": speed,
+        "batch": current_telemetry.get("batch", 0),
+        "total_batches": current_telemetry.get("total_batches", 0),
+        "total_positions": current_telemetry.get("total_positions_dataset", 0),
         "role": "Continuous Deep Supernet Training & Batched MCTS Self-Play",
+        "update_interval": "1s_rapid",
         "timestamp": time.time()
     }
     try:
         res = subprocess.run(
             ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used,temperature.gpu,power.draw", "--format=csv,noheader,nounits"],
-            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True, timeout=0.8
         )
         parts = [p.strip() for p in res.stdout.strip().split(",")]
         if len(parts) >= 4:
@@ -165,9 +199,20 @@ def report_telemetry(mode="IDLE", epoch=0, loss=0.0, accuracy=0.0, speed="--"):
         pass
 
     try:
-        requests.post(RELAY_URL, json=stats, timeout=2.0)
+        telemetry_session.post(RELAY_URL, json=stats, timeout=0.9)
     except Exception:
         pass
+
+def rapid_1s_telemetry_thread():
+    while True:
+        try:
+            report_telemetry_now()
+        except Exception:
+            pass
+        time.sleep(1.0)
+
+# Start 1s rapid streamer
+threading.Thread(target=rapid_1s_telemetry_thread, daemon=True).start()
 
 # 4. Dataset Loader
 class FullChessDataset(Dataset):
@@ -198,6 +243,7 @@ class FullChessDataset(Dataset):
         self.tos = torch.from_numpy(np.concatenate(all_tos, axis=0)).long()
         self.wdls = torch.from_numpy(np.concatenate(all_wdls, axis=0)).float().unsqueeze(1)
         print(f"[✓] Loaded {len(self.states):,} total positions into RAM!")
+        current_telemetry["total_positions_dataset"] = len(self.states)
 
     def __len__(self):
         return len(self.states)
@@ -227,7 +273,7 @@ def download_chunks():
     return local_chunks
 
 # 5. Training Phase
-def run_training_round(epochs=5, batch_size=4096):
+def run_training_round(epochs=5, batch_size=4096, cycle=1):
     chunks = download_chunks()
     if not chunks:
         return None, None
@@ -249,15 +295,17 @@ def run_training_round(epochs=5, batch_size=4096):
         except Exception:
             pass
 
-    optimizer = torch.optim.AdamW(model.parameters(), lr=8e-4, weight_decay=1e-4)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
-    scaler = torch.amp.GradScaler('cuda') if USE_CUDA else None
+    scaler = torch.amp.GradScaler('cuda', enabled=USE_CUDA)
 
     ce_loss = nn.CrossEntropyLoss()
     mse_loss = nn.MSELoss()
 
-    best_loss = 999.0
-    final_acc = 0.0
+    current_telemetry["mode"] = "SUPERNET_TRAINING"
+    current_telemetry["cycle"] = cycle
+    current_telemetry["epochs_total"] = epochs
+    current_telemetry["total_positions_dataset"] = len(dataset)
 
     print(f"\n⚡ Starting Supernet Training Round on {DEVICE} ({len(dataset):,} positions)...")
     for epoch in range(1, epochs + 1):
@@ -266,8 +314,10 @@ def run_training_round(epochs=5, batch_size=4096):
         running_loss = 0.0
         correct_moves = 0
         total_moves = 0
+        current_telemetry["epoch"] = epoch
+        current_telemetry["total_batches"] = len(train_loader)
 
-        for states, froms, tos, wdls in train_loader:
+        for b_idx, (states, froms, tos, wdls) in enumerate(train_loader):
             states = states.to(DEVICE, non_blocking=True)
             froms = froms.to(DEVICE, non_blocking=True)
             tos = tos.to(DEVICE, non_blocking=True)
@@ -296,15 +346,29 @@ def run_training_round(epochs=5, batch_size=4096):
             correct_moves += ((pred_from == froms) & (pred_to == tos)).sum().item()
             total_moves += states.size(0)
 
+            # Rapid 1s telemetry updater (every 4 batches)
+            if b_idx % 4 == 0 and total_moves > 0:
+                elapsed_now = max(0.001, time.time() - start_t)
+                inst_loss = running_loss / total_moves
+                inst_acc = (correct_moves / total_moves) * 100.0
+                inst_speed = f"{(total_moves / elapsed_now):.1f} pos/s"
+                current_telemetry["loss"] = inst_loss
+                current_telemetry["accuracy"] = inst_acc
+                current_telemetry["speed"] = inst_speed
+                current_telemetry["batch"] = b_idx
+
         scheduler.step()
         elapsed = time.time() - start_t
         train_loss = running_loss / total_moves
         train_acc = (correct_moves / total_moves) * 100.0
-        final_acc = train_acc
         speed = f"{(total_moves / elapsed):.1f} pos/s"
 
+        current_telemetry["loss"] = train_loss
+        current_telemetry["accuracy"] = train_acc
+        current_telemetry["speed"] = speed
+
         print(f"Round Epoch [{epoch}/{epochs}] Loss: {train_loss:.4f} | Acc: {train_acc:.2f}% | Speed: {speed}")
-        report_telemetry(mode="SUPERNET_TRAINING", epoch=epoch, loss=train_loss, accuracy=train_acc, speed=speed)
+        report_telemetry_now()
 
     # Save & Deploy
     torch.save(model.state_dict(), latest_pt)
@@ -326,22 +390,31 @@ def run_training_round(epochs=5, batch_size=4096):
         except Exception as e:
             print(f"[!] HF upload error: {e}")
 
-    return train_loss, final_acc
+    return train_loss, train_acc
 
-# 6. Batched Self-Play Generator
-PIECE_MAP = {chess.PAWN: 0, chess.KNIGHT: 1, chess.BISHOP: 2, chess.ROOK: 3, chess.QUEEN: 4, chess.KING: 5}
-
+# 6. Batched GPU Self-Play Generation
 def board_to_planes(board):
     planes = np.zeros((12, 8, 8), dtype=np.float32)
-    for sq, piece in board.piece_map().items():
-        row, col = sq // 8, sq % 8
-        idx = PIECE_MAP[piece.piece_type] + (6 if piece.color == chess.BLACK else 0)
-        planes[idx, row, col] = 1.0
+    piece_map = {
+        chess.PAWN: 0, chess.KNIGHT: 1, chess.BISHOP: 2,
+        chess.ROOK: 3, chess.QUEEN: 4, chess.KING: 5
+    }
+    for sq in chess.SQUARES:
+        piece = board.piece_at(sq)
+        if piece is not None:
+            r = 7 - (sq // 8)
+            c = sq % 8
+            offset = 0 if piece.color == chess.WHITE else 6
+            plane_idx = offset + piece_map[piece.piece_type]
+            planes[plane_idx, r, c] = 1.0
     return planes
 
-def run_selfplay_batch(model, num_games=100, target_positions=30000):
+def run_selfplay_batch(model, num_games=100, target_positions=35000, cycle=1):
     print(f"\n⚡ Generating Batched Self-Play Positions on {DEVICE}...")
-    report_telemetry(mode="GPU_SELFPLAY_GENERATION", speed="Simulating...")
+    current_telemetry["mode"] = "GPU_SELFPLAY_GENERATION"
+    current_telemetry["cycle"] = cycle
+    current_telemetry["speed"] = "Simulating..."
+    report_telemetry_now()
     
     model.eval()
     boards = [chess.Board() for _ in range(num_games)]
@@ -406,6 +479,8 @@ def run_selfplay_batch(model, num_games=100, target_positions=30000):
             histories[game_idx].append((board_to_planes(board), best_move.from_square, best_move.to_square, board.turn))
             board.push(best_move)
 
+        current_telemetry["speed"] = f"Simulating ({len(collected_states):,}/{target_positions:,} pos)"
+
     elapsed = time.time() - start_t
     print(f"[✓] Generated {len(collected_states):,} self-play positions in {elapsed:.1f}s ({(len(collected_states)/max(1, elapsed)):.1f} pos/s)!")
 
@@ -440,20 +515,21 @@ def main():
     print(f" 🎯 Device: {DEVICE} ({torch.cuda.get_device_name(0) if USE_CUDA else 'CPU'})")
     print(f" 📂 Dataset: {DATASET_REPO}")
     print(f" 📦 Model: {MODEL_REPO}")
+    print(" ⚡ Rapid 1-Second Telemetry Streaming: ACTIVE")
     print("=" * 65)
 
     cycle = 1
     while True:
         print(f"\n=== [CYCLE {cycle}] SUPERCLUSTER ITERATION START ===")
         # 1. Training Round (5 epochs)
-        run_training_round(epochs=5, batch_size=4096)
+        run_training_round(epochs=5, batch_size=4096, cycle=cycle)
         
         # 2. Self-Play Generation
         model = TrueEngineChessNet().to(DEVICE)
         latest_pt = os.path.join(MODELS_DIR, "trueengine_v1_latest.pt")
         if os.path.exists(latest_pt):
             model.load_state_dict(torch.load(latest_pt, map_location=DEVICE))
-        run_selfplay_batch(model, num_games=128, target_positions=35000)
+        run_selfplay_batch(model, num_games=128, target_positions=35000, cycle=cycle)
 
         cycle += 1
         time.sleep(5)

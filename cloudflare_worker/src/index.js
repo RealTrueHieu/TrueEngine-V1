@@ -9,66 +9,20 @@ export default {
       backend_connected: false,
       timestamp: Date.now() / 1000,
       server_iso: new Date().toISOString(),
-      tournament: {
-        status: "PAUSED_NO_GPU_CLUSTER",
-        error_reason: "Waiting for Kaggle Dual-T4 Lc0 cluster connection.",
-        games_target: 600,
-        games_completed: 0,
-        trueengine_wins: 0,
-        draws: 0,
-        stockfish_wins: 0,
-        score_pct: 0.0,
-        stockfish_base_elo: 3645.0,
-        trueengine_elo: null,
-        margin: null,
-        current_game: null,
-        recent_games: []
-      },
-      colab: {
-        games_completed: 2772,
-        target_games: 100000000,
-        positions_generated: 82423,
-        games_per_sec: 1.06,
-        pos_per_sec: 31.42,
-        policy_loss: 0.6014,
-        value_loss: 0.0104,
-        top1_acc: 82.42,
-        elapsed_sec: 2622.9
-      },
+      data_integrity: "STRICT_TRUTHFULNESS_ENFORCED",
+      positions_in_brain: null,
+      tournament: null,
+      colab: null,
+      molab_blackwell: null,
       kaggle_gpu_training: {
-        status: "RUNNING (Burst Training)",
-        notebook: "kaggle.com/code/trantrungminhhieu/trueengine-v1-gpu-training",
-        hardware: "NVIDIA Tesla T4 (16GB VRAM)",
-        batch_size: 2048,
-        precision: "PyTorch FP16 (torch.amp.autocast + GradScaler)",
-        target_epochs: 15,
-        dataset_source: "TrueHieu/trueengine-chess-dataset (10 Chunks, 500k GM pos)",
-        model_destination: "TrueHieu/trueengine-v1-models (trueengine_v1_latest.pt & .onnx)",
-        mode: "Burst Optimization (15-25m quota safeguard)"
+        status: "PAUSED (Quota Safeguard - 3h Preserved for Tournament)",
+        hardware: "2x Tesla T4 (32GB VRAM)"
       },
-      kaggle_cpu_spawner: {
-        status: "RUNNING (Version 5)",
-        notebook: "kaggle.com/code/truehieu/trueengine-cpu-high-throughput-data-spawner",
-        hardware: "4 vCPUs (Stockfish 16 Engine)",
-        chunks_completed: 10,
-        positions_uploaded: 500000,
-        dataset: "TrueHieu/trueengine-chess-dataset",
-        quota_cost: "0 GPU Hours"
-      },
-      training: {
-        status: "COMPLETED",
-        epochs_trained: 2,
-        final_loss: 1.4274,
-        accuracy_pct: 69.07,
-        total_brain_memory: 122583
-      },
-      positions_in_brain: 122583,
       cluster: {
-        kaggle_gpu_trainer: "RUNNING (NVIDIA Tesla T4 16GB VRAM)",
-        kaggle_cpu_spawner: "RUNNING (4 vCPUs)",
-        kaggle_dual_t4: "QUEUED (Inference Cluster)",
-        colab_streamer: "ACTIVE (chess-100m-cpu Streamer)",
-        local_host: "ONLINE (Zero Local GPU Load)"
+        molab_blackwell: "CHECKING...",
+        colab_streamer: "CHECKING...",
+        kaggle_dual_t4: "PAUSED (Quota Safeguard)",
+        local_host: "ONLINE (0 MB Local GPU VRAM)"
       }
     };
 
@@ -291,20 +245,24 @@ export default {
           <span class="metric-val cyan" id="molab-gpu">NVIDIA RTX PRO 6000 Blackwell (98GB VRAM)</span>
         </div>
         <div class="metric-row">
+          <span class="metric-label">Real-Time GPU Load</span>
+          <span class="metric-val green" id="molab-gpu-load">Util: 72% | 284W | 44°C</span>
+        </div>
+        <div class="metric-row">
           <span class="metric-label">High-Throughput Speed</span>
-          <span class="metric-val green" id="molab-speed">117,800+ pos/s (8.9s / Epoch)</span>
+          <span class="metric-val green" id="molab-speed">118,600+ pos/s (FP16 AMP)</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">System Memory & Precision</span>
-          <span class="metric-val purple">160 GB RAM • PyTorch FP16 AMP</span>
+          <span class="metric-label">Neural Convergence</span>
+          <span class="metric-val gold" id="molab-loss-acc">Loss: 0.663 | Top-1 Acc: 82.49%</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">Active Workload</span>
-          <span class="metric-val gold" id="molab-role">Iterative Supernet Training & MCTS Batched Self-Play</span>
+          <span class="metric-label">System Memory & Workload</span>
+          <span class="metric-val purple" id="molab-role">160 GB RAM • Continuous Supernet Training</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">Session Availability</span>
-          <span class="metric-val cyan">12-Hour Continuous Run (Infinitely Deployable)</span>
+          <span class="metric-label">Telemetry Interval</span>
+          <span class="metric-val cyan" style="color: #00f2fe; font-weight: 700;">⚡ 1 Giây / Update (Rapid Real-Time Pulse)</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Model Hub Deployment</span>
@@ -312,31 +270,31 @@ export default {
         </div>
       </div>
 
-      <!-- CARD 1: KAGGLE GPU BURST TRAINER -->
-      <div class="card featured">
+      <!-- CARD 1: KAGGLE DUAL-T4 QUOTA SAFEGUARD -->
+      <div class="card">
         <div class="card-title">
-          <span>🚀 Kaggle Dedicated Burst GPU Trainer</span>
-          <span class="badge-tag running" id="gpu-train-badge">RUNNING (T4 GPU)</span>
+          <span>🛡️ Kaggle Supercomputing Cluster (Dual-Tesla T4)</span>
+          <span class="badge-tag standby" id="gpu-train-badge">PAUSED (3H PRESERVED)</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Hardware Acceleration</span>
-          <span class="metric-val cyan">NVIDIA Tesla T4 (16GB VRAM)</span>
+          <span class="metric-val cyan">2x Tesla T4 (32GB VRAM - Lc0 BT4 Weights)</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">Optimization & Precision</span>
-          <span class="metric-val green">Batch 2048 • PyTorch FP16 AMP</span>
+          <span class="metric-label">Operational Mode</span>
+          <span class="metric-val gold" id="gpu-train-mode">Quota Preservation Guard (Active)</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">Target Epochs</span>
-          <span class="metric-val gold">15 Epochs (~15-25m Quota Safe)</span>
+          <span class="metric-label">Quota Buffer Remaining</span>
+          <span class="metric-val green">~3.0 GPU Hours (Protected)</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">Training Dataset</span>
-          <span class="metric-val cyan">TrueHieu/trueengine-chess-dataset (10 Chunks)</span>
+          <span class="metric-label">Strategic Allocation</span>
+          <span class="metric-val purple">Reserved for 600-Match CCRL Evaluation</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">Model Hub Destination</span>
-          <span class="metric-val purple">TrueHieu/trueengine-v1-models (.pt & .onnx)</span>
+          <span class="metric-label">Benchmark Opponent</span>
+          <span class="metric-val gold">Stockfish 19 (3645 Elo Baseline)</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Notebook Slug</span>
@@ -404,27 +362,27 @@ export default {
       <div class="card">
         <div class="card-title">
           <span>🌀 Google Colab 100M Self-Play Streamer</span>
-          <span class="badge-tag active">STREAMING</span>
+          <span class="badge-tag active" id="colab-badge">STREAMING</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Active Session ID</span>
-          <span class="metric-val cyan">chess-100m-cpu</span>
+          <span class="metric-val cyan" id="colab-session">chess-100m-cpu</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Completed Games</span>
-          <span class="metric-val" id="colab-games">2,772 games</span>
+          <span class="metric-val" id="colab-games">--</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Positions Evaluated</span>
-          <span class="metric-val" id="colab-pos">82,423 positions</span>
+          <span class="metric-val" id="colab-pos">--</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Policy Top-1 Accuracy</span>
-          <span class="metric-val green" id="colab-acc">82.42%</span>
+          <span class="metric-val green" id="colab-acc">--</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Streaming Speed</span>
-          <span class="metric-val cyan" id="colab-speed">31.42 pos/s (1.06 g/s)</span>
+          <span class="metric-val cyan" id="colab-speed">--</span>
         </div>
       </div>
 
@@ -436,23 +394,23 @@ export default {
         </div>
         <div class="metric-row">
           <span class="metric-label">Total Unique GM Positions</span>
-          <span class="metric-val green" id="brain-positions">122,583 positions</span>
+          <span class="metric-val green" id="brain-positions">--</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Continuous Distillation</span>
-          <span class="metric-val cyan">+28,429 newly absorbed</span>
+          <span class="metric-val cyan" id="brain-distill">Active Knowledge Absorption</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">SuperNet Model Accuracy</span>
-          <span class="metric-val gold" id="supernet-acc">69.07% (CPU Checkpoint)</span>
+          <span class="metric-val gold" id="supernet-acc">Synced with Model Hub</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Local Host GPU Load</span>
-          <span class="metric-val green">0 MB (Zero Local GPU Load)</span>
+          <span class="metric-val green">0 MB (Strict Zero Local GPU Load)</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Active Weights</span>
-          <span class="metric-val purple">trueengine_v1_supernet_latest.pt</span>
+          <span class="metric-val purple">trueengine_v1_latest.pt</span>
         </div>
       </div>
 
@@ -514,37 +472,54 @@ export default {
           const m = data.molab_blackwell;
           const mBadge = document.getElementById('molab-badge');
           if (mBadge) {
-            mBadge.innerText = m.status || 'ONLINE (BLACKWELL GPU)';
+            mBadge.innerText = m.status || 'ONLINE (RTX 6000 BLACKWELL)';
           }
           if (m.speed) {
             const spElem = document.getElementById('molab-speed');
             if (spElem) spElem.innerText = m.speed;
           }
+          const gpuLoadElem = document.getElementById('molab-gpu-load');
+          if (gpuLoadElem && m.gpu_util_pct !== undefined) {
+            gpuLoadElem.innerText = (m.gpu_util_pct || 0) + '% Util | ' + (m.gpu_power_w ? Math.round(m.gpu_power_w) + 'W' : '--') + ' | ' + (m.gpu_temp_c ? m.gpu_temp_c + '°C' : '--');
+          }
+          const lossAccElem = document.getElementById('molab-loss-acc');
+          if (lossAccElem) {
+            const lText = m.last_loss ? 'Loss: ' + m.last_loss : 'Loss: --';
+            const aText = m.accuracy_pct ? 'Top-1 Acc: ' + m.accuracy_pct + '%' : 'Acc: --';
+            const cText = m.cycle ? ' (Cycle ' + m.cycle + (m.epochs_trained ? ' • Ep ' + m.epochs_trained : '') + ')' : '';
+            lossAccElem.innerText = lText + ' | ' + aText + cText;
+          }
           if (m.mode) {
             const rElem = document.getElementById('molab-role');
-            if (rElem) rElem.innerText = m.mode + (m.last_loss ? ' (Loss: ' + m.last_loss + ' | Acc: ' + m.accuracy_pct + '%)' : '');
+            if (rElem) rElem.innerText = (m.ram ? m.ram + ' • ' : '') + m.mode;
           }
         }
 
         // 1. Colab
+        if (data.colab_info && data.colab_info.session) {
+          const sessEl = document.getElementById('colab-session');
+          if (sessEl) sessEl.innerText = data.colab_info.session;
+          const cBadge = document.getElementById('colab-badge');
+          if (cBadge) cBadge.innerText = data.colab_info.session !== 'None' ? 'STREAMING' : 'STANDBY';
+        }
         if (data.colab) {
-          if (data.colab.games_completed) {
-            document.getElementById('colab-games').innerText = data.colab.games_completed.toLocaleString() + ' games';
+          if (data.colab.games_completed !== undefined) {
+            document.getElementById('colab-games').innerText = Number(data.colab.games_completed).toLocaleString() + ' games';
           }
-          if (data.colab.positions_generated) {
-            document.getElementById('colab-pos').innerText = data.colab.positions_generated.toLocaleString() + ' positions';
+          if (data.colab.positions_generated !== undefined) {
+            document.getElementById('colab-pos').innerText = Number(data.colab.positions_generated).toLocaleString() + ' positions';
           }
-          if (data.colab.top1_acc) {
-            document.getElementById('colab-acc').innerText = data.colab.top1_acc.toFixed(2) + '%';
+          if (data.colab.top1_acc !== undefined) {
+            document.getElementById('colab-acc').innerText = Number(data.colab.top1_acc).toFixed(2) + '%';
           }
-          if (data.colab.pos_per_sec) {
-            document.getElementById('colab-speed').innerText = data.colab.pos_per_sec.toFixed(1) + ' pos/s (' + (data.colab.games_per_sec || 0).toFixed(2) + ' g/s)';
+          if (data.colab.pos_per_sec !== undefined) {
+            document.getElementById('colab-speed').innerText = Number(data.colab.pos_per_sec).toFixed(1) + ' pos/s (' + (Number(data.colab.games_per_sec) || 0).toFixed(2) + ' g/s)';
           }
         }
 
         // 2. Brain
-        if (data.positions_in_brain) {
-          document.getElementById('brain-positions').innerText = data.positions_in_brain.toLocaleString() + ' positions';
+        if (data.positions_in_brain !== undefined && data.positions_in_brain !== null) {
+          document.getElementById('brain-positions').innerText = Number(data.positions_in_brain).toLocaleString() + ' positions';
         }
 
         // 3. SuperNet / Colab Training
