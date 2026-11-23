@@ -408,9 +408,12 @@ class ChessNPZDataset(Dataset):
         for p in chunk_paths:
             data = np.load(p)
             all_states.append(data["states"])
-            all_froms.append(data["from_squares"])
-            all_tos.append(data["to_squares"])
-            all_wdls.append(data["wdls"])
+            f_sq = data["from_squares"] if "from_squares" in data else data["policy_from"]
+            t_sq = data["to_squares"] if "to_squares" in data else data["policy_to"]
+            w_val = data["wdls"] if "wdls" in data else data["values"]
+            all_froms.append(f_sq)
+            all_tos.append(t_sq)
+            all_wdls.append(w_val)
             
         self.states = torch.from_numpy(np.concatenate(all_states, axis=0))
         self.froms = torch.from_numpy(np.concatenate(all_froms, axis=0)).long()
