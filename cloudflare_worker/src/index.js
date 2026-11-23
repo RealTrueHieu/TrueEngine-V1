@@ -257,10 +257,15 @@ export default {
           <div class="sub">Autonomous Multi-Cloud Neural Chess Engine Ecosystem</div>
         </div>
       </div>
-      <div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div class="badge-tag active" style="display: flex; align-items: center; gap: 6px;">
+          <div class="pulse-dot green" style="width: 7px; height: 7px; margin: 0;"></div>
+          <span>RAPID SYNC: 1s</span>
+        </div>
+        <span id="latency-indicator" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--accent-cyan);">Ping: --</span>
         <div class="status-pill training" id="main-status-pill">
           <div class="pulse-dot cyan" id="main-status-dot"></div>
-          <span id="main-status-text">BURST GPU TRAINING & STREAMING ACTIVE</span>
+          <span id="main-status-text">MASSIVE COLAB TRAINING & CODESPACES ACTIVE</span>
         </div>
       </div>
     </header>
@@ -463,10 +468,14 @@ export default {
 
   <script>
     async function updateStats() {
+      const t0 = performance.now();
       try {
         const res = await fetch('/api/status?t=' + Date.now(), { cache: 'no-store' });
         if (!res.ok) throw new Error('API error');
         const data = await res.json();
+        const ping = Math.round(performance.now() - t0);
+        const latElem = document.getElementById('latency-indicator');
+        if (latElem) latElem.innerText = 'Ping: ' + ping + 'ms';
 
         // 1. Colab
         if (data.colab) {
@@ -489,12 +498,37 @@ export default {
           document.getElementById('brain-positions').innerText = data.positions_in_brain.toLocaleString() + ' positions';
         }
 
-        // 3. SuperNet Training
-        if (data.training && data.training.accuracy_pct) {
-          document.getElementById('supernet-acc').innerText = data.training.accuracy_pct.toFixed(2) + '% (CPU Checkpoint)';
+        // 3. SuperNet / Colab Training
+        if (data.training) {
+          if (data.training.total_chunks_loaded) {
+            document.getElementById('supernet-acc').innerText = data.training.total_chunks_loaded + ' Chunks (1.05M Positions Active)';
+          } else if (data.training.accuracy_pct) {
+            document.getElementById('supernet-acc').innerText = data.training.accuracy_pct.toFixed(2) + '% (Checkpoint)';
+          }
         }
 
-        // 4. Tournament
+        // 4. Codespaces
+        if (data.github_codespaces) {
+          const csBadge = document.getElementById('codespace-badge');
+          if (csBadge) {
+            csBadge.innerText = (data.github_codespaces.chunks_completed || 9) + ' CHUNKS (' + (data.github_codespaces.current_chunk || 'Active') + ')';
+          }
+        }
+
+        // 5. Kaggle GPU Status
+        if (data.kaggle_gpu_training) {
+          const kBadge = document.getElementById('gpu-train-badge');
+          if (kBadge) {
+            if (String(data.kaggle_gpu_training.status).includes('PAUSED')) {
+              kBadge.className = 'badge-tag standby';
+              kBadge.innerText = 'PAUSED (3H PRESERVED)';
+            } else {
+              kBadge.innerText = data.kaggle_gpu_training.status;
+            }
+          }
+        }
+
+        // 6. Tournament
         if (data.tournament && data.tournament.games_completed > 0) {
           document.getElementById('elo-display').innerText = data.tournament.trueengine_elo + ' ± ' + data.tournament.margin + ' CCRL';
           document.getElementById('progress-val').innerText = data.tournament.games_completed + ' / 600 Games (' + data.tournament.score_pct + '%)';
@@ -508,7 +542,7 @@ export default {
     }
 
     updateStats();
-    setInterval(updateStats, 2000);
+    setInterval(updateStats, 1000);
   </script>
 </body>
 </html>`;
