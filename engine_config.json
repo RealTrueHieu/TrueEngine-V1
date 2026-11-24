@@ -1,3 +1,7 @@
 {
-  "cloud_backend_url": "https://quotes-teens-continuity-durham.trycloudflare.com"
+  "cloud_backend_url": "",
+  "kaggle_quota_exhausted": true,
+  "primary_compute": "colab",
+  "active_colab_session": "chess-100m-cpu",
+  "notes": "Kaggle quota 100% exhausted. All streaming, distillation, and training workloads migrated 100% to Google Colab."
 }

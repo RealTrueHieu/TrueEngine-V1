@@ -51,7 +51,7 @@ def check_session_responsive(session_name):
     cmd = [COLAB_BIN, "exec", "-s", session_name, "--timeout", "10"]
     try:
         p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        out, _ = p.communicate("import os; print('SESSION_HEALTHY')")
+        out, _ = p.communicate("import os; print('SESSION_HEALTHY')", timeout=15)
         return "SESSION_HEALTHY" in out
     except Exception:
         return False
@@ -63,52 +63,28 @@ def failover_to_cpu():
     
     # 1. Create or check CPU session
     log("[Watchdog Failover] Creating CPU session 'chess-100m-cpu'...")
-    subprocess.run([COLAB_BIN, "new", "--session", cpu_session], capture_output=True, text=True)
-    
-    # 2. Setup dependencies on CPU session
-    log("[Watchdog Failover] Installing python-chess & stockfish on CPU...")
-    setup_code = """
-import subprocess
-subprocess.run(["pip", "install", "-q", "python-chess"], check=True)
-subprocess.run(["apt-get", "update", "-qq"], check=True)
-subprocess.run(["apt-get", "install", "-y", "-qq", "stockfish"], check=True)
-"""
     try:
-        p = subprocess.Popen([COLAB_BIN, "exec", "-s", cpu_session, "--timeout", "90"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
-        p.communicate(setup_code)
+        subprocess.run([COLAB_BIN, "new", "--session", cpu_session], capture_output=True, text=True, timeout=30)
     except Exception as e:
-        log(f"[Watchdog Failover Warning] Setup warning: {e}")
+        log(f"[Watchdog Failover Warning] New session warning: {e}")
 
-    # 3. Upload universal streamer script
+    # 2. Upload streamer script
     log("[Watchdog Failover] Uploading universal CPU streamer script...")
-    with open(LOCAL_STREAMER_SCRIPT, "r", encoding="utf-8") as f:
-        script_content = f.read()
-    upload_code = f"""
-with open('/content/t4_100m_selfplay_streamer.py', 'w', encoding='utf-8') as f:
-    f.write({repr(script_content)})
-"""
+    streamer_src = os.path.join(PROJECT_DIR, "TrueEngine-V1", "t4_100m_selfplay_streamer.py")
+    if not os.path.exists(streamer_src):
+        streamer_src = os.path.join(PROJECT_DIR, "t4_100m_selfplay_streamer.py")
     try:
-        p = subprocess.Popen([COLAB_BIN, "exec", "-s", cpu_session, "--timeout", "60"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
-        p.communicate(upload_code)
+        subprocess.run([COLAB_BIN, "upload", "-s", cpu_session, streamer_src, "/content/t4_100m_selfplay_streamer.py"], capture_output=True, text=True, timeout=60)
     except Exception as e:
         log(f"[Watchdog Failover Warning] Upload warning: {e}")
 
-    # 4. Launch streamer on CPU runtime
+    # 3. Launch streamer via launch script
     log("[Watchdog Failover] Launching multi-threaded CPU self-play streamer daemon...")
-    launch_code = """
-import subprocess, time
-subprocess.run("pkill -f t4_100m_selfplay_streamer", shell=True)
-time.sleep(1)
-subprocess.Popen(
-    ["python3", "-u", "/content/t4_100m_selfplay_streamer.py"],
-    stdout=open("/content/streamer.log", "w"),
-    stderr=subprocess.STDOUT,
-    start_new_session=True
-)
-"""
+    launch_src = os.path.join(PROJECT_DIR, "TrueEngine-V1", "launch_colab_streamer.py")
+    if not os.path.exists(launch_src):
+        launch_src = os.path.join(PROJECT_DIR, "launch_colab_streamer.py")
     try:
-        p = subprocess.Popen([COLAB_BIN, "exec", "-s", cpu_session, "--timeout", "30"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
-        p.communicate(launch_code)
+        subprocess.run([COLAB_BIN, "exec", "-s", cpu_session, "-f", launch_src, "--timeout", "120"], capture_output=True, text=True, timeout=150)
     except Exception as e:
         log(f"[Watchdog Failover Warning] Launch warning: {e}")
 

@@ -88,9 +88,9 @@ if os.path.exists(p):
     fi
 
     # 3. Kaggle Dual-T4
-    echo -e "\n${C_GOLD}${C_BOLD}[3] Kaggle Supercomputing Cluster (Dual-Tesla T4):${C_RESET}"
-    echo -e "    ● Status:      ${C_GOLD}PAUSED (Quota Safeguard - ~3h Preserved for Tournament)${C_RESET}"
-    echo -e "    ● Hardware:    2x Tesla T4 (32GB VRAM - Lc0 BT4 Neural Weights)"
+    echo -e "\n${C_RED}${C_BOLD}[3] Kaggle Supercomputing Cluster (Dual-Tesla T4):${C_RESET}"
+    echo -e "    ● Status:      ${C_RED}QUOTA EXHAUSTED (100% Workload Migrated to Colab)${C_RESET}"
+    echo -e "    ● Compute:     Standby (All jobs running 100% on Google Colab)"
 
     # 4. Local Host & Brain Memory
     echo -e "\n${C_GREEN}${C_BOLD}[4] Local Host Environment & Brain Memory:${C_RESET}"
