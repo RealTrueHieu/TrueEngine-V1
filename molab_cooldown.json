@@ -1,0 +1,5 @@
+{
+  "in_cooldown": true,
+  "cooldown_until_utc": "2026-11-25T15:00:00Z",
+  "reason": "Molab 48-hour cooldown for GPU non-interactive workloads & tunneling. Strictly suppress background nohup & xdotool keystrokes to ensure 100% ToS compliance."
+}

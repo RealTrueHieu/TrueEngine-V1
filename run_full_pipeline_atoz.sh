@@ -102,6 +102,18 @@ step_local_services() {
 step_molab_blackwell() {
     log "${C_BOLD}[STEP 3/6] Auditing Molab Blackwell RTX PRO 6000 Node...${C_RESET}"
 
+    # Check if in cooldown
+    local in_cooldown="false"
+    if [ -f "$SCRIPT_DIR/molab_cooldown.json" ]; then
+        in_cooldown=$(python3 -c "import json; print('true' if json.load(open('$SCRIPT_DIR/molab_cooldown.json')).get('in_cooldown') else 'false')" 2>/dev/null || echo "false")
+    fi
+
+    if [ "$in_cooldown" = "true" ]; then
+        log "   ⏳ Molab is currently in 48-hour cooldown standby (until ~2026-11-25 15:00 UTC)."
+        log "   🛡️ Zero automated commands/injection dispatched to Molab. 100% ToS compliant."
+        return 0
+    fi
+
     # Wait for API server if needed
     local api_ready=false
     for _ in {1..10}; do
@@ -219,8 +231,13 @@ run_supervisor_loop() {
     while true; do
         sleep 30
 
-        # Check Molab telemetry age
-        if [ -f "$STATE_FILE" ]; then
+        # Check Molab telemetry age (skip if Molab is in cooldown)
+        local in_cooldown="false"
+        if [ -f "$SCRIPT_DIR/molab_cooldown.json" ]; then
+            in_cooldown=$(python3 -c "import json; print('true' if json.load(open('$SCRIPT_DIR/molab_cooldown.json')).get('in_cooldown') else 'false')" 2>/dev/null || echo "false")
+        fi
+
+        if [ "$in_cooldown" = "false" ] && [ -f "$STATE_FILE" ]; then
             local age
             age=$(python3 -c "
 import json, time
@@ -237,7 +254,11 @@ except Exception:
         fi
 
         # Ensure core services stay active
-        for svc in trueengine-sync trueengine-molab-api trueengine-colab-daemon trueengine-molab; do
+        local monitored_svcs="trueengine-sync trueengine-colab-daemon"
+        if [ "$in_cooldown" = "false" ]; then
+            monitored_svcs="$monitored_svcs trueengine-molab-api trueengine-molab"
+        fi
+        for svc in $monitored_svcs; do
             if ! systemctl --user is-active --quiet "$svc.service" 2>/dev/null; then
                 log "⚠️ Service $svc dropped. Auto-restarting..."
                 systemctl --user restart "$svc.service" 2>/dev/null || true

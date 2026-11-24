@@ -14,12 +14,23 @@ import subprocess
 import json
 
 STATE_FILE = "/data/workspace/TrueEngine-V1/molab_state.json"
+COOLDOWN_FILE = "/data/workspace/TrueEngine-V1/molab_cooldown.json"
 CHECK_INTERVAL = 30  # seconds
 STALE_THRESHOLD = 90  # seconds
 
 def log(msg):
     ts = time.strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{ts}] [Molab Watchdog] {msg}", flush=True)
+
+def is_in_cooldown():
+    if not os.path.exists(COOLDOWN_FILE):
+        return False
+    try:
+        with open(COOLDOWN_FILE, "r") as f:
+            data = json.load(f)
+        return data.get("in_cooldown", False)
+    except Exception:
+        return False
 
 def is_molab_window_open():
     try:
@@ -71,8 +82,18 @@ def relaunch_on_molab(wid):
 
 def main():
     log("=== TrueEngine V1 Molab Autonomous Watchdog Daemon Started ===")
+    last_cooldown_log = 0
     while True:
         try:
+            if is_in_cooldown():
+                # Molab is in 48-hour cooldown. Do NOT send keystrokes or terminal commands.
+                now = time.time()
+                if now - last_cooldown_log >= 300:
+                    log("Molab is in 48-hour cooldown standby. Keystroke injection suppressed to comply with ToS.")
+                    last_cooldown_log = now
+                time.sleep(CHECK_INTERVAL)
+                continue
+
             has_window, wid = is_molab_window_open()
             if has_window:
                 fresh = is_telemetry_fresh()
