@@ -21,6 +21,7 @@ from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from pydantic import BaseModel
 import uvicorn
 import chess
+import chess.engine
 
 app = FastAPI(title="TrueEngine V1 Blackwell Public Gateway")
 
@@ -136,6 +137,21 @@ def rpc_result(res: ResultPayload):
             event.set()
     return {"status": "ok"}
 
+# Persistent Chess Engine Instance
+sf_engine = None
+sf_lock = threading.Lock()
+
+def get_stockfish_engine():
+    global sf_engine
+    if sf_engine is None:
+        try:
+            if os.path.exists("/usr/local/bin/stockfish"):
+                sf_engine = chess.engine.SimpleEngine.popen_uci("/usr/local/bin/stockfish")
+                sf_engine.configure({"Threads": 2, "Hash": 64})
+        except Exception as e:
+            print(f"[Gateway] Failed to initialize Stockfish: {e}")
+    return sf_engine
+
 # --- PUBLIC USER INFERENCE API ---
 @app.post("/api/predict_move")
 def predict_move(req: MoveRequest):
@@ -157,64 +173,34 @@ def predict_move(req: MoveRequest):
             res["accelerator"] = "NVIDIA RTX PRO 6000 Blackwell (Remote Molab Supernode)"
             return res
 
-    # 1. Check Brain Memory (1M+ Grandmaster curated positions)
-    mem = get_brain_memory()
-    fen_clean = req.fen.strip()
-    base_fen = " ".join(fen_clean.split()[:4])
-    meta = mem.get(fen_clean)
-    if not meta:
-        for k, v in mem.items():
-            if k.startswith(base_fen):
-                meta = v
-                break
-
-    if meta and meta.get("best_move"):
-        bm = meta.get("best_move")
+    # 1. Stockfish Master Evaluator (Accurate & Fast, 150ms Limit)
+    engine = get_stockfish_engine()
+    if engine is not None:
         try:
-            b = chess.Board(req.fen)
-            m = chess.Move.from_uci(bm)
-            if m in b.legal_moves:
-                return {
-                    "best_move": bm,
-                    "san": b.san(m),
-                    "evaluation_cp": int((meta.get("wdl", 0.5) - 0.5) * 600),
-                    "evaluation_val": meta.get("wdl", 0.5),
-                    "win_probability": meta.get("wdl", 0.5),
-                    "inference_ms": round((time.time() - t0) * 1000, 2),
-                    "accelerator": f"TrueEngine 1M Brain Memory ({len(mem):,} GM Positions)",
-                    "top_moves": [{"uci": bm, "san": b.san(m), "score": 1.0}]
-                }
-        except Exception:
-            pass
+            with sf_lock:
+                b = chess.Board(req.fen)
+                limit = chess.engine.Limit(time=0.15)
+                result = engine.play(b, limit, info=chess.engine.INFO_ALL)
+                best_m = result.move
+                if best_m:
+                    score_cp = 0
+                    if result.info and "score" in result.info:
+                        sc = result.info["score"].relative
+                        score_cp = sc.score() if sc.score() is not None else (10000 if sc.is_mate() else 0)
+                    return {
+                        "best_move": best_m.uci(),
+                        "san": b.san(best_m),
+                        "evaluation_cp": score_cp,
+                        "evaluation_val": round(score_cp / 100.0, 2),
+                        "win_probability": round(1.0 / (1.0 + 10 ** (-score_cp / 400.0)), 2),
+                        "inference_ms": round((time.time() - t0) * 1000, 2),
+                        "accelerator": "TrueEngine Master Neural Evaluator (Stockfish 17.1 NNUE)",
+                        "top_moves": [{"uci": best_m.uci(), "san": b.san(best_m), "score": 1.0}]
+                    }
+        except Exception as e:
+            print(f"[Gateway Engine Error] {e}")
 
-    # 2. Stockfish Fast Local Evaluation (movetime 50ms)
-    try:
-        if os.path.exists("/usr/local/bin/stockfish"):
-            import subprocess
-            cmd = ["/usr/local/bin/stockfish"]
-            p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-            script = f"position fen {req.fen}\ngo movetime 50\n"
-            out, _ = p.communicate(script, timeout=0.5)
-            for line in out.splitlines():
-                if line.startswith("bestmove "):
-                    bm = line.split()[1]
-                    if bm != "(none)":
-                        b = chess.Board(req.fen)
-                        m = chess.Move.from_uci(bm)
-                        return {
-                            "best_move": bm,
-                            "san": b.san(m) if m in b.legal_moves else bm,
-                            "evaluation_cp": 50,
-                            "evaluation_val": 0.55,
-                            "win_probability": 0.55,
-                            "inference_ms": round((time.time() - t0) * 1000, 2),
-                            "accelerator": "TrueEngine Neural-Hybrid Engine (Cloud Stockfish)",
-                            "top_moves": [{"uci": bm, "san": bm, "score": 1.0}]
-                        }
-    except Exception:
-        pass
-
-    # 3. Fallback: Legal move
+    # 2. Fallback: Legal move
     try:
         b = chess.Board(req.fen)
         legal = list(b.legal_moves)
@@ -234,6 +220,33 @@ def predict_move(req: MoveRequest):
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+class EvalRequest(BaseModel):
+    fen: str
+
+@app.post("/evaluate")
+@app.post("/api/evaluate")
+def evaluate_position(req: EvalRequest):
+    engine = get_stockfish_engine()
+    if engine:
+        try:
+            with sf_lock:
+                b = chess.Board(req.fen)
+                info = engine.analyse(b, chess.engine.Limit(time=0.1))
+                sc = info.get("score")
+                cp = 0
+                if sc:
+                    rel = sc.relative
+                    cp = rel.score() if rel.score() is not None else (10000 if rel.is_mate() else 0)
+                return {
+                    "fen": req.fen,
+                    "evaluation_cp": cp,
+                    "evaluation_val": round(cp / 100.0, 2),
+                    "win_probability": round(1.0 / (1.0 + 10 ** (-cp / 400.0)), 3)
+                }
+        except Exception as e:
+            print(f"[Gateway Eval Error] {e}")
+    return {"fen": req.fen, "evaluation_cp": 0, "evaluation_val": 0.0}
 
 @app.get("/", response_class=HTMLResponse)
 def web_gui():
