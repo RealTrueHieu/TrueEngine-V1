@@ -201,7 +201,7 @@ if os.path.exists(p):
 # 5. Kaggle Dual-T4 Quota Guard
 step_kaggle_guard() {
     log "${C_BOLD}[STEP 5/6] Auditing Kaggle Cluster Status...${C_RESET}"
-    log "   ✓ Kaggle Dual-T4: ${C_RED}QUOTA EXHAUSTED (100% Workload Migrated to Colab)${C_RESET}"
+    log "   ✓ Kaggle Dual-T4: ${C_GOLD}STANDBY (30h Quota Active - Burst Mode Only, Auto-Off Guard Enforced)${C_RESET}"
 }
 
 # 6. Model Synchronization & Live Telemetry

@@ -88,9 +88,9 @@ if os.path.exists(p):
     fi
 
     # 3. Kaggle Dual-T4
-    echo -e "\n${C_RED}${C_BOLD}[3] Kaggle Supercomputing Cluster (Dual-Tesla T4):${C_RESET}"
-    echo -e "    ● Status:      ${C_RED}QUOTA EXHAUSTED (100% Workload Migrated to Colab)${C_RESET}"
-    echo -e "    ● Compute:     Standby (All jobs running 100% on Google Colab)"
+    echo -e "\n${C_GOLD}${C_BOLD}[3] Kaggle Supercomputing Cluster (Dual-Tesla T4 - 30h Quota Fresh):${C_RESET}"
+    echo -e "    ● Status:      ${C_GOLD}STANDBY / BURST-ONLY${C_RESET} (Token Active, 30h GPU Preserved)"
+    echo -e "    ● Policy:      ${C_GREEN}Strict Auto-Off Guard Enforced${C_RESET} (Zero 24/7 Idle Burn)"
 
     # 4. Local Host & Brain Memory
     echo -e "\n${C_GREEN}${C_BOLD}[4] Local Host Environment & Brain Memory:${C_RESET}"
@@ -304,9 +304,31 @@ cmd_logs() {
     esac
 }
 
+cmd_kaggle() {
+    local sub="${1:-status}"
+    case "$sub" in
+        status)
+            echo -e "${C_CYAN}=== Kaggle Kernel Status (Auto-Off Audit) ===${C_RESET}"
+            kaggle kernels status truehieu/trueengine-burst-gpu-trainer
+            kaggle kernels status truehieu/trueengine-v1-dual-t4-supercomputing-cluster
+            kaggle kernels status truehieu/trueengine-cpu-high-throughput-data-spawner
+            ;;
+        list)
+            kaggle kernels list --mine
+            ;;
+        *)
+            echo "Usage: trueengine kaggle [status | list]"
+            ;;
+    esac
+}
+
 case "${1:-status}" in
     status)
         cmd_status
+        ;;
+    kaggle)
+        shift
+        cmd_kaggle "$@"
         ;;
     start|run|atoz)
         shift

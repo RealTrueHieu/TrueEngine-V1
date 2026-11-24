@@ -1,7 +1,8 @@
 {
   "cloud_backend_url": "",
-  "kaggle_quota_exhausted": true,
-  "primary_compute": "colab",
-  "active_colab_session": "chess-100m-cpu",
-  "notes": "Kaggle quota 100% exhausted. All streaming, distillation, and training workloads migrated 100% to Google Colab."
+  "kaggle_quota_hours": 30,
+  "kaggle_status": "standby_burst_only",
+  "primary_continuous_streamer": "colab-cpu",
+  "kaggle_token_last_updated": "2026-11-24T04:49:36Z",
+  "notes": "Fresh 30h Kaggle GPU quota available. Configured for parallel high-efficiency burst training only. Strictly kept OFF when not training to preserve hours."
 }
