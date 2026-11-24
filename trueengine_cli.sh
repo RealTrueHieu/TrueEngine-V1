@@ -307,13 +307,8 @@ cmd_logs() {
 cmd_kaggle() {
     local sub="${1:-status}"
     case "$sub" in
-        status)
+        status|list)
             echo -e "${C_CYAN}=== Kaggle Kernel Status (Auto-Off Audit) ===${C_RESET}"
-            kaggle kernels status truehieu/trueengine-burst-gpu-trainer
-            kaggle kernels status truehieu/trueengine-v1-dual-t4-supercomputing-cluster
-            kaggle kernels status truehieu/trueengine-cpu-high-throughput-data-spawner
-            ;;
-        list)
             kaggle kernels list --mine
             ;;
         *)
