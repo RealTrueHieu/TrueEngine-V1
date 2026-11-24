@@ -478,14 +478,22 @@ class StockfishOracle:
             except Exception:
                 return False, None, 0, 0
 
-    def get_top_move_and_eval(self, fen: str, depth: int = 24):
-        """Gets top move and evaluation from Stockfish on CPU (0% GPU load)."""
+    def get_top_move_and_eval(self, fen: str, depth: int = 24, exclude_move: str = None):
+        """Gets top move and evaluation from Stockfish on CPU (0% GPU load). Supports searchmoves exclusion."""
         if not self.enabled or not self.proc:
             return None, 0
         with self.lock:
             try:
                 self._send(f"position fen {fen}")
-                self._send(f"go depth {depth}")
+                if exclude_move:
+                    board = chess.Board(fen)
+                    legal_ucis = [m.uci() for m in board.legal_moves if m.uci() != exclude_move]
+                    if legal_ucis:
+                        self._send(f"go depth {depth} searchmoves {' '.join(legal_ucis)}")
+                    else:
+                        self._send(f"go depth {depth}")
+                else:
+                    self._send(f"go depth {depth}")
                 best_move = None
                 score = 0
                 while True:
@@ -946,6 +954,7 @@ class TrueEngineV1:
                     print("option name Backend type string default demux [cuda-fp16 (gpu=0, gpu=1)]", flush=True)
                     print("option name GPU type string default Dual NVIDIA Tesla T4 Demux (30GB VRAM, 640 Tensor Cores)", flush=True)
                 print("option name CloudT4Acceleration type check default true", flush=True)
+                print("option name BerserkMode type check default true", flush=True)
                 print(f"option name CloudTunnelURL type string default {self.cloud_mgr.tunnel_url if self.cloud_mgr else ''}", flush=True)
                 print("option name UCI_ShowWDL type check default false", flush=True)
                 print("option name UCI_Chess960 type check default false", flush=True)
@@ -1011,6 +1020,8 @@ class TrueEngineV1:
                     elif name == "CloudT4Acceleration":
                         if self.cloud_mgr:
                             self.cloud_mgr.cloud_enabled = (val.lower() == "true")
+                    elif name == "BerserkMode":
+                        self.berserk_mode = (val.lower() == "true")
                     elif name == "CloudTunnelURL":
                         if self.cloud_mgr:
                             cand = val.strip().rstrip("/")
@@ -1122,20 +1133,48 @@ class TrueEngineV1:
                         c_score = cloud_res.get("score_cp", 0)
                         c_nps = cloud_res.get("nps", 1200)
 
-                        print(f"info depth {equiv_depth} seldepth {equiv_seldepth} score cp {c_score} nodes {c_nodes} nps {c_nps} time {elapsed_ms} pv {c_move}", flush=True)
+                        chosen_c_move = c_move
+
+                        # Berserk Anti-Draw Mode: Avoid threefold repetition to fight for a decisive win
+                        if getattr(self, 'berserk_mode', True) and c_score >= -250:
+                            tb = self.board.copy()
+                            try:
+                                tb.push_uci(chosen_c_move)
+                                if tb.is_repetition(2) or tb.can_claim_threefold_repetition():
+                                    alt_m, alt_sc = self.oracle.get_top_move_and_eval(self.board.fen(), depth=22, exclude_move=chosen_c_move)
+                                    if alt_m and alt_sc >= -250 and (c_score - alt_sc) <= 200:
+                                        print(f"info string [Berserk Mode] Threefold repetition rejected to fight to the end! Switched {chosen_c_move} -> {alt_m} (Eval: {alt_sc}cp)", flush=True)
+                                        chosen_c_move = alt_m
+                                        c_score = alt_sc
+                            except Exception:
+                                pass
+
+                        print(f"info depth {equiv_depth} seldepth {equiv_seldepth} score cp {c_score} nodes {c_nodes} nps {c_nps} time {elapsed_ms} pv {chosen_c_move}", flush=True)
                         if cloud_res.get("oracle_veto"):
-                            print(f"info string [TrueEngine Guardian Cloud] Blunder vetoed by Stockfish Oracle! Adopted {c_move}", flush=True)
+                            print(f"info string [TrueEngine Guardian Cloud] Blunder vetoed by Stockfish Oracle! Adopted {chosen_c_move}", flush=True)
                         print(f"info string [Hardware] Tesla T4 Tensor Cores Active ({c_nps} NPS | Supercomputing)", flush=True)
 
                         fen_key = self.board.epd(use_en_passant=False)
-                        self.memory_manager.record_move(fen_key, c_move, self.board.turn)
-                        print(f"bestmove {c_move}", flush=True)
+                        self.memory_manager.record_move(fen_key, chosen_c_move, self.board.turn)
+                        print(f"bestmove {chosen_c_move}", flush=True)
                         continue
                     else:
                         print("info string [TrueEngine Guardian CPU] Cloud T4 unreachable - playing via Stockfish Oracle CPU (0% GPU Load)!", flush=True)
                         sf_d = getattr(self, 'stockfish_oracle_depth', 24)
                         sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=sf_d)
                         if sf_move:
+                            if getattr(self, 'berserk_mode', True) and sf_score >= -250:
+                                tb = self.board.copy()
+                                try:
+                                    tb.push_uci(sf_move)
+                                    if tb.is_repetition(2) or tb.can_claim_threefold_repetition():
+                                        alt_m, alt_sc = self.oracle.get_top_move_and_eval(self.board.fen(), depth=sf_d, exclude_move=sf_move)
+                                        if alt_m and alt_sc >= -250 and (sf_score - alt_sc) <= 200:
+                                            print(f"info string [Berserk Mode] Threefold repetition rejected to fight to the end! Switched {sf_move} -> {alt_m} (Eval: {alt_sc}cp)", flush=True)
+                                            sf_move = alt_m
+                                            sf_score = alt_sc
+                                except Exception:
+                                    pass
                             print(f"info depth {sf_d} seldepth {sf_d + 6} score cp {sf_score} nodes {sf_d * 18000} time 200 pv {sf_move}", flush=True)
                             print("info string [Hardware] Stockfish CPU Active (0% GPU Load)", flush=True)
                             print(f"bestmove {sf_move}", flush=True)
@@ -1146,6 +1185,18 @@ class TrueEngineV1:
                     sf_d = getattr(self, 'stockfish_oracle_depth', 24)
                     sf_move, sf_score = self.oracle.get_top_move_and_eval(self.board.fen(), depth=sf_d)
                     if sf_move:
+                        if getattr(self, 'berserk_mode', True) and sf_score >= -250:
+                            tb = self.board.copy()
+                            try:
+                                tb.push_uci(sf_move)
+                                if tb.is_repetition(2) or tb.can_claim_threefold_repetition():
+                                    alt_m, alt_sc = self.oracle.get_top_move_and_eval(self.board.fen(), depth=sf_d, exclude_move=sf_move)
+                                    if alt_m and alt_sc >= -250 and (sf_score - alt_sc) <= 200:
+                                        print(f"info string [Berserk Mode] Threefold repetition rejected to fight to the end! Switched {sf_move} -> {alt_m} (Eval: {alt_sc}cp)", flush=True)
+                                        sf_move = alt_m
+                                        sf_score = alt_sc
+                            except Exception:
+                                pass
                         print(f"info depth {sf_d} seldepth {sf_d + 6} score cp {sf_score} nodes {sf_d * 18000} time 200 pv {sf_move}", flush=True)
                         print("info string [Hardware] Stockfish CPU Active (0% GPU Load)", flush=True)
                         print(f"bestmove {sf_move}", flush=True)

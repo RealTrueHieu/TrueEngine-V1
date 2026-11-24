@@ -30,3 +30,8 @@ en-croissant-src/
 # Secrets & Environment
 .env
 colab_flow_state.json
+*config.json
+sagemaker_config.json
+*.secret*
+*.credentials*
+
