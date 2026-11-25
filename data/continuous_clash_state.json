@@ -1,0 +1,17 @@
+{
+  "status": "RUNNING_ONLINE_LEARNING",
+  "games_played": 34,
+  "trueengine_wins": 0,
+  "draws": 8,
+  "stockfish_wins": 26,
+  "overall_score_pct": 11.76,
+  "recent_20_score_pct": 15.0,
+  "loss_samples_harvested": 1093,
+  "training_steps": 25,
+  "latest_loss": 7.8877,
+  "last_game_result": "1/2-1/2 (Draw (Adjudication))",
+  "last_updated": 1795607202.2155068,
+  "gpu_vram_mb": 0,
+  "gpu_load_pct": 0,
+  "mode": "Continuous Reinforcement & Loss-Correction Loop"
+}
