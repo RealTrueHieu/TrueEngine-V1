@@ -9524,3 +9524,234 @@
 
 1. Nf3 d5 2. e3 e6 3. d4 Nf6 4. Be2 Bb4+ 5. c3 Be7 6. b3 Nbd7 7. Qc2 h6 8. c4 Bb4+ 9. Nbd2 dxc4 10. O-O cxb3 11. Nxb3 b6 12. a3 Be7 13. Bb5 c6 14. Bxc6 Rb8 15. Bb2 Bxa3 16. Bxa3 e5 17. Nxe5 Ne4 18. Bxd7+ Bxd7 19. Qb2 Bc8 20. Qb1 Nf6 21. Re1 Be6 22. f4 Bxb3 23. Nc6 Qc8 24. Nxb8 Qxb8 25. Qxb3 Kd7 26. Qxf7+ Kc8 27. Rec1+ Kd8 28. Qe7# 1-0
 
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "865"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "1/2-1/2"]
+[Termination "ADJUDICATION"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nge7 4. d3 f6 5. Nc3 a6 6. Ba4 Nd4 7. Nxd4 b5 8. Qh5+ g6 9. Qf3 Bg7 10. Ncxb5 axb5 11. Bxb5 exd4 12. c4 c6 13. Bxc6 Nxc6 14. Qe2 Qe7 15. Bf4 Qb4+ 16. Kd1 Rg8 17. Qf3 Ra6 18. Qg4 Qxb2 19. f3 Bh8 20. Ke1 h5 21. Qh3 Ne5 22. Rd1 Rxa2 23. Bd2 Nc6 24. e5 fxe5 25. Ke2 Qb6 26. Rde1 Rxd2+ 27. Kxd2 Ne7 28. Kc2 Qb4 29. Re4 d5 30. Rg4 hxg4 31. fxg4 e4 32. dxe4 dxe4 33. c5 Qa4+ 34. Kc1 Qc4+ 35. Kb2 d3+ 1/2-1/2
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "866"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1-0"]
+[Termination "CHECKMATE"]
+
+1. e4 c5 2. Nf3 d6 3. c3 Nc6 4. h3 Be6 5. b4 cxb4 6. cxb4 Nxb4 7. Nc3 Nf6 8. Qa4+ Nd7 9. Qxb4 b5 10. d4 a6 11. d5 Bxd5 12. exd5 e5 13. dxe6 fxe6 14. Be2 Nb6 15. Be3 Nc8 16. Qd4 Ne7 17. Rd1 Qd7 18. O-O Nf5 19. Qe4 Nxe3 20. Qxe3 Kd8 21. Ng5 Qe8 22. Nxe6+ Kd7 23. Bg4 Be7 24. Qb6 Qf7 25. Qc7+ Ke8 26. Qc6# 1-0
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "867"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "0-1"]
+[Termination "CHECKMATE"]
+
+1. d4 d5 2. c4 e6 3. Qa4+ Nc6 4. cxd5 Qxd5 5. e3 Qf5 6. Nc3 Bd7 7. Be2 Nb4 8. Qb3 Nc2+ 9. Kd1 Nxa1 10. Qxb7 Qc2+ 11. Ke1 Qxc1+ 12. Nd1 Rd8 13. Qxa7 Qc2 14. Bf3 Be7 15. Ne2 Bd6 16. a3 Nf6 17. Ng3 Qd3 18. Ne2 Nc2+ 19. Kf1 Qxd1# 0-1
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "868"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1/2-1/2"]
+[Termination "ADJUDICATION"]
+
+1. d4 Nf6 2. c4 g6 3. h3 c6 4. e3 Qa5+ 5. Bd2 Qb6 6. Qc2 d5 7. Nc3 dxc4 8. Nf3 Na6 9. Qa4 Nc7 10. Rc1 Qxb2 11. Rb1 Qxb1+ 12. Nxb1 Nfd5 13. Qc2 Bd7 14. Bxc4 Nf6 15. a3 e6 16. Ba5 b6 17. Bd2 a5 18. Bd3 Nfd5 19. Rf1 a4 20. Kd1 O-O-O 21. g3 Be8 22. e4 Nf6 23. g4 Rd6 24. Qa2 e5 25. Nxe5 Rxd4 26. Qb2 Rd6 27. Nc4 Rxd3 28. Nxb6+ Kd8 29. Nc4 Rxd2+ 30. Nbxd2 Bxa3 31. Nxa3 Bd7 32. Qxf6+ Kc8 33. f3 Rg8 34. Qe5 Na6 35. Qc3 Be8 1/2-1/2
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "869"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "1/2-1/2"]
+[Termination "ADJUDICATION"]
+
+1. e4 c5 2. Nf3 e6 3. Nc3 b6 4. Be2 Nc6 5. O-O Bb7 6. Re1 Nd4 7. Nxd4 cxd4 8. Na4 Bc6 9. Nxb6 axb6 10. d3 Qb8 11. Qd2 Be7 12. Qd1 Bd6 13. Qd2 Ne7 14. Qd1 Bxh2+ 15. Kf1 Be5 16. Qd2 Ng6 17. f4 Bxf4 18. Qb4 Bh2 19. Qxd4 h6 20. Qxg7 Be5 21. Qxh8+ Nxh8 22. Bxh6 Bb5 23. c3 Ra7 24. Bh5 Bxd3+ 25. Kf2 b5 26. Kf3 Qd8 27. b3 Bxc3 28. Bxf7+ Nxf7 29. e5 Bxa1 30. Rxa1 Nxh6 31. g4 d6 32. exd6 Qf6+ 33. Ke3 Qxa1 34. Kxd3 Qb1+ 35. Kc3 Qe1+ 1/2-1/2
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "870"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1-0"]
+[Termination "CHECKMATE"]
+
+1. c4 c5 2. Nf3 Nf6 3. Nc3 Nc6 4. e4 e6 5. a3 d6 6. Be2 Be7 7. O-O Bd7 8. d3 a5 9. b3 b6 10. d4 cxd4 11. Nxd4 Nxd4 12. Qxd4 e5 13. Qd3 Bc8 14. Be3 Ba6 15. Rac1 Kd7 16. b4 axb4 17. Nd5 Nxd5 18. Qxd5 Rc8 19. Bg4+ f5 20. exf5 bxa3 21. f6+ Kc7 22. fxe7 Qxe7 23. f4 Rcf8 24. Bf3 exf4 25. Qc6+ Kd8 26. Bxb6+ Qc7 27. Qxc7+ Ke8 28. Bc6# 1-0
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "871"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "1/2-1/2"]
+[Termination "ADJUDICATION"]
+
+1. e4 c5 2. Nf3 h6 3. Nc3 d6 4. Bb5+ Bd7 5. Bxd7+ Nxd7 6. d3 e6 7. O-O Ngf6 8. e5 Ng4 9. exd6 Qb6 10. Re1 Ngf6 11. Be3 Bxd6 12. Re2 Qxb2 13. Bxc5 Nxc5 14. Rxe6+ fxe6 15. Qe1 Qa3 16. Ne2 Qa6 17. Nfd4 g6 18. Qc3 e5 19. Nf3 Ncd7 20. Qe1 Ng4 21. Rd1 b5 22. Nf4 Ngf6 23. Nxg6 Rf8 24. Nxf8 Kxf8 25. g4 Qxa2 26. c4 Qa6 27. cxb5 Qa2 28. Qe3 Ke7 29. Qxh6 Qxf2+ 30. Kxf2 Nxg4+ 31. Ke2 Nxh6 32. Ke3 Nf5+ 33. Ke2 Rd8 34. Ke1 Nb8 35. Rc1 Rg8 1/2-1/2
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "872"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1-0"]
+[Termination "CHECKMATE"]
+
+1. e4 e5 2. Nc3 Nc6 3. Nge2 Nf6 4. d4 exd4 5. Nd5 Nxd5 6. exd5 Bb4+ 7. Bd2 Bxd2+ 8. Qxd2 Ne7 9. Qxd4 f6 10. d6 cxd6 11. Nc3 Kf7 12. O-O-O Ke8 13. Qxd6 Ng8 14. Bc4 Nh6 15. Rhe1+ Qe7 16. Rxe7+ Kd8 17. a3 Nf5 18. Rxd7+ Bxd7 19. Qxd7# 1-0
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "873"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "1/2-1/2"]
+[Termination "ADJUDICATION"]
+
+1. e4 c5 2. Nf3 b6 3. Nc3 a6 4. Be2 e6 5. O-O Bb7 6. d4 g6 7. dxc5 bxc5 8. Re1 Ne7 9. Be3 d6 10. Na4 Bg7 11. Ng5 O-O 12. Qd3 Nc8 13. Nf3 Nd7 14. Qd1 Bxe4 15. Nd2 Bc6 16. Nxc5 Nxc5 17. Bxc5 Qg5 18. Bf3 Qxc5 19. Bxc6 Qxc6 20. Qg4 a5 21. c4 Bh8 22. Nb3 e5 23. Red1 Rb8 24. Nxa5 Qa6 25. Rd2 Qxa5 26. Rdd1 Qd8 27. Rd2 Ne7 28. Re2 Re8 29. Re3 d5 30. cxd5 h5 31. Qe4 Qxd5 32. Qxd5 Nxd5 33. Re4 Rec8 34. Rae1 Nf4 35. Ra4 h4 1/2-1/2
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "874"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1/2-1/2"]
+[Termination "ADJUDICATION"]
+
+1. e4 e6 2. Nf3 Nc6 3. d4 Bb4+ 4. Nbd2 Nf6 5. e5 Nd5 6. h4 Qe7 7. c3 Ba5 8. Nc4 Bxc3+ 9. bxc3 Nxc3 10. Qd2 Nb5 11. a4 Nxe5 12. Ncxe5 Nd6 13. Qf4 f6 14. Ng4 e5 15. dxe5 fxe5 16. Qe3 Qe6 17. Ngh2 O-O 18. Ng5 Qd5 19. Qe2 Qa5+ 20. Bd2 Qb6 21. Bc3 e4 22. Qc2 c6 23. Ng4 Nf5 24. Rb1 Qd8 25. Qb3+ d5 26. Ne5 b6 27. Nxc6 Qd7 28. Ne5 Qc7 29. Rd1 e3 30. f3 Bb7 31. Ne6 Qc8 32. g4 Qxe6 33. gxf5 Qxf5 34. Be2 Rfc8 35. Bd4 Rd8 1/2-1/2
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "875"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "1/2-1/2"]
+[Termination "ADJUDICATION"]
+
+1. e4 c6 2. Nf3 Qc7 3. h3 e5 4. Bc4 Nf6 5. O-O Nxe4 6. Ne1 Nf6 7. Qf3 e4 8. Qe3 a5 9. Nc3 Be7 10. Ne2 b5 11. Bb3 a4 12. Bxf7+ Kxf7 13. Qc3 a3 14. Qb3+ Ke8 15. bxa3 Na6 16. d4 Ra7 17. d5 Nc5 18. Qe3 cxd5 19. Qc3 d6 20. Qe3 g6 21. Qd4 Qd7 22. Be3 Kf7 23. Bf4 Rxa3 24. Rd1 Bb7 25. c4 bxc4 26. f3 Rd3 27. Nxd3 exd3 28. Ng3 Ne6 29. Qc3 Bd8 30. Bh6 Qc6 31. Rde1 Re8 32. Rf2 Bb6 33. Rxe6 Bxf2+ 34. Kxf2 Rxe6 35. Kf1 Qc5 1/2-1/2
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "876"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1/2-1/2"]
+[Termination "ADJUDICATION"]
+
+1. d4 d5 2. Bf4 Nf6 3. c3 e5 4. Bxe5 Nfd7 5. Bg3 Qf6 6. Bxc7 Na6 7. Bg3 Qg5 8. e3 b5 9. Bxb5 Be7 10. Nf3 Qg4 11. b4 Nxb4 12. cxb4 Bxb4+ 13. Kf1 O-O 14. Qa4 Be7 15. Nbd2 Nb6 16. Qa5 Bf5 17. h3 Qh5 18. Kg1 Nc8 19. Bh2 Bf6 20. Bc7 h6 21. Bf4 a6 22. Be2 Ne7 23. Nb3 Rac8 24. Ne5 Qxe2 25. Ng4 Bxg4 26. Re1 Qd3 27. Nc1 Rxc1 28. Rxc1 Bd7 29. Bg3 Be6 30. Qc3 Qxc3 31. Rxc3 Rd8 32. Bc7 Rc8 33. g4 Re8 34. Kh2 Rc8 35. Rhc1 Re8 1/2-1/2
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "877"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "0-1"]
+[Termination "CHECKMATE"]
+
+1. d4 Nf6 2. c4 e6 3. e3 Be7 4. Bd2 d5 5. Qa4+ Qd7 6. Qxd7+ Bxd7 7. cxd5 c5 8. dxe6 Bxe6 9. Bb5+ Nbd7 10. dxc5 Bxc5 11. Bxd7+ Nxd7 12. Ke2 Bc4+ 13. Kf3 Ne5+ 14. Ke4 Ng6 15. Kf3 Ne5+ 16. Ke4 Bf1 17. Kxe5 Bxg2 18. f3 Bxh1 19. Bc3 Bxe3 20. Ne2 O-O 21. Ng3 Rae8+ 22. Kf5 Bxf3 23. Be1 Re6 24. h3 a6 25. Nd2 g6# 0-1
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "878"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1-0"]
+[Termination "CHECKMATE"]
+
+1. c4 e5 2. a3 Nf6 3. b4 c6 4. e3 Be7 5. Nf3 e4 6. Ng5 d5 7. Nc3 dxc4 8. Bxc4 O-O 9. Ngxe4 Nxe4 10. Nxe4 Qb6 11. Qf3 Re8 12. Qxf7+ Kh8 13. Qxe8+ Bf8 14. Qxf8# 1-0
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "879"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "0-1"]
+[Termination "CHECKMATE"]
+
+1. Nf3 d5 2. e3 e6 3. Bb5+ Nd7 4. d4 Nf6 5. Be2 b6 6. c3 Bb7 7. O-O Bd6 8. h3 Qe7 9. Qa4 Ne4 10. Qd1 Rg8 11. Qa4 O-O-O 12. Qxa7 b5 13. Bxb5 g5 14. Bxd7+ Qxd7 15. Ne1 g4 16. hxg4 f5 17. gxf5 Qe8 18. fxe6 Qg6 19. f3 Qh5 20. fxe4 Bh2+ 21. Kf2 Bg3+ 22. Kg1 Bh2+ 23. Kf2 Bg3+ 24. Kg1 Qh2# 0-1
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "880"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1-0"]
+[Termination "CHECKMATE"]
+
+1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Bc4 d5 5. exd5 Ne7 6. Nxe5 b5 7. Bb3 c6 8. dxc6 Qd4 9. Bxf7+ Kd8 10. c7+ Kxc7 11. Nxb5+ Kb6 12. Nxd4 Ba6 13. Qf3 Nfd5 14. Bxd5 Nxd5 15. Qxd5 Rc8 16. Nd7+ Kc7 17. Ne6# 1-0
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "881"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "0-1"]
+[Termination "CHECKMATE"]
+
+1. e4 c5 2. Nf3 d6 3. Bb5+ Bd7 4. Bxd7+ Nxd7 5. Nc3 e6 6. O-O Ngf6 7. d4 a6 8. dxc5 Qc7 9. Re1 h6 10. e5 Nxe5 11. Nxe5 dxe5 12. a3 Bxc5 13. Na4 Bd4 14. c4 O-O 15. Qb3 Rac8 16. Qg3 Qxc4 17. Bxh6 Ng4 18. Qxg4 Bxf2+ 19. Kxf2 Qxg4 20. Rxe5 gxh6 21. b4 Qf4+ 22. Ke1 Qxe5+ 23. Kf1 Qxa1+ 24. Ke2 Rc2+ 25. Kd3 Qxa3+ 26. Kxc2 Rc8+ 27. Kd1 Qd3+ 28. Ke1 Qe3+ 29. Kd1 Rc1# 0-1
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "882"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1-0"]
+[Termination "CHECKMATE"]
+
+1. d4 d5 2. c4 e6 3. Nf3 dxc4 4. e3 Bb4+ 5. Bd2 Bxd2+ 6. Nfxd2 Ne7 7. Bxc4 Qd7 8. Qh5 Qa4 9. Bb5+ Qxb5 10. Qxb5+ c6 11. Qe2 Nd7 12. f4 b6 13. f5 Nxf5 14. Qf3 Ne7 15. Nc3 Ba6 16. Ncb1 Nc8 17. b4 Ne7 18. b5 Bxb5 19. e4 Ba4 20. Qa3 Bc2 21. Qf3 Bxb1 22. Nxb1 c5 23. a4 cxd4 24. O-O h6 25. Qxf7+ Kd8 26. h3 Kc8 27. Qxe7 Ne5 28. Rc1+ Nc6 29. a5 bxa5 30. Nd2 e5 31. Rxa5 h5 32. Rxc6+ Kb8 33. Rb5# 1-0
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "883"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "0-1"]
+[Termination "CHECKMATE"]
+
+1. d4 Nf6 2. c4 g6 3. Be3 d5 4. Qa4+ Nbd7 5. cxd5 Bg7 6. g3 Nxd5 7. Bc1 Nb6 8. Qb3 c5 9. dxc5 Nxc5 10. Qb5+ Bd7 11. Qxc5 Rc8 12. Qg5 O-O 13. Bd2 Bxb2 14. Kd1 Ba4+ 15. Ke1 Rc1+ 16. Bxc1 Qd1# 0-1
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "884"]
+[White "Stockfish 19 NNUE"]
+[Black "TrueEngine V1 (Online Learner)"]
+[Result "1-0"]
+[Termination "CHECKMATE"]
+
+1. e4 c5 2. Nf3 e6 3. d4 Qa5+ 4. Bd2 Qb6 5. Bf4 Qa5+ 6. Bd2 Qb6 7. d5 exd5 8. Nc3 dxe4 9. Ne5 Qxb2 10. Nc4 Qb4 11. a3 Qxc4 12. Bxc4 Nf6 13. f3 exf3 14. Qxf3 Ng8 15. Qxf7+ Kd8 16. Qxf8+ Kc7 17. Bf4+ Kb6 18. Qd6+ Ka5 19. Nd1 Nf6 20. Qd2+ Kb6 21. Qd6+ Ka5 22. Qd2+ Kb6 23. Rb1+ Kc6 24. Qd6# 1-0
+
+[Event "TrueEngine V1 vs Stockfish 19 Continuous Clash & Online Learning"]
+[Site "TrueEngine Autonomous Cloud Arena"]
+[Date "2026.11.25"]
+[Round "885"]
+[White "TrueEngine V1 (Online Learner)"]
+[Black "Stockfish 19 NNUE"]
+[Result "0-1"]
+[Termination "CHECKMATE"]
+
+1. c4 c5 2. Nf3 Nf6 3. e3 b6 4. Nc3 Bb7 5. Ne5 Nc6 6. Nxc6 Qc7 7. Nxe7 Bxe7 8. d4 d5 9. Qa4+ Bc6 10. Qa3 cxd4 11. Qb3 dxc3 12. cxd5 Nxd5 13. bxc3 Nf6 14. a3 Qb7 15. Be2 Bxg2 16. Qb5+ Bc6 17. Qb3 g5 18. O-O Kf8 19. Qc4 a6 20. h4 b5 21. Qd4 Rd8 22. Qe5 Rd5 23. Qg3 Rd6 24. Qxg5 Ne4 25. Qe5 Rg8+ 26. Kh1 Nxf2+ 27. Kh2 Rg2# 0-1
+
