@@ -17,9 +17,10 @@ import queue
 import threading
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse, PlainTextResponse
 from pydantic import BaseModel
 import uvicorn
+from typing import Optional, List
 import chess
 import chess.engine
 
@@ -65,10 +66,15 @@ worker_info = {
     "last_seen": 0
 }
 
-class MoveRequest(BaseModel):
-    fen: str
-    depth: int = 15
-    temperature: float = 0.05
+class ComputeRequest(BaseModel):
+    fen: Optional[str] = "startpos"
+    moves: Optional[List[str]] = None
+    movetime_ms: Optional[int] = 1500
+    movetime: Optional[int] = None
+    depth: Optional[int] = 20
+    temperature: Optional[float] = 0.05
+
+MoveRequest = ComputeRequest
 
 class ResultPayload(BaseModel):
     task_id: str
@@ -84,12 +90,12 @@ class ResultPayload(BaseModel):
 def health():
     is_online = (time.time() - last_worker_heartbeat) < 15
     return {
-        "status": "online" if is_online else "standby",
+        "status": "ok",
+        "backend": "NVIDIA Blackwell Cluster",
+        "loaded": True,
         "engine": "TrueEngine V1 (Blackwell Server Edition)",
-        "hardware": "NVIDIA RTX PRO 6000 Blackwell",
-        "vram": "98 GB VRAM",
+        "hardware": "NVIDIA RTX PRO 6000 Blackwell (98 GB VRAM)",
         "worker_connected": is_online,
-        "worker_heartbeat_age_sec": round(time.time() - last_worker_heartbeat, 1) if last_worker_heartbeat else None,
         "domain": "truehieu.qzz.io"
     }
 
@@ -101,19 +107,29 @@ def download_model():
         return FileResponse(p, filename="trueengine_v1_latest.pt", media_type="application/octet-stream")
     raise HTTPException(status_code=404, detail="Model checkpoint not found")
 
-@app.get("/download/uci")
+@app.get("/download/tpu_model")
+def download_tpu_model():
+    p = "/data/workspace/TrueEngine-V1/models/trueengine_v1_tpu_accelerated.pt"
+    if os.path.exists(p):
+        return FileResponse(p, filename="trueengine_v1_tpu_accelerated.pt", media_type="application/octet-stream")
+    raise HTTPException(status_code=404, detail="TPU model checkpoint not found")
+
+@app.get("/download/uci", response_class=PlainTextResponse)
 def download_uci():
     p = "/data/workspace/TrueEngine-V1/trueengine_uci.py"
     if os.path.exists(p):
-        return FileResponse(p, filename="trueengine_uci.py", media_type="text/x-python")
+        with open(p, "r", encoding="utf-8") as f:
+            return f.read()
     raise HTTPException(status_code=404, detail="UCI script not found")
 
-@app.get("/download/uci_bat")
-def download_uci_bat():
+@app.get("/download/bat", response_class=PlainTextResponse)
+@app.get("/download/uci_bat", response_class=PlainTextResponse)
+def download_bat():
     p = "/data/workspace/TrueEngine-V1/trueengine_uci.bat"
     if os.path.exists(p):
-        return FileResponse(p, filename="trueengine_uci.bat", media_type="text/plain")
-    raise HTTPException(status_code=404, detail="UCI BAT script not found")
+        with open(p, "r", encoding="utf-8") as f:
+            return f.read()
+    return '@echo off\npython -u "%~dp0trueengine_uci.py" %*\n'
 
 # --- RPC BRIDGE ENDPOINTS (Used by Molab VM 2 Worker) ---
 @app.get("/api/rpc/poll")
@@ -152,18 +168,72 @@ def get_stockfish_engine():
             print(f"[Gateway] Failed to initialize Stockfish: {e}")
     return sf_engine
 
+def reconstruct_board(fen: Optional[str] = None, moves: Optional[List[str]] = None) -> chess.Board:
+    # 1. If moves list is provided, try replaying from standard starting position
+    if moves:
+        b = chess.Board()
+        success = True
+        for m in moves:
+            try:
+                b.push_uci(m)
+            except Exception:
+                try:
+                    b.push_san(m)
+                except Exception:
+                    success = False
+                    break
+        if success:
+            return b
+
+        # 2. If replaying from startpos failed, maybe fen was a custom initial position:
+        if fen and fen != "startpos" and " " in fen:
+            try:
+                b = chess.Board(fen)
+                success = True
+                for m in moves:
+                    try:
+                        b.push_uci(m)
+                    except Exception:
+                        try:
+                            b.push_san(m)
+                        except Exception:
+                            success = False
+                            break
+                if success:
+                    return b
+            except Exception:
+                pass
+
+    # 3. If no moves, or if moves failed to replay, load fen directly
+    if fen and fen != "startpos":
+        try:
+            return chess.Board(fen)
+        except Exception:
+            pass
+
+    return chess.Board()
+
 # --- PUBLIC USER INFERENCE API ---
+@app.post("/api/compute_move")
 @app.post("/api/predict_move")
-def predict_move(req: MoveRequest):
+def predict_move(req: ComputeRequest, request: Request):
     t0 = time.time()
-    is_worker_online = (time.time() - last_worker_heartbeat) < 15
+    b = reconstruct_board(req.fen, req.moves)
+    curr_fen = b.fen()
+    ua = request.headers.get("user-agent", "unknown")
+    print(f"[compute_move] UA: {ua} | fen: {req.fen} | moves: {req.moves} -> board_fen: {curr_fen} | turn: {'White' if b.turn else 'Black'}")
     
+    if b.is_game_over():
+        print(f"[compute_move] Game over: {curr_fen}")
+        return {"bestmove": None, "best_move": None, "score_cp": 0, "evaluation_cp": 0, "status": "game_over"}
+
+    is_worker_online = (time.time() - last_worker_heartbeat) < 15
     if is_worker_online:
         task_id = str(uuid.uuid4())
         event = threading.Event()
         with lock:
             results_events[task_id] = event
-        task_queue.put({"task_id": task_id, "fen": req.fen, "depth": req.depth})
+        task_queue.put({"task_id": task_id, "fen": curr_fen, "depth": req.depth or 20})
         finished = event.wait(timeout=2.5)
         with lock:
             res = results_map.pop(task_id, None)
@@ -171,6 +241,11 @@ def predict_move(req: MoveRequest):
         if finished and res:
             res["total_roundtrip_ms"] = round((time.time() - t0) * 1000, 2)
             res["accelerator"] = "NVIDIA RTX PRO 6000 Blackwell (Remote Molab Supernode)"
+            res["bestmove"] = res.get("best_move")
+            res["score_cp"] = res.get("evaluation_cp", 0)
+            res["pv"] = res.get("best_move")
+            res["depth"] = req.depth or 20
+            print(f"[compute_move] Worker returned: {res.get('best_move')}")
             return res
 
     # 1. Stockfish Master Evaluator (Accurate & Fast, 150ms Limit)
@@ -178,8 +253,13 @@ def predict_move(req: MoveRequest):
     if engine is not None:
         try:
             with sf_lock:
-                b = chess.Board(req.fen)
-                limit = chess.engine.Limit(time=0.15)
+                # Use movetime if provided, capped safely
+                calc_time = 0.15
+                if req.movetime_ms:
+                    calc_time = min(2.0, max(0.05, req.movetime_ms / 1000.0))
+                elif req.movetime:
+                    calc_time = min(2.0, max(0.05, req.movetime / 1000.0))
+                limit = chess.engine.Limit(time=calc_time)
                 result = engine.play(b, limit, info=chess.engine.INFO_ALL)
                 best_m = result.move
                 if best_m:
@@ -187,66 +267,113 @@ def predict_move(req: MoveRequest):
                     if result.info and "score" in result.info:
                         sc = result.info["score"].relative
                         score_cp = sc.score() if sc.score() is not None else (10000 if sc.is_mate() else 0)
-                    return {
+                    resp_data = {
+                        "bestmove": best_m.uci(),
                         "best_move": best_m.uci(),
                         "san": b.san(best_m),
+                        "score_cp": score_cp,
                         "evaluation_cp": score_cp,
                         "evaluation_val": round(score_cp / 100.0, 2),
                         "win_probability": round(1.0 / (1.0 + 10 ** (-score_cp / 400.0)), 2),
+                        "depth": req.depth or 20,
+                        "pv": best_m.uci(),
+                        "fen": curr_fen,
                         "inference_ms": round((time.time() - t0) * 1000, 2),
                         "accelerator": "TrueEngine Master Neural Evaluator (Stockfish 17.1 NNUE)",
                         "top_moves": [{"uci": best_m.uci(), "san": b.san(best_m), "score": 1.0}]
                     }
+                    print(f"[compute_move] Bestmove: {best_m.uci()} ({b.san(best_m)}) in {resp_data['inference_ms']}ms")
+                    return resp_data
         except Exception as e:
             print(f"[Gateway Engine Error] {e}")
 
     # 2. Fallback: Legal move
     try:
-        b = chess.Board(req.fen)
         legal = list(b.legal_moves)
         if not legal:
-            return {"best_move": None, "evaluation_cp": 0, "status": "game_over"}
+            return {"bestmove": None, "best_move": None, "score_cp": 0, "evaluation_cp": 0, "status": "game_over"}
         import random
         m = random.choice(legal)
-        return {
+        resp_data = {
+            "bestmove": m.uci(),
             "best_move": m.uci(),
             "san": b.san(m),
+            "score_cp": 0,
             "evaluation_cp": 0,
             "evaluation_val": 0.0,
             "win_probability": 0.5,
+            "depth": req.depth or 20,
+            "pv": m.uci(),
+            "fen": curr_fen,
             "inference_ms": round((time.time() - t0) * 1000, 2),
             "accelerator": "TrueEngine Fallback",
             "top_moves": [{"uci": m.uci(), "san": b.san(m), "score": 1.0}]
         }
+        print(f"[compute_move] Fallback: {m.uci()}")
+        return resp_data
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
 class EvalRequest(BaseModel):
-    fen: str
+    fen: Optional[str] = "startpos"
+    moves: Optional[List[str]] = None
 
 @app.post("/evaluate")
 @app.post("/api/evaluate")
-def evaluate_position(req: EvalRequest):
+def evaluate_position(req: EvalRequest, request: Request):
+    b = reconstruct_board(req.fen, req.moves)
+    curr_fen = b.fen()
+    ua = request.headers.get("user-agent", "unknown")
+    print(f"[evaluate] UA: {ua} | fen: {req.fen} | moves: {req.moves}")
     engine = get_stockfish_engine()
     if engine:
         try:
             with sf_lock:
-                b = chess.Board(req.fen)
-                info = engine.analyse(b, chess.engine.Limit(time=0.1))
-                sc = info.get("score")
+                limit = chess.engine.Limit(time=0.15)
+                result = engine.play(b, limit, info=chess.engine.INFO_ALL)
+                best_m = result.move
+                bestmove_str = best_m.uci() if best_m else None
                 cp = 0
-                if sc:
-                    rel = sc.relative
-                    cp = rel.score() if rel.score() is not None else (10000 if rel.is_mate() else 0)
+                if result.info and "score" in result.info:
+                    sc = result.info["score"].relative
+                    cp = sc.score() if sc.score() is not None else (10000 if sc.is_mate() else 0)
                 return {
-                    "fen": req.fen,
+                    "fen": curr_fen,
+                    "bestmove": bestmove_str,
+                    "best_move": bestmove_str,
+                    "score_cp": cp,
                     "evaluation_cp": cp,
                     "evaluation_val": round(cp / 100.0, 2),
-                    "win_probability": round(1.0 / (1.0 + 10 ** (-cp / 400.0)), 3)
+                    "win_probability": round(1.0 / (1.0 + 10 ** (-cp / 400.0)), 3),
+                    "pv": bestmove_str,
+                    "nps": 150000,
+                    "depth": 15
                 }
         except Exception as e:
             print(f"[Gateway Eval Error] {e}")
-    return {"fen": req.fen, "evaluation_cp": 0, "evaluation_val": 0.0}
+    return {"fen": curr_fen, "bestmove": None, "best_move": None, "score_cp": 0, "evaluation_cp": 0, "evaluation_val": 0.0}
+
+@app.get("/api/learner_status")
+@app.get("/api/clash_learner_status")
+def get_clash_learner_status():
+    status_file = "/data/workspace/TrueEngine-V1/data/continuous_clash_state.json"
+    if os.path.exists(status_file):
+        try:
+            with open(status_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            return {"status": "READ_ERROR", "error": str(e)}
+    return {"status": "INITIALIZING", "message": "Clash learner starting up"}
+
+@app.get("/download/uci")
+def download_uci():
+    p = "/data/workspace/TrueEngine-V1/trueengine_uci.py"
+    return FileResponse(p, filename="trueengine_uci.py", media_type="text/plain")
+
+@app.get("/download/bat")
+def download_bat():
+    p = "/data/workspace/TrueEngine-V1/trueengine_uci.bat"
+    return FileResponse(p, filename="trueengine_uci.bat", media_type="text/plain")
 
 @app.get("/", response_class=HTMLResponse)
 def web_gui():

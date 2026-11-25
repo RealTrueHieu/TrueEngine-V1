@@ -1,0 +1,35 @@
+{
+  "active_key_index": 2,
+  "rotation_strategy": "round_robin_or_exhaustion",
+  "total_keys": 3,
+  "total_gpu_hours_available": 90.0,
+  "keys": [
+    {
+      "id": 1,
+      "token": "KGAT_60105ae045a1fc828c7c886d652be20b",
+      "source": "env/bashrc",
+      "gpu_quota_hours": 30.0,
+      "status": "standby_ready",
+      "tested_valid": true
+    },
+    {
+      "id": 2,
+      "token": "KGAT_5b0423a09a1a95f452a5ec996240cdc7",
+      "username": "trntrungminhhiu",
+      "source": "kaggle.json",
+      "gpu_quota_hours": 30.0,
+      "status": "standby_ready",
+      "tested_valid": true
+    },
+    {
+      "id": 3,
+      "token": "KGAT_4d1c4d45785ed9df589f320a45650291",
+      "source": "user_provided_key_3",
+      "gpu_quota_hours": 30.0,
+      "status": "standby_ready",
+      "tested_valid": true,
+      "username": "truehieu"
+    }
+  ],
+  "note": "Currently Kaggle GPU training is on STANDBY (training conducted directly via Colab to preserve Kaggle 90-hour GPU reserve)."
+}
